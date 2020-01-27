@@ -1,0 +1,73 @@
+@font-face {
+  font-family: 'HammersmithOne';
+  src: url('/style/fonts/HammersmithOne/HammersmithOne-Regular.ttf');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'PlayfairDisplay_Black';
+  src: url('/style/fonts/PlayfairDisplay/PlayfairDisplay-Black.ttf');
+  font-weight: 800;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'PlayfairDisplay_Bold';
+  src: url('/style/fonts/PlayfairDisplay/PlayfairDisplay-Bold.ttf');
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'PlayfairDisplay_SemiBold';
+  src: url('/style/fonts/PlayfairDisplay/PlayfairDisplay-SemiBold.ttf');
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'PlayfairDisplay_Medium';
+  src: url('/style/fonts/PlayfairDisplay/PlayfairDisplay-Medium.ttf');
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'PlayfairDisplay_Regular';
+  src: url('/style/fonts/PlayfairDisplay/PlayfairDisplay-Regular.ttf');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Roboto_Black';
+  src: url('/style/fonts/Roboto/Roboto-Black.ttf');
+  font-weight: 800;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Roboto_Bold';
+  src: url('/style/fonts/Roboto/Roboto-Bold.ttf');
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Roboto_Medium';
+  src: url('/style/fonts/Roboto/Roboto-Medium.ttf');
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Roboto_Regular';
+  src: url('/style/fonts/Roboto/Roboto-Regular.ttf');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Roboto_Light';
+  src: url('/style/fonts/Roboto/Roboto-Light.ttf');
+  font-weight: 200;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Roboto_Thin';
+  src: url('/style/fonts/Roboto/Roboto-Thin.ttf');
+  font-weight: 100;
+  font-style: normal;
+}
+/*# sourceMappingURL=font-css.css.map */
