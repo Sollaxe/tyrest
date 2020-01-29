@@ -14,7 +14,17 @@
     <link rel="stylesheet" href="/style/builds/index.build/tablet.css" media="only screen and (min-width: 451px) and (max-width: 768px)">
     <link rel="stylesheet" href="/style/builds/index.build/mobile.css" media="only screen (max-width: 450px)">
 </head>
-<body>
-    <h1>hello world</h1>
+<body class="body">
+    <header class="header"></header>
+
+    <section class="about"></section>
+    <section class="about-video"></section>
+    <section class="expertise"></section>
+    <section class="team"></section>
+    <section class="works"></section>
+    <section class="worker-rev"></section>
+    <section class="contact"></section>
+
+    <footer class="footer"></footer>
 </body>
 </html>
