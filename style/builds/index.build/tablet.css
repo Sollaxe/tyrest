@@ -1,0 +1,76 @@
+/*
+  size list(px to em):
+    - 12px = 0.75em
+    - 14px = 0.875em
+    - 16px = 1em
+    - 18px = 1.125em
+    - 20px = 1.25em
+    - 22px = 1.375em
+    - 24px = 1.5em
+    - 30px = 1.875em
+    - 32px = 2em
+*/
+.text_size_12px {
+  font-size: 0.75em;
+}
+.text_size_14px {
+  font-size: 0.875em;
+}
+.text_size_16px {
+  font-size: 1em;
+}
+.text_size_18px {
+  font-size: 1.125em;
+}
+.text_size_20px {
+  font-size: 1.25em;
+}
+.text_size_22px {
+  font-size: 1.375em;
+}
+.text_size_24px {
+  font-size: 1.5em;
+}
+.text_size_30px {
+  font-size: 1.875em;
+}
+.text_size_32px {
+  font-size: 2em;
+}
+.text_font_hammersmith {
+  font-family: 'HammersmithOne', sans-serif;
+}
+.text_font_roboto-thin {
+  font-family: 'Roboto_Thin', sans-serif;
+}
+.text_font_roboto-light {
+  font-family: 'Roboto_Light', sans-serif;
+}
+.text_font_roboto-regular {
+  font-family: 'Roboto_Regular', sans-serif;
+}
+.text_font_roboto-medium {
+  font-family: 'Roboto_Medium', sans-serif;
+}
+.text_font_roboto-bold {
+  font-family: 'Roboto_Bold', sans-serif;
+}
+.text_font_roboto-black {
+  font-family: 'Roboto_Black', sans-serif;
+}
+.text_font_playfair-regular {
+  font-family: 'PlayfairDisplay_Regular', serif;
+}
+.text_font_playfair-medium {
+  font-family: 'PlayfairDisplay_Medium', serif;
+}
+.text_font_playfair-semibold {
+  font-family: 'PlayfairDisplay_SemiBold', serif;
+}
+.text_font_playfair-bold {
+  font-family: 'PlayfairDisplay_Bold', serif;
+}
+.text_font_playfair-black {
+  font-family: 'PlayfairDisplay_Black', serif;
+}
+/*# sourceMappingURL=tablet.css.map */
