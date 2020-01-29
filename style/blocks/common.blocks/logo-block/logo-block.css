@@ -1,0 +1,9 @@
+.logo-block {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.logo-block__logo {
+  height: 50px;
+}
+/*# sourceMappingURL=logo-block.css.map */

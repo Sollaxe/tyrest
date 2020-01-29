@@ -1,0 +1,27 @@
+.btn_type_flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn_type_classic {
+  .btn_type_flex();
+  .text_font_hammersmith();
+  .text_em-size(16);
+  border-width: 1px;
+  border-style: solid;
+  height: 40px;
+  border-radius: 2px;
+  padding: 10px;
+}
+
+.btn_theme_classic-emerald {
+  color: @emerald;
+  border-color: @emerald;
+  transition: background-color .1s, color .1s;
+}
+
+.btn_theme_classic-emerald:hover {
+  background-color: @emerald;
+  color: #fff;
+}
