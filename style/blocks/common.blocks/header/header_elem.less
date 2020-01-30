@@ -1,16 +1,10 @@
 .header__container {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  .absolut_position_coords(0,0,0,0);
   z-index: 20;
 }
 
 .header__wrap {
-  max-width: 940px;
-  height: 100%;
-  margin: 0 auto;
   display: grid;
   grid-template-rows: 60px 1fr;
   grid-gap: 100px;
@@ -20,12 +14,7 @@
 .header__top {
   display: grid;
   align-items: center;
-  grid-template-columns: 200px 1fr 650px;
   grid-template-rows: 60px;
   grid-gap: 15px;
 }
 
-.header__navbar {
-  grid-column-start: 3;
-  grid-column-end: 4;
-}

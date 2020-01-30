@@ -1,0 +1,7 @@
+.header__top {
+  grid-template-columns: 200px 1fr 60px;
+}
+.header__navbar {
+  display: none;
+}
+/*# sourceMappingURL=header.css.map */

@@ -1,0 +1,8 @@
+.btn_theme_classic-emerald {
+  transition: background-color 0.1s, color 0.1s;
+}
+.btn_theme_classic-emerald:hover {
+  background-color: #00c5c2;
+  color: #fff;
+}
+/*# sourceMappingURL=btn.css.map */

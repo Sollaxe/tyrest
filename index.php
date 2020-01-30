@@ -15,15 +15,21 @@
     <link rel="stylesheet" href="/style/builds/index.build/mobile.css" media="only screen and (max-width: 450px)">
 </head>
 <body class="body">
+    <div class="widget-container widget-container_hide">
+        <div class="widget__navbar widget-nav">
+
+        </div>
+    </div>
+
     <header class="header header_theme_classic">
         <div class="header__container">
-            <div class="header__wrap">
+            <div class="header__wrap page-wrapper">
                 <div class="header__top">
                     <div class="logo-block logo-block_theme_emerald header__logo">
-                        <img class="logo-block__logo" src="/style/style-image/border-logo.png" alt="logo">
-                        <span class="logo-block__brand text">tyrest</span>
+                        <img class="logo-block__logo header__logo-img" src="/style/style-image/border-logo.png" alt="logo">
+                        <span class="logo-block__brand header__brand text">tyrest</span>
                     </div>
-                    <nav class="navbar navbar_theme_emerald header__navbar">
+                    <!--<nav class="navbar navbar_theme_emerald header__navbar">
                         <a class="anchor btn btn_type_flex navbar__item navbar__item_active">HOME</a>
                         <a class="anchor btn btn_type_flex navbar__item">ABOUT</a>
                         <a class="anchor btn btn_type_flex navbar__item">EXPERTISE</a>
@@ -32,6 +38,7 @@
                         <a class="anchor btn btn_type_flex navbar__item">PEOPLE SAY</a>
                         <a class="anchor btn btn_type_flex navbar__item">CONTACT</a>
                     </nav>
+                    <div class="header__btn-nav btn btn_type_icon"></div>-->
                 </div>
                 <div class="slider slider_theme_emerald header__slider">
                     <div class="slider__content">
@@ -57,6 +64,8 @@
         </div>
     </header>
 
+    <script src="/script/navbar.js" type="text/javascript"></script>
+
     <section class="about"></section>
     <section class="about-video"></section>
     <section class="expertise"></section>
@@ -66,5 +75,6 @@
     <section class="contact"></section>
 
     <footer class="footer"></footer>
+
 </body>
 </html>
