@@ -46,4 +46,41 @@
 .navbar_theme_emerald > .navbar__item:hover {
   color: #00c5c2;
 }
+.about__wrap {
+  grid-template-columns: minmax(300px, 380px) minmax(540px, 1fr);
+  padding-top: 70px;
+  padding-bottom: 70px;
+  grid-gap: 20px;
+}
+.about__image-block {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+.about__image {
+  height: 250px;
+  width: 300px;
+  background-size: contain;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+}
+.about__content-block {
+  justify-items: flex-start;
+}
+.about_theme_white-emerald .about__image {
+  background-image: url("/style/style-image/logo.png");
+}
+.about-video {
+  height: 600px;
+}
+.about-video__play-block {
+  grid-gap: 30px;
+}
+.about-video__btn-play {
+  width: 100px;
+  height: 100px;
+}
+.about-video__hint-btn {
+  font-size: 1em;
+}
 /*# sourceMappingURL=desktop.css.map */

@@ -38,4 +38,22 @@
   grid-template-rows: 24px 1px 1fr 40px;
   grid-gap: 20px;
 }
+.about__wrap {
+  grid-template-columns: 1fr;
+  padding-top: 35px;
+  padding-bottom: 35px;
+}
+.about-video {
+  height: 350px;
+}
+.about-video__play-block {
+  grid-gap: 20px;
+}
+.about-video__btn-play {
+  width: 65px;
+  height: 65px;
+}
+.about-video__hint-btn {
+  font-size: 0.875em;
+}
 /*# sourceMappingURL=mobile.css.map */

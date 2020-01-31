@@ -1,7 +1,20 @@
-
+/**
+ * @class Navbar - класс панели навигации
+ *
+ * @method switchNav() - Запрашивает ширину документа, и исходя из этих данных переключает вид панели навигации
+ * @method getDocumentSize() - Возвращает ширину документа
+ *    @return int - ширина объекта
+ * @method createNavbar() - Создаёт десктопную версию панели напигации
+ * @method createButToNav() - Создаёт кнопку, для активации мобильной версии панели навигации
+ * @method launch() - Вызывает методы Navbar'а, с вызова этой функции начинается функционирование данной программы
+ *
+ * @param str parentSelector - Селектор родительского блока для панели навигации, в данном случае это parent
+ * @param str theme - css-класс стилистической темы панели навигации
+ * @param array newElemArr - Массив с элементами навигации
+ */
 class Navbar {
-  constructor(headSelector, theme, navElemArr) {
-    this.head = document.querySelector(headSelector);
+  constructor(parentSelector, theme, navElemArr) {
+    this.parent = document.querySelector(parentSelector);
     this.navElemObj = navElemArr;
     this.docSize = 0;
     this.butToNav = null;
@@ -9,11 +22,11 @@ class Navbar {
     this.objTheme = theme;
   }
 
-  checkSize() {
+  switchNav() {
     this.docSize = this.getDocumentSize();
     if (this.docSize < 901 && this.butToNav === null) {
       this.createButToNav();
-    } else if (this.docSize >=901 && this.navbar === null) {
+    } else if (this.docSize >= 901 && this.navbar === null) {
       this.createNavbar();
     }
   }
@@ -25,16 +38,7 @@ class Navbar {
   createNavbar() {
     let self = this;
     this.navbar = document.createElement('nav');
-    this.navbar.className = 'navbar header__navbar';
-
-    let themeStyle;
-    switch (this.objTheme) {
-      case 'emerald':
-        themeStyle = 'navbar_theme_emerald';
-        break;
-    }
-
-    this.navbar.classList.add(themeStyle);
+    this.navbar.className = `navbar header__navbar ${this.objTheme}`;
 
     this.navElemObj.forEach(function (item) {
       let currElem = document.createElement('a');
@@ -48,67 +52,46 @@ class Navbar {
       self.navbar.append(currElem);
     });
 
-    this.head.append(this.navbar);
+    this.parent.append(this.navbar);
   }
 
 
   createButToNav() {
     this.butToNav = document.createElement('div');
     this.butToNav.className = 'header__btn-nav btn btn_type_icon';
-    this.head.append(this.butToNav);
+    this.parent.append(this.butToNav);
   }
 
   launch() {
     let self = this;
-    this.docSize = this.getDocumentSize();
-
-    if (this.docSize < 901) {
-      this.createButToNav();
-    } else {
-      this.createNavbar();
-    }
+    this.switchNav();
 
     window.addEventListener('resize', function () {
-      self.checkSize();
+      self.switchNav();
     });
   }
 }
 
-nav = new Navbar('.header__top', 'emerald', [
-  {
-    type: 'active',
-    innerText: 'HOME',
-  },
-  {
-    type: 'inactive',
-    innerText: 'ABOUT',
-  },
-  {
-    type: 'inactive',
-    innerText: 'EXPERTISE',
-  },
-  {
-    type: 'inactive',
-    innerText: 'TEAMS',
-  },
-  {
-    type: 'inactive',
-    innerText: 'WORKS',
-  },
-  {
-    type: 'inactive',
-    innerText: 'PEOPLE SAY',
-  },
-  {
-    type: 'inactive',
-    innerText: 'CONTACT',
-  },
+/**
+ *
+ * @param innerText - Текст элемента навигации
+ * @param type - тип элемента навигации
+ * @constructor
+ */
+function NavItem(innerText, type = 'inactive') {
+  this.innerText = innerText;
+  this.type = type;
+}
+
+
+let navbar = new Navbar('.header__top', 'navbar_theme_emerald', [
+    new NavItem('HOME', 'active'),
+    new NavItem('ABOUT'),
+    new NavItem('EXPERTISE'),
+    new NavItem('TEAMS'),
+    new NavItem('WORKS'),
+    new NavItem('PEOPLE SAY'),
+    new NavItem('CONTACT'),
 ]);
 
-/*<a class="anchor btn btn_type_flex navbar__item">EXPERTISE</a>
-    <a class="anchor btn btn_type_flex navbar__item">TEAMS</a>
-    <a class="anchor btn btn_type_flex navbar__item">WORKS</a>
-    <a class="anchor btn btn_type_flex navbar__item">PEOPLE SAY</a>
-<a class="anchor btn btn_type_flex navbar__item">CONTACT</a>*/
-
-nav.launch();
+navbar.launch();

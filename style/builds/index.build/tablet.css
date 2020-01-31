@@ -15,4 +15,22 @@
   width: 38px;
   background-image: url("/style/style-image/navbut.png");
 }
+.about__wrap {
+  grid-template-columns: 1fr;
+  padding-top: 45px;
+  padding-bottom: 45px;
+}
+.about-video {
+  height: 400px;
+}
+.about-video__play-block {
+  grid-gap: 25px;
+}
+.about-video__btn-play {
+  width: 80px;
+  height: 80px;
+}
+.about-video__hint-btn {
+  font-size: 1em;
+}
 /*# sourceMappingURL=tablet.css.map */
