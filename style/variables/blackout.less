@@ -1,0 +1,18 @@
+.create_overlay_emerald(@opacity, @z) {
+  background-image: -moz-linear-gradient( 0deg, rgb(9,5,47) 0%, rgb(49,29,94) 100%);
+  background-image: -webkit-linear-gradient( 0deg, rgb(9,5,47) 0%, rgb(49,29,94) 100%);
+  background-image: -ms-linear-gradient( 0deg, rgb(9,5,47) 0%, rgb(49,29,94) 100%);
+  position: absolute;
+  opacity: @opacity;
+  .absolut_position_coords(0,0,0,0);
+  z-index: @z;
+}
+
+.create_overlay-background_settings(@opacity, @url) {
+  background-image: -webkit-linear-gradient(0deg, rgba(9, 5, 47, @opacity) 0%, rgba(49, 29, 94, @opacity) 100%), url(@url);
+  background-image: -moz-linear-gradient(0deg, rgba(9, 5, 47, @opacity) 0%, rgba(49, 29, 94, @opacity) 100%), url(@url);
+  background-image: -ms-linear-gradient(0deg, rgba(9, 5, 47, @opacity) 0%, rgba(49, 29, 94, @opacity) 100%), url(@url);
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: cover;
+}

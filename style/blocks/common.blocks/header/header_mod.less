@@ -1,17 +1,11 @@
 
-.header_theme_classic {
-  background: url("/style/style-image/background-image.png") 50% 50% no-repeat;
-  background-size: cover;
+.header_theme_emerald {
+  .create_overlay-background_settings(0.85, "/style/style-image/background-image.png");
   position: relative;
 }
 
-.header_theme_classic:after {
+/*
+.header_theme_emerald:after {
   content: "";
-  background-image: -moz-linear-gradient( 0deg, rgb(9,5,47) 0%, rgb(49,29,94) 100%);
-  background-image: -webkit-linear-gradient( 0deg, rgb(9,5,47) 0%, rgb(49,29,94) 100%);
-  background-image: -ms-linear-gradient( 0deg, rgb(9,5,47) 0%, rgb(49,29,94) 100%);
-  position: absolute;
-  opacity: 0.850;
-  .absolut_position_coords(0,0,0,0);
-  z-index: 10;
-}
+  .create_overlay_emerald(0.85, 10);
+}*/
