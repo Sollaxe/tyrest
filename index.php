@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="/style/fonts/font-css.css">
     <link rel="stylesheet" href="/style/main.css">
 
+    <link rel="stylesheet" href="/style/builds/index.build/initial-build.css">
     <link rel="stylesheet" href="/style/builds/index.build/desktop.css" media="only screen and (min-width: 901px)">
     <link rel="stylesheet" href="/style/builds/index.build/tablet.css" media="only screen and (min-width: 451px) and (max-width: 900px)">
     <link rel="stylesheet" href="/style/builds/index.build/mobile.css" media="only screen and (max-width: 450px)">
