@@ -56,4 +56,33 @@
 .about-video__hint-btn {
   font-size: 0.875em;
 }
+.section-title__name {
+  font-size: 1.375em;
+}
+.section-title__hint {
+  font-size: 0.875em;
+}
+.section-title_theme_extend {
+  grid-gap: 15px;
+}
+.expertise__wrap {
+  grid-gap: 40px;
+  padding-top: 35px;
+  padding-bottom: 50px;
+}
+.expertise__item {
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+}
+.expertise__item:last-child {
+  border-bottom-width: 0;
+}
+.expertise__item {
+  min-height: 250px;
+  padding: 20px;
+  grid-gap: 15px;
+}
+.expertise__item-icon {
+  margin-bottom: 4px;
+}
 /*# sourceMappingURL=mobile.css.map */

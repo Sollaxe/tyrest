@@ -33,4 +33,40 @@
 .about-video__hint-btn {
   font-size: 1em;
 }
+.section-title__name {
+  font-size: 1.375em;
+}
+.section-title__hint {
+  font-size: 0.875em;
+}
+.section-title_theme_extend {
+  grid-gap: 15px;
+}
+.expertise__wrap {
+  grid-gap: 50px;
+  padding-top: 60px;
+  padding-bottom: 70px;
+}
+.expertise__content {
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+}
+.expertise__item:nth-child(2n) {
+  border-left-style: solid;
+  border-left-width: 1px;
+}
+.expertise__item:nth-last-child(1),
+.expertise__item:nth-last-child(2) {
+  border-bottom-width: 0;
+}
+.expertise__item {
+  min-height: 250px;
+  padding: 30px 20px;
+  grid-gap: 20px;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+}
+.expertise__item-icon {
+  margin-bottom: 10px;
+}
 /*# sourceMappingURL=tablet.css.map */

@@ -83,4 +83,43 @@
 .about-video__hint-btn {
   font-size: 1em;
 }
+.section-title__name {
+  font-size: 1.375em;
+}
+.section-title__hint {
+  font-size: 0.875em;
+}
+.section-title_theme_extend {
+  grid-gap: 15px;
+}
+.expertise__wrap {
+  grid-gap: 50px;
+  padding-top: 70px;
+  padding-bottom: 70px;
+}
+.expertise__content {
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+.expertise__item:nth-child(2),
+.expertise__item:nth-child(5) {
+  border-left-style: solid;
+  border-right-style: solid;
+  border-left-width: 1px;
+  border-right-width: 1px;
+}
+.expertise__item:nth-child(1),
+.expertise__item:nth-child(2),
+.expertise__item:nth-child(3) {
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+}
+.expertise__item {
+  min-height: 250px;
+  padding: 40px 40px;
+  grid-gap: 20px;
+}
+.expertise__item-icon {
+  margin-bottom: 10px;
+}
 /*# sourceMappingURL=desktop.css.map */

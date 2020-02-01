@@ -95,7 +95,46 @@
             </div>
         </div>
     </section>
-    <section class="expertise"></section>
+    <section class="expertise">
+        <div class="page-wrapper expertise__wrap">
+            <div class="section-title section-title_theme_extend">
+                <h2 class="section-title__name">EXPERTISE</h2>
+                <span class="section-title__hint">Lorem ipsum dolor sit amet.</span>
+                <div class="section-title__separator"></div>
+            </div>
+            <div class="expertise__content">
+                <div class="expertise__item">
+                    <div class="icon expertise__item-icon" style="background-image: url('/style/style-image/icon/comp-icon.png')"></div>
+                    <h3 class="expertise__item-name">WEB DESIGN & DEVELOPMENT</h3>
+                    <p class="expertise__item-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium autem dolor explicabo id impedit maxime pariatur reiciendis saepe veritatis vero?</p>
+                </div>
+                <div class="expertise__item">
+                    <div class="icon expertise__item-icon" style="background-image: url('/style/style-image/icon/tassel-icon.png')"></div>
+                    <h3 class="expertise__item-name">BRANDING IDENTITY</h3>
+                    <p class="expertise__item-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium autem dolor explicabo id impedit maxime pariatur reiciendis saepe veritatis vero?</p>
+                </div>
+                <div class="expertise__item">
+                    <div class="icon expertise__item-icon" style="background-image: url('/style/style-image/icon/phone-icon.png')"></div>
+                    <h3 class="expertise__item-name">MOBILE APP</h3>
+                    <p class="expertise__item-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium autem dolor explicabo id impedit maxime pariatur reiciendis saepe veritatis vero?</p>
+                </div>
+                <div class="expertise__item">
+                    <div class="icon expertise__item-icon" style="background-image: url('/style/style-image/icon/diagramm-icon.png')"></div>
+                    <h3 class="expertise__item-name">SEARCH ENGINE OPTIMISATION</h3>
+                    <p class="expertise__item-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium autem dolor explicabo id impedit maxime pariatur reiciendis saepe veritatis vero?</p>
+                </div>
+                <div class="expertise__item">
+                    <div class="icon expertise__item-icon" style="background-image: url('/style/style-image/icon/psp-icon.png')"></div>
+                    <h3 class="expertise__item-name">GAME DEVELOPMENT</h3>
+                    <p class="expertise__item-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium autem dolor explicabo id impedit maxime pariatur reiciendis saepe veritatis vero?</p>
+                </div>
+                <div class="expertise__item"><div class="icon expertise__item-icon" style="background-image: url('/style/style-image/icon/heart-icon.png')"></div>
+                    <h3 class="expertise__item-name">MADE WITH LOVE</h3>
+                    <p class="expertise__item-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium autem dolor explicabo id impedit maxime pariatur reiciendis saepe veritatis vero?</p></div>
+            </div>
+        </div>
+
+    </section>
     <section class="team"></section>
     <section class="works"></section>
     <section class="worker-rev"></section>

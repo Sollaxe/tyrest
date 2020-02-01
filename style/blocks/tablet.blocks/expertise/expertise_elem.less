@@ -1,0 +1,26 @@
+.expertise__content {
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+}
+
+.expertise__item:nth-child(2n) {
+  border-left-style: solid;
+  border-left-width: 1px;
+}
+
+.expertise__item:nth-last-child(1),
+.expertise__item:nth-last-child(2){
+  border-bottom-width: 0;
+}
+
+.expertise__item {
+  min-height: 250px;
+  padding: 30px 20px;
+  grid-gap: 20px;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+}
+
+.expertise__item-icon {
+  margin-bottom: 10px;
+}
