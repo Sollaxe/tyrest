@@ -1,0 +1,40 @@
+.worker-tile__image {
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 230px;
+  width: 100%;
+  position: relative;
+}
+
+.worker-tile__image:after {
+  content: "";
+  position: absolute;
+  .absolut_position_coords(0,0,0,0);
+  background-color: rgba(0, 0, 0, 0.1);
+  z-index: 2;
+}
+
+.worker-tile__info-block {
+  display: grid;
+  padding: 20px;
+  justify-items: center;
+  grid-gap: 8px;
+  border-bottom-style: solid;
+  border-left-style: solid;
+  border-right-style: solid;
+  border-bottom-width: 1px;
+  border-left-width: 1px;
+  border-right-width: 1px;
+
+}
+
+.worker-tile__name {
+  .text_font_roboto-black();
+  .text_em-size(14);
+}
+
+.worker-tile__post {
+  .text_font_roboto-light();
+  .text_em-size(13);
+}

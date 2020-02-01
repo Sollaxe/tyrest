@@ -85,6 +85,7 @@
             </div>
         </div>
     </section>
+
     <section class="about-video about-video_theme_emrald">
         <div class="page-wrapper about-video__wrap">
             <div class="about-video__play-block">
@@ -95,6 +96,7 @@
             </div>
         </div>
     </section>
+
     <section class="expertise">
         <div class="page-wrapper expertise__wrap">
             <div class="section-title section-title_theme_extend">
@@ -133,9 +135,83 @@
                     <p class="expertise__item-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium autem dolor explicabo id impedit maxime pariatur reiciendis saepe veritatis vero?</p></div>
             </div>
         </div>
-
     </section>
-    <section class="team"></section>
+
+    <section class="team team_theme_emerald">
+        <div class="page-wrapper team__wrap-top">
+            <div class="section-title section-title_theme_extend-white">
+                <h2 class="section-title__name">MEET OUR AMAZING TEAM</h2>
+                <span class="section-title__hint">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span>
+                <div class="section-title__separator"></div>
+            </div>
+        </div>
+
+        <div class="team__list">
+            <div class="worker-tile worker-tile_theme_white team__list-item">
+                <div class="worker-tile__image" style="background-image: url('/style/style-image/worker.png')"></div>
+                <div class="worker-tile__info-block">
+                    <div class="worker-tile__name">ADAM AJAX</div>
+                    <div class="worker-tile__post">DESIGNER</div>
+                </div>
+            </div>
+            <div class="worker-tile worker-tile_theme_white team__list-item">
+                <div class="worker-tile__image" style="background-image: url('/style/style-image/worker.png')"></div>
+                <div class="worker-tile__info-block">
+                    <div class="worker-tile__name">ADAM AJAX</div>
+                    <div class="worker-tile__post">DESIGNER</div>
+                </div>
+            </div>
+            <div class="worker-tile worker-tile_theme_white team__list-item">
+                <div class="worker-tile__image" style="background-image: url('/style/style-image/worker.png')"></div>
+                <div class="worker-tile__info-block">
+                    <div class="worker-tile__name">ADAM AJAX</div>
+                    <div class="worker-tile__post">DESIGNER</div>
+                </div>
+            </div>
+            <div class="worker-tile worker-tile_theme_white team__list-item">
+                <div class="worker-tile__image" style="background-image: url('/style/style-image/worker.png')"></div>
+                <div class="worker-tile__info-block">
+                    <div class="worker-tile__name">ADAM AJAX</div>
+                    <div class="worker-tile__post">DESIGNER</div>
+                </div>
+            </div>
+            <div class="worker-tile worker-tile_theme_white team__list-item">
+                <div class="worker-tile__image" style="background-image: url('/style/style-image/worker.png')"></div>
+                <div class="worker-tile__info-block">
+                    <div class="worker-tile__name">ADAM AJAX</div>
+                    <div class="worker-tile__post">DESIGNER</div>
+                </div>
+            </div>
+            <div class="worker-tile worker-tile_theme_white team__list-item">
+                <div class="worker-tile__image" style="background-image: url('/style/style-image/worker.png')"></div>
+                <div class="worker-tile__info-block">
+                    <div class="worker-tile__name">ADAM AJAX</div>
+                    <div class="worker-tile__post">DESIGNER</div>
+                </div>
+            </div>
+            <div class="worker-tile worker-tile_theme_white team__list-item">
+                <div class="worker-tile__image" style="background-image: url('/style/style-image/worker.png')"></div>
+                <div class="worker-tile__info-block">
+                    <div class="worker-tile__name">ADAM AJAX</div>
+                    <div class="worker-tile__post">DESIGNER</div>
+                </div>
+            </div>
+            <div class="worker-tile worker-tile_theme_white team__list-item">
+                <div class="worker-tile__image" style="background-image: url('/style/style-image/worker.png')"></div>
+                <div class="worker-tile__info-block">
+                    <div class="worker-tile__name">ADAM AJAX</div>
+                    <div class="worker-tile__post">DESIGNER</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-wrapper team__wrap-bottom">
+            <span class="team__btn-hint">Become part of our dream team, let’s join us!</span>
+            <div class="btn btn_type_classic btn_theme_classic-emerald">
+                <span class="btn__text">WE ARE HIRING</span>
+            </div>
+        </div>
+    </section>
     <section class="works"></section>
     <section class="worker-rev"></section>
     <section class="contact"></section>
