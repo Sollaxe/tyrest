@@ -229,6 +229,26 @@
   background-position: 50% 50%;
   background-size: cover;
 }
+.worker-rev__wrap {
+  display: grid;
+  justify-items: center;
+}
+.worker-rev__quotes-img {
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-image: url("/style/style-image/icon/quote-icon.png");
+  height: 32px;
+  width: 32px;
+}
+.worker-rev_theme_emerald {
+  background-image: -webkit-linear-gradient(0deg, rgba(9, 5, 47, 0.85) 0%, rgba(49, 29, 94, 0.85) 100%), url("/style/style-image/background-image-3.png");
+  background-image: -moz-linear-gradient(0deg, rgba(9, 5, 47, 0.85) 0%, rgba(49, 29, 94, 0.85) 100%), url("/style/style-image/background-image-3.png");
+  background-image: -ms-linear-gradient(0deg, rgba(9, 5, 47, 0.85) 0%, rgba(49, 29, 94, 0.85) 100%), url("/style/style-image/background-image-3.png");
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: cover;
+}
 .works__wrap-bottom {
   display: grid;
   justify-items: center;
@@ -504,6 +524,60 @@
 }
 .worker-tile_theme_white .worker-tile__post {
   color: #ebebeb;
+}
+.quote-slider {
+  display: grid;
+  justify-items: center;
+}
+.quote-slider__switch-item {
+  display: grid;
+  justify-items: center;
+}
+.quote-slider__quote {
+  font-family: 'PlayfairDisplay_Regular', serif;
+  text-align: center;
+}
+.quote-slider__quote {
+  font-size: 1em;
+  line-height: 26px;
+}
+.quote-slider__name-block {
+  display: grid;
+  justify-items: center;
+}
+.quote-slider__name {
+  font-family: 'Roboto_Black', sans-serif;
+  font-size: 0.875em;
+}
+.quote-slider__post {
+  font-family: 'Roboto_Light', sans-serif;
+  font-size: 0.75em;
+}
+.quote-slider__nav {
+  display: grid;
+  grid-template-columns: 11px 1fr 11px;
+  align-items: center;
+}
+.quote-slider__nav-list {
+  overflow-x: hidden;
+}
+.quote-slider__nav-list-container {
+  display: grid;
+  grid-auto-flow: column;
+  align-items: center;
+}
+.quote-slider__nav-item {
+  border-radius: 50%;
+  background-color: grey;
+}
+.quote-slider_theme_white .quote-slider__switch-block {
+  color: #fff;
+}
+.quote-slider_theme_white .quote-slider__nav-arrow_left {
+  background-image: url("/style/style-image/icon/quote-arr-left-icon.png");
+}
+.quote-slider_theme_white .quote-slider__nav-arrow_right {
+  background-image: url("/style/style-image/icon/quote-arr-right-icon.png");
 }
 .page-wrapper {
   max-width: 960px;

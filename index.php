@@ -245,7 +245,41 @@
             </div>
         </div>
     </section>
-    <section class="worker-rev"></section>
+    <section class="worker-rev worker-rev_theme_emerald">
+        <div class="page-wrapper worker-rev__wrap">
+            <div class="worker-rev__quotes-img"></div>
+            <div class="quote-slider worker-rev__quote-slider quote-slider_theme_white">
+                <div class="quote-slider__switch-block">
+                    <div class="quote-slider__switch-item">
+                        <p class="quote-slider__quote">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusantium autem beatae consectetur consequuntur dolores dolorum eius eligendi esse eum ex excepturi facere fuga hic id illum incidunt mollitia nam, natus necessitatibus non obcaecati officia perspiciatis quae, quam ratione, ullam veritatis vitae voluptate voluptatem! Aliquam inventore itaque minus porro saepe?</p>
+                        <div class="quote-slider__name-block">
+                            <span class="quote-slider__name">JANE GALADRIEN</span>
+                            <span class="quote-slider__post">CEO MANAGER</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="quote-slider__nav">
+                    <div class="quote-slider__nav-arrow quote-slider__nav-arrow_left btn btn_type_icon"></div>
+                    <div class="quote-slider__nav-list">
+                        <div class="quote-slider__nav-list-container">
+                            <div class="quote-slider__nav-item"></div>
+                            <div class="quote-slider__nav-item"></div>
+                            <div class="quote-slider__nav-item quote-slider__nav-item_active"></div>
+                            <div class="quote-slider__nav-item"></div>
+                            <div class="quote-slider__nav-item"></div>
+                            <div class="quote-slider__nav-item"></div>
+                            <div class="quote-slider__nav-item"></div>
+                            <div class="quote-slider__nav-item"></div>
+                            <div class="quote-slider__nav-item"></div>
+                            <div class="quote-slider__nav-item"></div>
+                            <div class="quote-slider__nav-item"></div>
+                        </div>
+                    </div>
+                    <div class="quote-slider__nav-arrow quote-slider__nav-arrow_right btn btn_type_icon"></div>
+                </div>
+            </div>
+        </div>
+    </section>
     <section class="contact"></section>
 
     <footer class="footer"></footer>
