@@ -212,7 +212,39 @@
             </div>
         </div>
     </section>
-    <section class="works"></section>
+
+    <section class="works">
+        <div class="page-wrapper works__wrap-top">
+            <div class="section-title section-title_theme_classic">
+                <h2 class="section-title__name">OUR WORKS</h2>
+            </div>
+            <a class="works__repos-link anchor anchor_type_arrow anchor_theme_d-purple anchor_size_m">
+                <span class="anchor__text">See All Project in dribbble</span>
+                <div class="anchor__arrow"></div>
+            </a>
+        </div>
+
+        <div class="works__list">
+            <div class="works__item" style="background-image: url('/style/style-image/maket-1.png')"></div>
+            <div class="works__item" style="background-image: url('/style/style-image/background-image.png')"></div>
+            <div class="works__item" style="background-image: url('/style/style-image/worker.png')"></div>
+            <div class="works__item" style="background-image: url('/style/style-image/worker.png')"></div>
+            <div class="works__item" style="background-image: url('/style/style-image/maket-1.png')"></div>
+            <div class="works__item" style="background-image: url('/style/style-image/worker.png')"></div>
+            <div class="works__item" style="background-image: url('/style/style-image/background-image.png')"></div>
+            <div class="works__item" style="background-image: url('/style/style-image/worker.png')"></div>
+            <div class="works__item" style="background-image: url('/style/style-image/maket-1.png')"></div>
+            <div class="works__item" style="background-image: url('/style/style-image/worker.png')"></div>
+            <div class="works__item" style="background-image: url('/style/style-image/worker.png')"></div>
+            <div class="works__item" style="background-image: url('/style/style-image/background-image.png')"></div>
+        </div>
+
+        <div class="page-wrapper works__wrap-bottom">
+            <div class="btn btn_type_classic btn_theme_classic-emerald">
+                <span class="btn__text">LOAD MORE</span>
+            </div>
+        </div>
+    </section>
     <section class="worker-rev"></section>
     <section class="contact"></section>
 

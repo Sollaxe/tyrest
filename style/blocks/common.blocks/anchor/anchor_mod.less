@@ -1,0 +1,35 @@
+
+
+.anchor_type_arrow {
+  display: grid;
+  align-items: center;
+  grid-auto-flow: column;
+  grid-gap: 8px;
+
+  .anchor__text {
+    .text_font_roboto-light();
+  }
+}
+
+.anchor_theme_d-purple {
+
+  .anchor__text {
+    color: @dark-purple;
+  }
+
+  .anchor__arrow {
+    background-image: url("/style/style-image/icon/arrow-right-icon.png");
+  }
+}
+
+.anchor_size_m {
+
+  .anchor__arrow {
+    height: 12px;
+    width: 8px;
+  }
+
+  .anchor__text {
+    .text_em-size(14);
+  }
+}

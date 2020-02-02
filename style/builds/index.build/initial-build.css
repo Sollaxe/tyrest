@@ -208,6 +208,19 @@
   font-size: 0.875em;
   color: #fff;
 }
+.team__list::-webkit-scrollbar {
+  height: 4px;
+}
+.team__list::-webkit-scrollbar-track {
+  background-color: rgba(75, 58, 110, 0.2);
+}
+.team__list::-webkit-scrollbar-thumb {
+  background-color: rgba(75, 58, 110, 0.5);
+  border-radius: 2px;
+}
+.team__list::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(75, 58, 110, 0.9);
+}
 .team_theme_emerald {
   background-image: -webkit-linear-gradient(0deg, rgba(9, 5, 47, 0.85) 0%, rgba(49, 29, 94, 0.85) 100%), url('/style/style-image/background-image-2.png');
   background-image: -moz-linear-gradient(0deg, rgba(9, 5, 47, 0.85) 0%, rgba(49, 29, 94, 0.85) 100%), url('/style/style-image/background-image-2.png');
@@ -215,6 +228,43 @@
   background-repeat: no-repeat;
   background-position: 50% 50%;
   background-size: cover;
+}
+.works__wrap-bottom {
+  display: grid;
+  justify-items: center;
+}
+.works__list {
+  display: grid;
+}
+.works__item {
+  cursor: pointer;
+  height: 200px;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+.works__item:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+.works__list::-webkit-scrollbar {
+  height: 4px;
+}
+.works__list::-webkit-scrollbar-track {
+  background-color: rgba(0, 197, 194, 0.2);
+}
+.works__list::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 197, 194, 0.4);
+  border-radius: 2px;
+}
+.works__list::-webkit-scrollbar-thumb:hover {
+  background-color: #00c5c2;
 }
 .logo-block {
   display: flex;
@@ -236,6 +286,33 @@
 .anchor {
   cursor: pointer;
   text-decoration: none;
+}
+.anchor__arrow {
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+.anchor_type_arrow {
+  display: grid;
+  align-items: center;
+  grid-auto-flow: column;
+  grid-gap: 8px;
+}
+.anchor_type_arrow .anchor__text {
+  font-family: 'Roboto_Light', sans-serif;
+}
+.anchor_theme_d-purple .anchor__text {
+  color: #413d4b;
+}
+.anchor_theme_d-purple .anchor__arrow {
+  background-image: url("/style/style-image/icon/arrow-right-icon.png");
+}
+.anchor_size_m .anchor__arrow {
+  height: 12px;
+  width: 8px;
+}
+.anchor_size_m .anchor__text {
+  font-size: 0.875em;
 }
 .btn {
   cursor: pointer;

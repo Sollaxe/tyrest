@@ -1,0 +1,21 @@
+.works__list {
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+}
+
+.works__item {
+  //transition: transform .1s;
+}
+
+.works__item:after {
+  transition: background-color .1s;
+}
+
+.works__item:hover:after {
+  background-color: transparent;
+}
+
+/*
+.works__item:hover {
+  transform: scale(1.03);
+  z-index: 2;
+}*/

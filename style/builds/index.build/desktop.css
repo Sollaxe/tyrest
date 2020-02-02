@@ -150,4 +150,29 @@
 .worker-tile__image:after {
   transition: background-color 0.1s;
 }
+.works__wrap-top {
+  padding-top: 70px;
+  padding-bottom: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.works__wrap-bottom {
+  padding-top: 70px;
+  padding-bottom: 70px;
+}
+.works__list {
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+}
+.works__item:after {
+  transition: background-color 0.1s;
+}
+.works__item:hover:after {
+  background-color: transparent;
+}
+/*
+.works__item:hover {
+  transform: scale(1.03);
+  z-index: 2;
+}*/
 /*# sourceMappingURL=desktop.css.map */
