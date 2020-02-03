@@ -287,12 +287,19 @@
                 <div class="section-title section-title_theme_classic">
                     <h3 class="section-title__name">GIVE US A GOOD NEWS</h3>
                 </div>
-                <form action="" class="contact__form" method="post">
-                    <label class="contact__label"><input name="name" type="text" class="contact__name-input contact__input" placeholder="Name"></label>
-                    <label class="contact__label"><input name="email" type="email" class="contact__email-input contact__input" placeholder="Email"></label>
-                    <label class="contact__label"><input name="mess-subj" type="text" class="contact__subject-input contact__input" placeholder="Subject"></label>
-                    <label class="contact__label"><textarea name="mess" class="contact__message-input contact__input" placeholder="Your Message"></textarea></label>
-                    <input type="submit" class="btn btn_type_classic btn_theme_classic-emerald contact__submit-input" value="SUBMIT">
+                <form action="/" class="contact__form" method="post">
+                    <label class="contact__label"><input name="name" type="text"
+                                                         class="contact__name-input contact__input" placeholder="Name"></label>
+                    <label class="contact__label"><input name="email" type="email"
+                                                         class="contact__email-input contact__input"
+                                                         placeholder="Email"></label>
+                    <label class="contact__label"><input name="mess-subj" type="text"
+                                                         class="contact__subject-input contact__input"
+                                                         placeholder="Subject"></label>
+                    <label class="contact__label"><textarea name="mess" class="contact__message-input contact__input"
+                                                            placeholder="Your Message"></textarea></label>
+                    <input type="submit" class="btn btn_type_classic btn_theme_classic-emerald contact__submit-input"
+                           value="SUBMIT" onclick="event.preventDefault()">
                 </form>
             </div>
             <div class="contact__client-col">
@@ -300,22 +307,113 @@
                     <h3 class="section-title__name">OUR HAPPY CLIENT</h3>
                 </div>
                 <div class="contact__client-list">
-                    <a class="contact__client-item icon anchor anchor_type_icon" style="background-image: url('/style/style-image/icon/company-logo-1.png') "></a>
-                    <a class="contact__client-item icon anchor anchor_type_icon" style="background-image: url('/style/style-image/icon/company-logo-2.png') "></a>
-                    <a class="contact__client-item icon anchor anchor_type_icon" style="background-image: url('/style/style-image/icon/company-logo-3.png') "></a>
-                    <a class="contact__client-item icon anchor anchor_type_icon" style="background-image: url('/style/style-image/icon/company-logo-4.png') "></a>
-                    <a class="contact__client-item icon anchor anchor_type_icon" style="background-image: url('/style/style-image/icon/company-logo-5.png') "></a>
-                    <a class="contact__client-item icon anchor anchor_type_icon" style="background-image: url('/style/style-image/icon/company-logo-6.png') "></a>
-                    <a class="contact__client-item icon anchor anchor_type_icon" style="background-image: url('/style/style-image/icon/company-logo-7.png') "></a>
-                    <a class="contact__client-item icon anchor anchor_type_icon" style="background-image: url('/style/style-image/icon/company-logo-8.png') "></a>
-                    <a class="contact__client-item icon anchor anchor_type_icon" style="background-image: url('/style/style-image/icon/company-logo-9.png') "></a>
-                    <a class="contact__client-item icon anchor anchor_type_icon" style="background-image: url('/style/style-image/icon/company-logo-10.png') "></a>
+                    <a class="contact__client-item icon anchor anchor_type_icon"
+                       style="background-image: url('/style/style-image/icon/company/company-logo-1.png') "></a>
+                    <a class="contact__client-item icon anchor anchor_type_icon"
+                       style="background-image: url('/style/style-image/icon/company/company-logo-2.png') "></a>
+                    <a class="contact__client-item icon anchor anchor_type_icon"
+                       style="background-image: url('/style/style-image/icon/company/company-logo-3.png') "></a>
+                    <a class="contact__client-item icon anchor anchor_type_icon"
+                       style="background-image: url('/style/style-image/icon/company/company-logo-4.png') "></a>
+                    <a class="contact__client-item icon anchor anchor_type_icon"
+                       style="background-image: url('/style/style-image/icon/company/company-logo-5.png') "></a>
+                    <a class="contact__client-item icon anchor anchor_type_icon"
+                       style="background-image: url('/style/style-image/icon/company/company-logo-6.png') "></a>
+                    <a class="contact__client-item icon anchor anchor_type_icon"
+                       style="background-image: url('/style/style-image/icon/company/company-logo-7.png') "></a>
+                    <a class="contact__client-item icon anchor anchor_type_icon"
+                       style="background-image: url('/style/style-image/icon/company/company-logo-8.png') "></a>
+                    <a class="contact__client-item icon anchor anchor_type_icon"
+                       style="background-image: url('/style/style-image/icon/company/company-logo-9.png') "></a>
+                    <a class="contact__client-item icon anchor anchor_type_icon"
+                       style="background-image: url('/style/style-image/icon/company/company-logo-10.png') "></a>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="footer"></footer>
+    <footer class="footer footer_theme_emerald">
+        <div class="page-wrapper footer__wrap">
+            <div class="footer__top-section">
+                <div class="footer__brand-block">
+                    <div class="logo-block logo-block_theme_emerald footer__logo">
+                        <img class="logo-block__logo footer__logo-img" src="/style/style-image/border-logo.png"
+                             alt="logo">
+                        <span class="logo-block__brand footer__brand">tyrest</span>
+                    </div>
+                    <p class="footer__about-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt
+                        dignissimos explicabo magnam nobis obcaecati perspiciatis reprehenderit rerum voluptas. Alias
+                        aliquid amet asperiores consectetur</p>
+                </div>
+                <div class="footer__location-block">
+                    <div class="section-title section-title_theme_small-white footer__section-title">
+                        <h4 class="section-title__name">OUR STUDIO</h4>
+                    </div>
+                    <div class="icon-text icon-text_theme_white footer__location-text">
+                        <p class="icon-text__item icon-text__item_icon_location">Ruko cucruk, Jl. Radio luar dalem jos
+                            <br>No.12 - 13, Kalideres - Jakarta Barat <br>11480 - Indonesia</p>
+                        <p class="icon-text__item icon-text__item_icon_handset">(+62) 21-2224 3333</p>
+                    </div>
+                </div>
+                <div class="footer__share-block">
+                    <div class="section-title section-title_theme_small-white footer__section-title">
+                        <h4 class="section-title__name">STAY IN TOUCH</h4>
+                    </div>
+                    <div class="footer__share-block-wrap">
+                        <form class="footer__mailing">
+                            <label for="mailing-input" style="display: none"></label>
+                            <input id="mailing-input" type="email" class="footer__mailing-input"
+                                   placeholder="Subscribe our newsletter">
+                            <input type="submit" class="footer__mailing-submit" value="" onclick="event.preventDefault()">
+                        </form>
+                        <div class="social-share social-share_theme_white">
+                            <div class="social-share__item">
+                                <div class="social-share__icon"
+                                     style="background-image: url('/style/style-image/icon/social-net/facebook-icon.png')">
+                                </div>
+                            </div>
+                            <div class="social-share__item">
+                                <div class="social-share__icon"
+                                     style="background-image: url('/style/style-image/icon/social-net/dribbble-icon.png')">
+                                </div>
+                            </div>
+                            <div class="social-share__item">
+                                <div class="social-share__icon"
+                                     style="background-image: url('/style/style-image/icon/social-net/google-icon.png')">
+                                </div>
+                            </div>
+                            <div class="social-share__item">
+                                <div class="social-share__icon"
+                                     style="background-image: url('/style/style-image/icon/social-net/instagram-icon.png')">
+                                </div>
+                            </div>
+                            <div class="social-share__item">
+                                <div class="social-share__icon"
+                                     style="background-image: url('/style/style-image/icon/social-net/twitter-icon.png')">
+                                </div>
+                            </div>
+                            <div class="social-share__item">
+                                <div class="social-share__icon"
+                                     style="background-image: url('/style/style-image/icon/social-net/youtube-icon.png')">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="footer__bottom-section">
+                <div class="footer__nav">
+                    <span class="footer__nav-item">HELP</span>
+                    <span class="footer__nav-item">TERM & CONDITION</span>
+                    <span class="footer__nav-item">PRIVACY</span>
+                </div>
+                <div class="footer__copyright-block">
+                    <span class="footer__copyright">Copyright © 2015 - Tyrest Creative</span>
+                </div>
+            </div>
+        </div>
+    </footer>
 
 </body>
 </html>

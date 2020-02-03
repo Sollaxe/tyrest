@@ -1,0 +1,25 @@
+.icon-text__item {
+  position: relative;
+  margin-left: 38px;
+}
+.icon-text__item:after {
+  content: "";
+  position: absolute;
+  left: -38px;
+  top: 0;
+  width: 18px;
+  height: 18px;
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+.icon-text_theme_white {
+  color: #fff;
+}
+.icon-text_theme_white .icon-text__item_icon_handset:after {
+  background-image: url("/style/style-image/icon/handset-icon.png");
+}
+.icon-text_theme_white .icon-text__item_icon_handset:after {
+  background-image: url("/style/style-image/icon/location-icon.png");
+}
+/*# sourceMappingURL=icon-text.css.map */

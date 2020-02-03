@@ -1,0 +1,8 @@
+.social-share {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-rows: 35px;
+  grid-auto-columns: 35px;
+  grid-gap: 8px;
+}
+/*# sourceMappingURL=social-share.css.map */

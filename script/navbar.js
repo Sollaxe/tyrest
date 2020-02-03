@@ -85,13 +85,13 @@ function NavItem(innerText, type = 'inactive') {
 
 
 let navbar = new Navbar('.header__top', 'navbar_theme_emerald', [
-    new NavItem('HOME', 'active'),
-    new NavItem('ABOUT'),
-    new NavItem('EXPERTISE'),
-    new NavItem('TEAMS'),
-    new NavItem('WORKS'),
-    new NavItem('PEOPLE SAY'),
-    new NavItem('CONTACT'),
+  new NavItem('HOME', 'active'),
+  new NavItem('ABOUT'),
+  new NavItem('EXPERTISE'),
+  new NavItem('TEAMS'),
+  new NavItem('WORKS'),
+  new NavItem('PEOPLE SAY'),
+  new NavItem('CONTACT'),
 ]);
 
 navbar.launch();

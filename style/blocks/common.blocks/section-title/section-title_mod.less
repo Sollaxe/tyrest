@@ -1,18 +1,21 @@
 .section-title_theme_classic {
   .section-title__name {
+    .text_font_playfair-bold();
     color: @dark-purple;
+    .text_em-size(22);
+  }
+
+  .section-title__hint {
+    .text_font_playfair-regular();
+    .text_em-size(14);
   }
 }
 
-
-
 .section-title_theme_extend {
+  .section-title_theme_classic();
   display: grid;
+  grid-gap: 15px;
   justify-items: center;
-
-  .section-title__name {
-    color: @dark-purple;
-  }
 
   .section-title__hint {
     color: @grey;
@@ -22,7 +25,6 @@
     background-color: @light-grey;
   }
 }
-
 
 .section-title_theme_extend-white {
   .section-title_theme_extend();
@@ -42,3 +44,11 @@
 
 
 
+.section-title_theme_small-white {
+
+  .section-title__name {
+    color: #fff;
+    .text_font_roboto-black();
+    .text_em-size(15);
+  }
+}
