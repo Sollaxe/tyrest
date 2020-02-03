@@ -115,12 +115,6 @@
   padding-top: 35px;
   padding-bottom: 35px;
 }
-.works__list {
-  overflow-x: auto;
-  grid-auto-flow: column;
-  grid-template-rows: 200px 200px;
-  grid-auto-columns: 200px;
-}
 .quote-slider {
   grid-gap: 35px;
 }

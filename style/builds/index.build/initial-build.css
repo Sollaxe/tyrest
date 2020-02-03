@@ -145,13 +145,13 @@
   height: 50px;
   width: 50px;
 }
-.expertise__item {
+.expertise_theme_white-emerald .expertise__item {
   border-color: #ebebeb;
 }
-.expertise__item-name {
+.expertise_theme_white-emerald .expertise__item-name {
   color: #413d4b;
 }
-.expertise__item-desc {
+.expertise_theme_white-emerald .expertise__item-desc {
   color: #78777b;
 }
 .header {
@@ -234,9 +234,6 @@
   justify-items: center;
 }
 .worker-rev__quotes-img {
-  background-size: contain;
-  background-position: center center;
-  background-repeat: no-repeat;
   background-image: url("/style/style-image/icon/quote-icon.png");
   height: 32px;
   width: 32px;
@@ -255,6 +252,11 @@
 }
 .works__list {
   display: grid;
+  overflow-x: auto;
+  grid-auto-flow: column;
+  grid-template-rows: 200px 200px;
+  grid-auto-columns: minmax(200px, 1fr);
+  background-color: #ebebeb;
 }
 .works__item {
   cursor: pointer;
@@ -463,6 +465,15 @@
 .section-title_theme_extend-white {
   display: grid;
   justify-items: center;
+}
+.section-title_theme_extend-white .section-title__name {
+  color: #413d4b;
+}
+.section-title_theme_extend-white .section-title__hint {
+  color: #78777b;
+}
+.section-title_theme_extend-white .section-title__separator {
+  background-color: #a3a2a4;
 }
 .section-title_theme_extend-white .section-title__name {
   color: #fff;

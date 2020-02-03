@@ -39,11 +39,11 @@
   font-family: 'Roboto_Medium', sans-serif;
   font-size: 0.875em;
 }
-.navbar_theme_emerald > .navbar__item_active {
+.navbar_theme_emerald .navbar__item_active {
   color: #00c5c2;
   cursor: default;
 }
-.navbar_theme_emerald > .navbar__item:hover {
+.navbar_theme_emerald .navbar__item:hover {
   color: #00c5c2;
 }
 .about__wrap {
@@ -151,8 +151,7 @@
   transition: background-color 0.1s;
 }
 .works__wrap-top {
-  padding-top: 70px;
-  padding-bottom: 70px;
+  padding: 70px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -161,8 +160,8 @@
   padding-top: 70px;
   padding-bottom: 70px;
 }
-.works__list {
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+.works__list::-webkit-scrollbar {
+  height: 5px;
 }
 .works__item:after {
   transition: background-color 0.1s;

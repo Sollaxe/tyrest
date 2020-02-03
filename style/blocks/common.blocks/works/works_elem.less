@@ -1,5 +1,10 @@
 .works__list {
   display: grid;
+  overflow-x: auto;
+  grid-auto-flow: column;
+  grid-template-rows: 200px 200px;
+  grid-auto-columns: minmax(200px, 1fr);
+  background-color: @white-grey;
 }
 
 .works__item {
