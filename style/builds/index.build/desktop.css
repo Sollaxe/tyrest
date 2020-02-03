@@ -212,4 +212,29 @@
   padding-bottom: 70px;
   grid-gap: 40px;
 }
+.contact__wrap {
+  padding-top: 70px;
+  padding-bottom: 70px;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 100px;
+  align-items: flex-start;
+}
+.contact__user-mess-block {
+  justify-items: flex-start;
+  grid-gap: 35px;
+}
+.contact__form {
+  justify-items: flex-start;
+}
+.contact__label {
+  width: 100%;
+}
+.contact__client-col {
+  justify-items: flex-start;
+  grid-gap: 35px;
+}
+.contact__client-list {
+  grid-gap: 50px;
+  grid-auto-rows: 50px;
+}
 /*# sourceMappingURL=desktop.css.map */

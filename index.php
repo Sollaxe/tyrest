@@ -97,7 +97,7 @@
         </div>
     </section>
 
-    <section class="expertise">
+    <section class="expertise expertise_theme_white-emerald">
         <div class="page-wrapper expertise__wrap">
             <div class="section-title section-title_theme_extend">
                 <h2 class="section-title__name">EXPERTISE</h2>
@@ -247,7 +247,7 @@
     </section>
     <section class="worker-rev worker-rev_theme_emerald">
         <div class="page-wrapper worker-rev__wrap">
-            <div class="worker-rev__quotes-img"></div>
+            <div class="worker-rev__quotes-img icon"></div>
             <div class="quote-slider worker-rev__quote-slider quote-slider_theme_white">
                 <div class="quote-slider__switch-block">
                     <div class="quote-slider__switch-item">
@@ -280,7 +280,40 @@
             </div>
         </div>
     </section>
-    <section class="contact"></section>
+
+    <section class="contact contact_theme_emerald">
+        <div class="page-wrapper contact__wrap">
+            <div class="contact__user-mess-block">
+                <div class="section-title section-title_theme_classic">
+                    <h3 class="section-title__name">GIVE US A GOOD NEWS</h3>
+                </div>
+                <form action="" class="contact__form" method="post">
+                    <label class="contact__label"><input name="name" type="text" class="contact__name-input contact__input" placeholder="Name"></label>
+                    <label class="contact__label"><input name="email" type="email" class="contact__email-input contact__input" placeholder="Email"></label>
+                    <label class="contact__label"><input name="mess-subj" type="text" class="contact__subject-input contact__input" placeholder="Subject"></label>
+                    <label class="contact__label"><textarea name="mess" class="contact__message-input contact__input" placeholder="Your Message"></textarea></label>
+                    <input type="submit" class="btn btn_type_classic btn_theme_classic-emerald contact__submit-input" value="SUBMIT">
+                </form>
+            </div>
+            <div class="contact__client-col">
+                <div class="section-title section-title_theme_classic">
+                    <h3 class="section-title__name">OUR HAPPY CLIENT</h3>
+                </div>
+                <div class="contact__client-list">
+                    <a class="contact__client-item icon anchor anchor_type_icon" style="background-image: url('/style/style-image/icon/company-logo-1.png') "></a>
+                    <a class="contact__client-item icon anchor anchor_type_icon" style="background-image: url('/style/style-image/icon/company-logo-2.png') "></a>
+                    <a class="contact__client-item icon anchor anchor_type_icon" style="background-image: url('/style/style-image/icon/company-logo-3.png') "></a>
+                    <a class="contact__client-item icon anchor anchor_type_icon" style="background-image: url('/style/style-image/icon/company-logo-4.png') "></a>
+                    <a class="contact__client-item icon anchor anchor_type_icon" style="background-image: url('/style/style-image/icon/company-logo-5.png') "></a>
+                    <a class="contact__client-item icon anchor anchor_type_icon" style="background-image: url('/style/style-image/icon/company-logo-6.png') "></a>
+                    <a class="contact__client-item icon anchor anchor_type_icon" style="background-image: url('/style/style-image/icon/company-logo-7.png') "></a>
+                    <a class="contact__client-item icon anchor anchor_type_icon" style="background-image: url('/style/style-image/icon/company-logo-8.png') "></a>
+                    <a class="contact__client-item icon anchor anchor_type_icon" style="background-image: url('/style/style-image/icon/company-logo-9.png') "></a>
+                    <a class="contact__client-item icon anchor anchor_type_icon" style="background-image: url('/style/style-image/icon/company-logo-10.png') "></a>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <footer class="footer"></footer>
 

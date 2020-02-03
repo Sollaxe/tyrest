@@ -134,4 +134,33 @@
   padding-bottom: 50px;
   grid-gap: 40px;
 }
+.contact__wrap {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  grid-gap: 50px;
+}
+.contact__user-mess-block {
+  justify-items: center;
+  grid-gap: 50px;
+  padding-bottom: 50px;
+  border-bottom: 1px solid #ebebeb;
+}
+.contact__form {
+  justify-items: center;
+}
+.contact__label {
+  width: 100%;
+}
+.contact__submit-input {
+  padding: 10px 40px;
+}
+.contact__client-col {
+  justify-items: center;
+  grid-gap: 50px;
+}
+.contact__client-list {
+  grid-gap: 60px;
+  grid-auto-rows: 70px;
+  padding: 0 60px;
+}
 /*# sourceMappingURL=tablet.css.map */
