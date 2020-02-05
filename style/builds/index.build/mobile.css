@@ -170,4 +170,45 @@
   grid-auto-rows: 70px;
   padding: 0 10px;
 }
+.footer__wrap {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  grid-gap: 40px;
+  justify-items: center;
+}
+.footer__top-section {
+  grid-template-columns: 1fr;
+  grid-gap: 40px;
+  align-items: flex-start;
+}
+.footer__brand-block {
+  grid-gap: 25px;
+  justify-items: center;
+}
+.footer__about-text {
+  text-align: center;
+}
+.footer__section-title {
+  display: flex;
+  align-items: center;
+}
+.footer__location-block {
+  grid-gap: 15px;
+  justify-items: center;
+}
+.footer__share-block {
+  grid-gap: 15px;
+  justify-items: center;
+}
+.footer__share-block-wrap {
+  grid-gap: 20px;
+}
+.footer__bottom-section {
+  display: grid;
+  grid-gap: 20px;
+  justify-items: center;
+}
+.footer__nav {
+  grid-gap: 20px;
+}
 /*# sourceMappingURL=mobile.css.map */
