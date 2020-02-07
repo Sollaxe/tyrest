@@ -16,5 +16,7 @@ h6 {
 }
 .body {
   position: relative;
+  width: 100vw;
+  overflow-x: hidden;
 }
 /*# sourceMappingURL=main.css.map */

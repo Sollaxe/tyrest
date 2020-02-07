@@ -1,0 +1,27 @@
+.popup_hide {
+  .popupAnim(hide_popup, linear);
+}
+
+.popup_show {
+  .popupAnim(show_popup, linear);
+}
+
+@show_popup: {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+};
+.createKeyframes(show_popup, @show_popup);
+
+@hide_popup: {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.createKeyframes(hide_popup, @hide_popup);

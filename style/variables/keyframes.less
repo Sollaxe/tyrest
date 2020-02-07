@@ -1,0 +1,34 @@
+
+.createKeyframes(@name, @key) {
+  @keyframes @name {
+    @key();
+  }
+  @-webkit-keyframes @name {
+    @key();
+  }
+  @-o-keyframes @name {
+    @key();
+  }
+  @-moz-keyframes @name {
+    @key();
+  }
+}
+
+.popupAnim (@name, @timing-func, @fill-mode: none, @iter: 1) {
+  -webkit-animation-name: @name;
+  -moz-animation-name: @name;
+  -o-animation-name: @name;
+  animation-name: @name;
+  -webkit-animation-timing-function: @timing-func;
+  -moz-animation-timing-function: @timing-func;
+  -o-animation-timing-function: @timing-func;
+  animation-timing-function: @timing-func;
+  -webkit-animation-fill-mode: @fill-mode;
+  -moz-animation-fill-mode: @fill-mode;
+  -o-animation-fill-mode: @fill-mode;
+  animation-fill-mode: @fill-mode;
+  -webkit-animation-iteration-count: @iter;
+  -moz-animation-iteration-count: @iter;
+  -o-animation-iteration-count: @iter;
+  animation-iteration-count: @iter;
+}

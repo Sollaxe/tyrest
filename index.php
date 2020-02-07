@@ -15,14 +15,28 @@
     <link rel="stylesheet" href="/style/builds/index.build/tablet.css" media="only screen and (min-width: 451px) and (max-width: 900px)">
     <link rel="stylesheet" href="/style/builds/index.build/mobile.css" media="only screen and (max-width: 450px)">
 </head>
-<body class="body">
-    <div class="widget-container widget-container_hide">
-        <div class="widget__navbar widget-nav">
+<body class="body" style="overflow-y: hidden">
+    <script src="/script/scrollComputer.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        let scrollComputer = new ScrollComputer('.body__section');
+        scrollComputer.computeScroll();
+    </script>
 
+ <!--   <div class="popup popup_show" style="display: flex">
+        <div class="nav-menu popup__nav-menu nav-menu_theme_emerald">
+            <h3 class="nav-menu__head">MENU</h3>
+            <div class="nav-menu__separator"></div>
+            <nav class="nav-menu__list">
+                <div class="nav-menu__item">HOME</div>
+                <div class="nav-menu__item nav-menu__item_active">ABOUT</div>
+                <div class="nav-menu__item">EXPERTISE</div>
+            </nav>
         </div>
-    </div>
+    </div>-->
 
-    <header class="header header_theme_emerald">
+    <script src="/script/popup.js" type="text/javascript"></script>
+
+    <header class="header header_theme_emerald body__section">
         <div class="header__wrap page-wrapper">
             <div class="header__top">
                 <div class="logo-block logo-block_theme_emerald header__logo">
@@ -62,10 +76,9 @@
             </div>
         </div>
     </header>
-
     <script src="/script/navbar.js" type="text/javascript"></script>
 
-    <section class="about about_theme_white-emerald">
+    <section class="about about_theme_white-emerald body__section">
         <div class="page-wrapper about__wrap">
             <div class="about__image-block">
                 <div class="about__image"></div>
@@ -86,7 +99,7 @@
         </div>
     </section>
 
-    <section class="about-video about-video_theme_emrald">
+    <section class="about-video about-video_theme_emrald body__section">
         <div class="page-wrapper about-video__wrap">
             <div class="about-video__play-block">
                 <div class="btn btn_type_icon about-video__btn-play"></div>
@@ -97,7 +110,7 @@
         </div>
     </section>
 
-    <section class="expertise expertise_theme_white-emerald">
+    <section class="expertise expertise_theme_white-emerald body__section">
         <div class="page-wrapper expertise__wrap">
             <div class="section-title section-title_theme_extend">
                 <h2 class="section-title__name">EXPERTISE</h2>
@@ -137,7 +150,7 @@
         </div>
     </section>
 
-    <section class="team team_theme_emerald">
+    <section class="team team_theme_emerald body__section">
         <div class="page-wrapper team__wrap-top">
             <div class="section-title section-title_theme_extend-white">
                 <h2 class="section-title__name">MEET OUR AMAZING TEAM</h2>
@@ -213,7 +226,7 @@
         </div>
     </section>
 
-    <section class="works">
+    <section class="works body__section">
         <div class="page-wrapper works__wrap-top">
             <div class="section-title section-title_theme_classic">
                 <h2 class="section-title__name">OUR WORKS</h2>
@@ -245,7 +258,8 @@
             </div>
         </div>
     </section>
-    <section class="worker-rev worker-rev_theme_emerald">
+
+    <section class="worker-rev worker-rev_theme_emerald body__section">
         <div class="page-wrapper worker-rev__wrap">
             <div class="worker-rev__quotes-img icon"></div>
             <div class="quote-slider worker-rev__quote-slider quote-slider_theme_white">
@@ -281,7 +295,7 @@
         </div>
     </section>
 
-    <section class="contact contact_theme_emerald">
+    <section class="contact contact_theme_emerald body__section">
         <div class="page-wrapper contact__wrap">
             <div class="contact__user-mess-block">
                 <div class="section-title section-title_theme_classic">
@@ -332,7 +346,7 @@
         </div>
     </section>
 
-    <footer class="footer footer_theme_emerald">
+    <footer class="footer footer_theme_emerald body__section">
         <div class="page-wrapper footer__wrap">
             <div class="footer__top-section">
                 <div class="footer__brand-block">
