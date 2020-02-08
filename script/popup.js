@@ -2,9 +2,11 @@ class Popup {
   constructor(animDuration) {
     this.container = null;
     this.animDuration = animDuration;
+    this.obj = null;
+    this.exitCrossObj = null;
   }
 
-  createPopup() {
+  create() {
     this.container = document.createElement('div');
     this.container.className = 'popup';
     this.container.style.display = 'none';
@@ -17,6 +19,9 @@ class Popup {
     document.body.style.overflowY = 'hidden';
     this.container.classList.remove('popup_hide');
     this.container.classList.add('popup_show');
+
+    let exitBind = this.exit.bind(this);
+    this.exitCrossObj.addEventListener('click', exitBind);
   }
 
   handlerTimeoutHide() {
@@ -36,7 +41,7 @@ class Popup {
     if (this.container !== null) {
       this.show();
     } else {
-      this.createPopup();
+      this.create();
       this.show();
     }
   }
@@ -54,20 +59,18 @@ class NavMenu extends Popup {
     this.styleTheme = theme;
     this.navElemArr = navElemArr;
     this.itemAnimDuration = itemAnimDuration;
-    this.obj = null;
     this.navElemDomObjs = [];
-    this.exitCrossObj = null;
   }
 
-  createPopup() {
-    super.createPopup();
+  create() {
+    super.create();
     let self = this;
 
     this.obj = document.createElement("div");
-    this.obj.className = `nav-menu popup__nav-menu ${this.styleTheme}`;
+    this.obj.className = `nav-menu ${this.styleTheme} popup__widget`;
 
     this.exitCrossObj = document.createElement('div');
-    this.exitCrossObj.className = 'nav-menu__exit-cross';
+    this.exitCrossObj.className = 'nav-menu__exit-cross icon';
     this.obj.append(this.exitCrossObj);
 
     let navHead = document.createElement('h3');
@@ -129,8 +132,97 @@ class NavMenu extends Popup {
   show() {
     super.show();
     this.animNavItems();
-
-    let exitBind = this.exit.bind(this);
-    this.exitCrossObj.addEventListener('click', exitBind);
   }
 }
+
+class Widget extends Popup {
+  constructor(animDuration) {
+    super(animDuration);
+    this.objData = null;
+  }
+
+  create(data) {
+    super.create();
+    this.objData = data;
+  }
+
+  changeContent(data) {
+    this.objData = data;
+  }
+
+  open(data) {
+    let self = this;
+
+    let bindShow = this.show.bind(this);
+    new Promise(function (resolve, reject) {
+      if (data === undefined || data === null) {
+        reject(new Error('data is not exist'));
+      }
+
+      if (self.container !== null) {
+        self.changeContent(data);
+        resolve();
+      } else {
+        self.create(data);
+        resolve();
+      }
+    }).then(
+        bindShow,
+        error => alert(error)
+    );
+  }
+}
+
+class NotePopup extends Widget {
+  constructor(animDuration, theme) {
+    super(animDuration);
+    this.styleTheme = theme;
+  }
+
+  create(data) {
+    super.create(data);
+
+    this.obj = document.createElement('div');
+    this.obj.classList = `note-popup ${this.styleTheme} popup__widget popup__widget_type_classic`;
+
+    this.exitCrossObj = document.createElement('div');
+    this.exitCrossObj.className = 'note-popup__exit-cross icon';
+    this.obj.append(this.exitCrossObj);
+
+    let titleBlock = document.createElement('div');
+    titleBlock.className = 'note-popup__title-block';
+    let titleDash = document.createElement('div');
+    titleDash.className = 'note-popup__title-dash';
+    let title = document.createElement('h3');
+    title.className = 'note-popup__title';
+    title.innerHTML = this.objData.note_title;
+    titleBlock.append(titleDash);
+    titleBlock.append(title);
+    this.obj.append(titleBlock);
+
+    let text = document.createElement('div');
+    text.className = 'note-popup__text';
+    text.innerHTML = this.objData.note_text;
+    this.obj.append(text);
+
+    this.container.append(this.obj);
+  }
+}
+
+/*<div class="popup popup_show" style="display: flex">
+      <div class="note-popup note-popup_theme_emerald popup__widget popup__widget_type_classic">
+          <div class="note-popup__exit-cross icon"></div>
+          <div class="note-popup__title-block">
+              <div class="note-popup__title-dash"></div>
+              <h3 class="note-popup__title">TITLE</h3>
+          </div>
+          <div class="note-popup__text">
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis distinctio esse iste laborum non odio quasi reiciendis? Assumenda autem cumque excepturi, iure odit sunt ut? A doloribus ex necessitatibus <ullam class=""></ullam></p>
+              <br>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium adipisci aliquam aspernatur atque beatae consequatur delectus error, exercitationem hic ipsa laudantium maxime modi pariatur quos ratione reiciendis repellat sint soluta!</p>
+              <br>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias debitis esse id inventore iure mollitia optio, quam qui quia, tenetur velit vitae voluptatibus? Ab corporis dolor est, nam natus ut.</p>
+          </div>
+      </div>
+  </div>
+*/

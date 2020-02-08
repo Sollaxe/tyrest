@@ -22,19 +22,31 @@
         scrollComputer.computeScroll();
     </script>
 
- <!--   <div class="popup popup_show" style="display: flex">
-        <div class="nav-menu popup__nav-menu nav-menu_theme_emerald">
-            <h3 class="nav-menu__head">MENU</h3>
-            <div class="nav-menu__separator"></div>
-            <nav class="nav-menu__list">
-                <div class="nav-menu__item">HOME</div>
-                <div class="nav-menu__item nav-menu__item_active">ABOUT</div>
-                <div class="nav-menu__item">EXPERTISE</div>
-            </nav>
+    <!--<div class="popup popup_show" style="display: flex">
+        <div class="note-popup note-popup_theme_emerald popup__widget popup__widget_type_classic">
+            <div class="note-popup__exit-cross icon"></div>
+            <div class="note-popup__title-block">
+                <div class="note-popup__title-dash"></div>
+                <h3 class="note-popup__title">TITLE</h3>
+            </div>
+            <div class="note-popup__text">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis distinctio esse iste laborum non odio quasi reiciendis? Assumenda autem cumque excepturi, iure odit sunt ut? A doloribus ex necessitatibus <ullam class=""></ullam></p>
+                <br>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium adipisci aliquam aspernatur atque beatae consequatur delectus error, exercitationem hic ipsa laudantium maxime modi pariatur quos ratione reiciendis repellat sint soluta!</p>
+                <br>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias debitis esse id inventore iure mollitia optio, quam qui quia, tenetur velit vitae voluptatibus? Ab corporis dolor est, nam natus ut.</p>
+            </div>
         </div>
     </div>-->
 
     <script src="/script/popup.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        let note = new NotePopup(0.2, 'note-popup_theme_emerald');
+        note.open({
+          note_title: 'TITLE',
+          note_text: "<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis distinctio esse iste laborum non odio quasi reiciendis? Assumenda autem cumque excepturi, iure odit sunt ut? A doloribus ex necessitatibus</p><br><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium adipisci aliquam aspernatur atque beatae consequatur delectus error, exercitationem hic ipsa laudantium maxime modi pariatur quos ratione reiciendis repellat sint soluta!</p><br><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias debitis esse id inventore iure mollitia optio, quam qui quia, tenetur velit vitae voluptatibus? Ab corporis dolor est, nam natus ut.</p>"
+        });
+    </script>
 
     <header class="header header_theme_emerald body__section">
         <div class="header__wrap page-wrapper">
@@ -299,7 +311,7 @@
         <div class="page-wrapper contact__wrap">
             <div class="contact__user-mess-block">
                 <div class="section-title section-title_theme_classic">
-                    <h3 class="section-title__name">GIVE US A GOOD NEWS</h3>
+                    <h2 class="section-title__name">GIVE US A GOOD NEWS</h2>
                 </div>
                 <form action="/" class="contact__form" method="post">
                     <label class="contact__label"><input name="name" type="text"
@@ -318,7 +330,7 @@
             </div>
             <div class="contact__client-col">
                 <div class="section-title section-title_theme_classic">
-                    <h3 class="section-title__name">OUR HAPPY CLIENT</h3>
+                    <h2 class="section-title__name">OUR HAPPY CLIENT</h2>
                 </div>
                 <div class="contact__client-list">
                     <a class="contact__client-item icon anchor anchor_type_icon"
@@ -361,7 +373,7 @@
                 </div>
                 <div class="footer__location-block">
                     <div class="section-title section-title_theme_small-white footer__section-title">
-                        <h4 class="section-title__name">OUR STUDIO</h4>
+                        <h3 class="section-title__name">OUR STUDIO</h3>
                     </div>
                     <div class="icon-text icon-text_theme_white footer__location-text">
                         <p class="icon-text__item icon-text__item_icon_location">Ruko cucruk, Jl. Radio luar dalem jos
@@ -371,7 +383,7 @@
                 </div>
                 <div class="footer__share-block">
                     <div class="section-title section-title_theme_small-white footer__section-title">
-                        <h4 class="section-title__name">STAY IN TOUCH</h4>
+                        <h3 class="section-title__name">STAY IN TOUCH</h3>
                     </div>
                     <div class="footer__share-block-wrap">
                         <form class="footer__mailing">

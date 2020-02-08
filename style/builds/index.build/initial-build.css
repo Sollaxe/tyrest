@@ -636,6 +636,10 @@
   -o-animation-iteration-count: 1;
   animation-iteration-count: 1;
 }
+.popup__widget_type_classic {
+  border-bottom: 5px solid;
+  border-top: 5px solid;
+}
 @keyframes show_popup {
   0% {
     opacity: 0;
@@ -937,9 +941,6 @@
   right: -24px;
   width: 24px;
   height: 24px;
-  background-position: center center;
-  background-size: contain;
-  background-repeat: no-repeat;
   background-image: url("/style/style-image/icon/white-cross-icon.png");
   cursor: pointer;
 }
@@ -1031,6 +1032,51 @@
     opacity: 1;
     transform: translateY(0);
   }
+}
+.note-popup {
+  width: 620px;
+  padding: 30px 25px 40px;
+  display: grid;
+  justify-items: flex-start;
+  grid-gap: 20px;
+  position: relative;
+}
+.note-popup__exit-cross {
+  position: absolute;
+  top: 25px;
+  right: 15px;
+  width: 24px;
+  height: 24px;
+  background-image: url("/style/style-image/icon/emerald-cross-icon.png");
+  cursor: pointer;
+}
+.note-popup__title-block {
+  display: grid;
+  grid-auto-flow: column;
+  justify-items: flex-start;
+  align-items: center;
+  grid-gap: 10px;
+}
+.note-popup__title-dash {
+  width: 20px;
+  height: 2px;
+}
+.note-popup__title {
+  font-family: 'PlayfairDisplay_Bold', serif;
+  font-size: 1.375em;
+}
+.note-popup__text {
+  font-family: 'Roboto_Light', sans-serif;
+  font-size: 0.9375em;
+  line-height: 1.25rem;
+}
+.note-popup_theme_emerald {
+  border-color: #00c5c2;
+  background-color: white;
+  color: #413d4b;
+}
+.note-popup_theme_emerald .note-popup__title-dash {
+  background-color: #00c5c2;
 }
 .page-wrapper {
   max-width: 960px;
