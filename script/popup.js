@@ -14,20 +14,22 @@ class Popup {
 
   show() {
     this.container.style.display = 'flex';
-    document.body.overflowY = 'hidden';
+    document.body.style.overflowY = 'hidden';
     this.container.classList.remove('popup_hide');
     this.container.classList.add('popup_show');
   }
 
+  handlerTimeoutHide() {
+    document.body.style.overflowY = 'auto';
+    this.container.style.display = 'none';
+  }
+
   hide() {
-    let self = this;
     this.container.classList.remove('popup_show');
     this.container.classList.add('popup_hide');
 
-    setTimeout(function() {
-      document.body.overflowY = 'auto';
-      self.container.style.display = 'none';
-    }, this.animDuration * 1000);
+    let bindHandler = this.handlerTimeoutHide.bind(this);
+    setTimeout(bindHandler, this.animDuration * 1000);
   }
 
   open() {
@@ -53,13 +55,20 @@ class NavMenu extends Popup {
     this.navElemArr = navElemArr;
     this.itemAnimDuration = itemAnimDuration;
     this.obj = null;
+    this.navElemDomObjs = [];
+    this.exitCrossObj = null;
   }
 
   createPopup() {
     super.createPopup();
+    let self = this;
 
     this.obj = document.createElement("div");
     this.obj.className = `nav-menu popup__nav-menu ${this.styleTheme}`;
+
+    this.exitCrossObj = document.createElement('div');
+    this.exitCrossObj.className = 'nav-menu__exit-cross';
+    this.obj.append(this.exitCrossObj);
 
     let navHead = document.createElement('h3');
     navHead.className = 'nav-menu__head';
@@ -77,15 +86,51 @@ class NavMenu extends Popup {
       let currItem = document.createElement('div');
       currItem.className = 'nav-menu__item';
       currItem.innerHTML = item.innerText;
+      currItem.style.animationDuration = self.itemAnimDuration + 's';
 
       if (item.type === 'active') {
         currItem.classList.add('nav-menu__item_active');
       }
 
+      self.navElemDomObjs.push(currItem);
       navList.append(currItem);
     });
 
     this.obj.append(navList);
     this.container.append(this.obj);
+  }
+
+  animNavItems() {
+    let self = this;
+    let i = 0;
+
+    setTimeout(function () {
+      self.navElemDomObjs[i].classList.add('nav-menu__item_show');
+      let intervalID = setInterval(function () {
+        i++;
+
+        if (i >= self.navElemDomObjs.length) {
+          clearInterval(intervalID);
+        } else {
+          self.navElemDomObjs[i].classList.add('nav-menu__item_show');
+        }
+      }, (self.itemAnimDuration * 1000) - 50);
+    }, this.animDuration * 1000);
+  }
+
+  handlerTimeoutHide() {
+    super.handlerTimeoutHide();
+
+    this.navElemDomObjs.forEach(function (item) {
+      item.classList.remove('nav-menu__item_show');
+    })
+  }
+
+  show() {
+    super.show();
+    this.animNavItems();
+
+    let exitBind = this.exit.bind(this);
+    this.exitCrossObj.addEventListener('click', exitBind);
   }
 }

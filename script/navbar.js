@@ -61,7 +61,7 @@ class Navbar {
     this.butToNav.className = 'header__btn-nav btn btn_type_icon';
     this.parent.append(this.butToNav);
 
-    let navMenu = new NavMenu(0.2, 'nav-menu_theme_emerald', 0.1, this.navElemObj);
+    let navMenu = new NavMenu(0.2, 'nav-menu_theme_emerald', 0.13, this.navElemObj);
     let handlerMenuOpen =  navMenu.open.bind(navMenu);
 
     this.butToNav.addEventListener('click', handlerMenuOpen);

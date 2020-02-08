@@ -15,3 +15,19 @@
     background-color: @emerald;
   }
 }
+
+.nav-menu__item_show {
+  .popupAnim(show-nav-menu-item, ease-in-out, forwards);
+}
+
+@show-nav-menu-item: {
+  0% {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.createKeyframes(show-nav-menu-item, @show-nav-menu-item);

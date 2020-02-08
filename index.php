@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="/style/builds/index.build/tablet.css" media="only screen and (min-width: 451px) and (max-width: 900px)">
     <link rel="stylesheet" href="/style/builds/index.build/mobile.css" media="only screen and (max-width: 450px)">
 </head>
-<body class="body" style="overflow-y: hidden">
+<body class="body">
     <script src="/script/scrollComputer.js" type="text/javascript"></script>
     <script type="text/javascript">
         let scrollComputer = new ScrollComputer('.body__section');

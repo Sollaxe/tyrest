@@ -609,10 +609,10 @@
   -moz-animation-timing-function: linear;
   -o-animation-timing-function: linear;
   animation-timing-function: linear;
-  -webkit-animation-fill-mode: none;
-  -moz-animation-fill-mode: none;
-  -o-animation-fill-mode: none;
-  animation-fill-mode: none;
+  -webkit-animation-fill-mode: forwards;
+  -moz-animation-fill-mode: forwards;
+  -o-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
   -webkit-animation-iteration-count: 1;
   -moz-animation-iteration-count: 1;
   -o-animation-iteration-count: 1;
@@ -627,10 +627,10 @@
   -moz-animation-timing-function: linear;
   -o-animation-timing-function: linear;
   animation-timing-function: linear;
-  -webkit-animation-fill-mode: none;
-  -moz-animation-fill-mode: none;
-  -o-animation-fill-mode: none;
-  animation-fill-mode: none;
+  -webkit-animation-fill-mode: forwards;
+  -moz-animation-fill-mode: forwards;
+  -o-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
   -webkit-animation-iteration-count: 1;
   -moz-animation-iteration-count: 1;
   -o-animation-iteration-count: 1;
@@ -931,8 +931,7 @@
   grid-gap: 22px;
   position: relative;
 }
-.nav-menu:after {
-  content: '';
+.nav-menu__exit-cross {
   position: absolute;
   top: 0;
   right: -24px;
@@ -960,6 +959,8 @@
 .nav-menu__item {
   font-family: 'Roboto_Light', sans-serif;
   font-size: 1.75em;
+  opacity: 0;
+  cursor: pointer;
 }
 .nav-menu_theme_emerald .nav-menu__head {
   color: white;
@@ -972,6 +973,64 @@
 }
 .nav-menu_theme_emerald .nav-menu__separator {
   background-color: #00c5c2;
+}
+.nav-menu__item_show {
+  -webkit-animation-name: show-nav-menu-item;
+  -moz-animation-name: show-nav-menu-item;
+  -o-animation-name: show-nav-menu-item;
+  animation-name: show-nav-menu-item;
+  -webkit-animation-timing-function: ease-in-out;
+  -moz-animation-timing-function: ease-in-out;
+  -o-animation-timing-function: ease-in-out;
+  animation-timing-function: ease-in-out;
+  -webkit-animation-fill-mode: forwards;
+  -moz-animation-fill-mode: forwards;
+  -o-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-iteration-count: 1;
+  -moz-animation-iteration-count: 1;
+  -o-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+}
+@keyframes show-nav-menu-item {
+  0% {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@-webkit-keyframes show-nav-menu-item {
+  0% {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@-o-keyframes show-nav-menu-item {
+  0% {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@-moz-keyframes show-nav-menu-item {
+  0% {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 .page-wrapper {
   max-width: 960px;
