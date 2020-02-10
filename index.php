@@ -1,3 +1,7 @@
+<?php
+    require 'modules/m_connection.php';
+?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -21,6 +25,7 @@
         let scrollComputer = new ScrollComputer('.body__section');
         scrollComputer.computeScroll();
     </script>
+    <script src="/script/popup.js" type="text/javascript"></script>
 
     <!--<div class="popup popup_show" style="display: flex">
         <div class="note-popup note-popup_theme_emerald popup__widget popup__widget_type_classic">
@@ -39,33 +44,29 @@
         </div>
     </div>-->
 
-    <script src="/script/popup.js" type="text/javascript"></script>
-    <script type="text/javascript">
-        let note = new NotePopup(0.2, 'note-popup_theme_emerald');
-        note.open({
-          note_title: 'TITLE',
-          note_text: "<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis distinctio esse iste laborum non odio quasi reiciendis? Assumenda autem cumque excepturi, iure odit sunt ut? A doloribus ex necessitatibus</p><br><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium adipisci aliquam aspernatur atque beatae consequatur delectus error, exercitationem hic ipsa laudantium maxime modi pariatur quos ratione reiciendis repellat sint soluta!</p><br><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias debitis esse id inventore iure mollitia optio, quam qui quia, tenetur velit vitae voluptatibus? Ab corporis dolor est, nam natus ut.</p>"
-        });
-    </script>
+
 
     <header class="header header_theme_emerald body__section">
         <div class="header__wrap page-wrapper">
-            <div class="header__top">
-                <div class="logo-block logo-block_theme_emerald header__logo">
-                    <img class="logo-block__logo header__logo-img" src="/style/style-image/border-logo.png" alt="logo">
-                    <span class="logo-block__brand header__brand text">tyrest</span>
+            <div class="header__top-container">
+                <div class="header__top">
+                    <div class="logo-block logo-block_theme_emerald header__logo">
+                        <img class="logo-block__logo header__logo-img" src="/style/style-image/border-logo.png" alt="logo">
+                        <span class="logo-block__brand header__brand text">tyrest</span>
+                    </div>
+                    <!--<nav class="navbar navbar_theme_emerald header__navbar">
+                        <a class="anchor btn btn_type_flex navbar__item navbar__item_active">HOME</a>
+                        <a class="anchor btn btn_type_flex navbar__item">ABOUT</a>
+                        <a class="anchor btn btn_type_flex navbar__item">EXPERTISE</a>
+                        <a class="anchor btn btn_type_flex navbar__item">TEAMS</a>
+                        <a class="anchor btn btn_type_flex navbar__item">WORKS</a>
+                        <a class="anchor btn btn_type_flex navbar__item">PEOPLE SAY</a>
+                        <a class="anchor btn btn_type_flex navbar__item">CONTACT</a>
+                    </nav>
+                    <div class="header__btn-nav btn btn_type_icon"></div>-->
                 </div>
-                <!--<nav class="navbar navbar_theme_emerald header__navbar">
-                    <a class="anchor btn btn_type_flex navbar__item navbar__item_active">HOME</a>
-                    <a class="anchor btn btn_type_flex navbar__item">ABOUT</a>
-                    <a class="anchor btn btn_type_flex navbar__item">EXPERTISE</a>
-                    <a class="anchor btn btn_type_flex navbar__item">TEAMS</a>
-                    <a class="anchor btn btn_type_flex navbar__item">WORKS</a>
-                    <a class="anchor btn btn_type_flex navbar__item">PEOPLE SAY</a>
-                    <a class="anchor btn btn_type_flex navbar__item">CONTACT</a>
-                </nav>
-                <div class="header__btn-nav btn btn_type_icon"></div>-->
             </div>
+
             <div class="slider slider_theme_emerald header__slider">
                 <div class="slider__content">
                     <div class="slider__title-container">
@@ -100,9 +101,7 @@
                     <h2 class="section-title__name about__section-name">OUR STORY</h2>
                 </div>
                 <div class="about__text">
-                    <p>This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus</p>
-                    <br>
-                    <p>Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non  mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
+                
                 </div>
                 <div class="btn btn_type_classic btn_theme_classic-emerald about__btn-more">
                     <span class="btn__text">Learn More</span>
