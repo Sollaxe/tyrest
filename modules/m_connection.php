@@ -2,15 +2,14 @@
 
 setlocale(LC_ALL, '');
 
-$connection = mysqli_connect(
+$mysqli = new mysqli(
     '127.0.0.1',
     'unknown',
     'pas',
     'tyrest'
 );
 
-
-if ( $connection == false ) {
-    header('HTTP/1.1 500 Internal Server Error');
-    exit();
+if ($mysqli->connect_errno) {
+  header('HTTP/1.1 500 Internal Server Error');
+  exit();
 }

@@ -1,6 +1,7 @@
 class Popup {
-  constructor(animDuration) {
+  constructor(animDuration, theme) {
     this.container = null;
+    this.styleTheme = theme;
     this.animDuration = animDuration;
     this.obj = null;
     this.exitCrossObj = null;
@@ -8,7 +9,7 @@ class Popup {
 
   create() {
     this.container = document.createElement('div');
-    this.container.className = 'popup';
+    this.container.className = `popup ${this.styleTheme}`;
     this.container.style.display = 'none';
     this.container.style.animationDuration = this.animDuration + 's';
     document.body.prepend(this.container);
@@ -55,8 +56,7 @@ class Popup {
 
 class NavMenu extends Popup {
   constructor(animDuration, theme, itemAnimDuration, navElemArr) {
-    super(animDuration);
-    this.styleTheme = theme;
+    super(animDuration, theme);
     this.navElemArr = navElemArr;
     this.itemAnimDuration = itemAnimDuration;
     this.navElemDomObjs = [];
@@ -136,8 +136,8 @@ class NavMenu extends Popup {
 }
 
 class Widget extends Popup {
-  constructor(animDuration) {
-    super(animDuration);
+  constructor(animDuration, theme) {
+    super(animDuration, theme);
     this.objData = null;
   }
 
@@ -174,31 +174,57 @@ class Widget extends Popup {
 }
 
 class NotePopup extends Widget {
-  constructor(animDuration, theme) {
-    super(animDuration);
-    this.styleTheme = theme;
+  constructor(animDuration, theme, widgetType) {
+    super(animDuration, theme);
+
+    let whiteList = ['small', 'big'];
+    if (!whiteList.includes(widgetType)) {
+      throw new NotePopupError('invalid note type');
+    }
+
+    this.widgetType = widgetType;
   }
 
   create(data) {
     super.create(data);
 
     this.obj = document.createElement('div');
-    this.obj.classList = `note-popup ${this.styleTheme} popup__widget popup__widget_type_classic`;
+    this.obj.classList = `note-popup note-popup_type_${this.widgetType} popup__widget popup__widget_type_classic`;
 
     this.exitCrossObj = document.createElement('div');
     this.exitCrossObj.className = 'note-popup__exit-cross icon';
     this.obj.append(this.exitCrossObj);
 
-    let titleBlock = document.createElement('div');
-    titleBlock.className = 'note-popup__title-block';
-    let titleDash = document.createElement('div');
-    titleDash.className = 'note-popup__title-dash';
-    let title = document.createElement('h3');
-    title.className = 'note-popup__title';
-    title.innerHTML = this.objData.note_title;
-    titleBlock.append(titleDash);
-    titleBlock.append(title);
-    this.obj.append(titleBlock);
+    let titleContainer = document.createElement('div');
+    titleContainer.className = 'note-popup__title-container';
+
+    switch (this.widgetType) {
+      case 'small':
+        let titleDash = document.createElement('div');
+        titleDash.className = 'note-popup__title-dash';
+        let title = document.createElement('h3');
+        title.className = 'note-popup__title';
+        title.innerHTML = this.objData.note_title;
+
+        titleContainer.append(titleDash);
+        titleContainer.append(title);
+        break;
+      case 'big':
+        let titleBlock = document.createElement('div');
+        titleBlock.className = 'note-popup__title-block';
+        let titleText = document.createElement('span');
+        titleText.className = 'note-popup__title-block-text';
+        titleText.innerHTML = this.objData.note_title;
+
+        titleBlock.append(titleText);
+        titleContainer.append(titleBlock);
+        break;
+    }
+
+
+    this.obj.append(titleContainer);
+
+
 
     let text = document.createElement('div');
     text.className = 'note-popup__text';
@@ -216,6 +242,11 @@ class NotePopup extends Widget {
               <div class="note-popup__title-dash"></div>
               <h3 class="note-popup__title">TITLE</h3>
           </div>
+          <div class="note-popup__title-container">
+                <div class="note-popup__title-block">
+                    <span class="note-popup__title-block-text">Help</span>
+                </div>
+           </div>
           <div class="note-popup__text">
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis distinctio esse iste laborum non odio quasi reiciendis? Assumenda autem cumque excepturi, iure odit sunt ut? A doloribus ex necessitatibus <ullam class=""></ullam></p>
               <br>
@@ -226,3 +257,6 @@ class NotePopup extends Widget {
       </div>
   </div>
 */
+
+let note = new NotePopup(0.2, 'popup_theme_emerald', 'big');
+note.open({note_title: 'TITLE', note_text: '<p class="note-popup__paragraph">text text text text text text text text text text text text</p>'});

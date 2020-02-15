@@ -1,14 +1,14 @@
 .note-popup__exit-cross {
   position: absolute;
   top: 25px;
-  right: 15px;
+  right: 25px;
   width: 24px;
   height: 24px;
   background-image: url("/style/style-image/icon/emerald-cross-icon.png");
   cursor: pointer;
 }
 
-.note-popup__title-block {
+.note-popup__title-container {
   display: grid;
   grid-auto-flow: column;
   justify-items: flex-start;
@@ -26,8 +26,39 @@
   .text_em-size(22);
 }
 
-.note-popup__text {
+.note-popup__title-block {
+  height: 36px;
+  min-width: 90px;
+  border-radius: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.note-popup__title-block-text {
   .text_font_roboto-light();
-  .text_em-size(15);
-  .text_line-rem-size(20);
+  .text_em-size(22);
+}
+
+.note-popup__text {
+  display: grid;
+  grid-gap: 20px;
+
+  .note-popup__text-title {
+    .text_font_playfair-medium();
+    .text_em-size(24);
+    display: flex;
+    justify-content: center;
+    margin-top: 4px;
+
+    span {
+      border-bottom: 1px solid;
+    }
+  }
+
+  .note-popup__paragraph {
+    .text_font_roboto-light();
+    .text_em-size(15);
+    .text_line-rem-size(20);
+  }
 }

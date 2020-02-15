@@ -647,6 +647,11 @@
   border-bottom: 5px solid;
   border-top: 5px solid;
 }
+.popup_theme_emerald .popup__widget_type_classic {
+  border-color: #00c5c2;
+  background-color: white;
+  color: #413d4b;
+}
 @keyframes show_popup {
   0% {
     opacity: 0;
@@ -970,16 +975,16 @@
   opacity: 0;
   cursor: pointer;
 }
-.nav-menu_theme_emerald .nav-menu__head {
+.popup_theme_emerald .nav-menu__head {
   color: white;
 }
-.nav-menu_theme_emerald .nav-menu__item {
+.popup_theme_emerald .nav-menu__item {
   color: white;
 }
-.nav-menu_theme_emerald .nav-menu__item_active {
+.popup_theme_emerald .nav-menu__item_active {
   color: #00c5c2;
 }
-.nav-menu_theme_emerald .nav-menu__separator {
+.popup_theme_emerald .nav-menu__separator {
   background-color: #00c5c2;
 }
 .nav-menu__item_show {
@@ -1041,23 +1046,21 @@
   }
 }
 .note-popup {
-  width: 620px;
-  padding: 30px 25px 40px;
+  padding: 25px 25px 40px;
   display: grid;
   justify-items: flex-start;
-  grid-gap: 20px;
   position: relative;
 }
 .note-popup__exit-cross {
   position: absolute;
   top: 25px;
-  right: 15px;
+  right: 25px;
   width: 24px;
   height: 24px;
   background-image: url("/style/style-image/icon/emerald-cross-icon.png");
   cursor: pointer;
 }
-.note-popup__title-block {
+.note-popup__title-container {
   display: grid;
   grid-auto-flow: column;
   justify-items: flex-start;
@@ -1072,18 +1075,56 @@
   font-family: 'PlayfairDisplay_Bold', serif;
   font-size: 1.375em;
 }
+.note-popup__title-block {
+  height: 36px;
+  min-width: 90px;
+  border-radius: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.note-popup__title-block-text {
+  font-family: 'Roboto_Light', sans-serif;
+  font-size: 1.375em;
+}
 .note-popup__text {
+  display: grid;
+  grid-gap: 20px;
+}
+.note-popup__text .note-popup__text-title {
+  font-family: 'PlayfairDisplay_Medium', serif;
+  font-size: 1.5em;
+  display: flex;
+  justify-content: center;
+  margin-top: 4px;
+}
+.note-popup__text .note-popup__text-title span {
+  border-bottom: 1px solid;
+}
+.note-popup__text .note-popup__paragraph {
   font-family: 'Roboto_Light', sans-serif;
   font-size: 0.9375em;
   line-height: 1.25rem;
 }
-.note-popup_theme_emerald {
-  border-color: #00c5c2;
-  background-color: white;
-  color: #413d4b;
-}
-.note-popup_theme_emerald .note-popup__title-dash {
+.popup_theme_emerald .note-popup__title-dash {
   background-color: #00c5c2;
+}
+.popup_theme_emerald .note-popup__title-block {
+  background-color: #00c5c2;
+}
+.popup_theme_emerald .note-popup__title-block-text {
+  color: white;
+}
+.popup_theme_emerald .note-popup__text span {
+  border-color: #00c5c2;
+}
+.note-popup_type_small {
+  width: 620px;
+  grid-gap: 20px;
+}
+.note-popup_type_big {
+  width: 820px;
+  grid-gap: 10px;
 }
 .page-wrapper {
   max-width: 960px;

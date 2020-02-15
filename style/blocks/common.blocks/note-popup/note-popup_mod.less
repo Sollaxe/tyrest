@@ -1,9 +1,30 @@
-.note-popup_theme_emerald {
-  border-color: @emerald;
-  background-color: white;
-  color: @dark-purple;
-
+.popup_theme_emerald {
   .note-popup__title-dash {
     background-color: @emerald;
   }
+
+  .note-popup__title-block {
+    background-color: @emerald;
+  }
+
+  .note-popup__title-block-text {
+    color: white;
+  }
+
+  .note-popup__text {
+    span {
+      border-color: @emerald;
+    }
+  }
+
+}
+
+.note-popup_type_small {
+  width: 620px;
+  grid-gap: 20px;
+}
+
+.note-popup_type_big {
+  width: 820px;
+  grid-gap: 10px;
 }

@@ -1,10 +1,9 @@
 class ScrollComputer {
-  constructor(compElemSelector) {
-    this.scrollWidth = 0;
-    this.elemSelector = compElemSelector;
+  constructor() {
+    this.scrollWidth = null;
   }
 
-  calcScrollWidth() {
+  static calcScrollWidth() {
     let div = document.createElement('div');
     div.style.overflowY = 'scroll';
     div.style.width = '50px';
@@ -15,12 +14,13 @@ class ScrollComputer {
     document.body.removeChild(div);
   }
 
-  computeScroll() {
-    this.calcScrollWidth();
-    if (this.scrollWidth !== 0) {
+  static computeScroll(compElemSelector) {
+    if (this.scrollWidth !== null) {
       let style = document.createElement('style');
-      style.innerHTML = `${this.elemSelector} {padding-right: ${this.scrollWidth}px`;
+      style.innerHTML = `${compElemSelector} {padding-right: ${this.scrollWidth}px`;
       document.head.append(style);
     }
   }
 }
+
+ScrollComputer.calcScrollWidth();

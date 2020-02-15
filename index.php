@@ -18,31 +18,47 @@
     <link rel="stylesheet" href="/style/builds/index.build/desktop.css" media="only screen and (min-width: 901px)">
     <link rel="stylesheet" href="/style/builds/index.build/tablet.css" media="only screen and (min-width: 451px) and (max-width: 900px)">
     <link rel="stylesheet" href="/style/builds/index.build/mobile.css" media="only screen and (max-width: 450px)">
+    <script src="/script/main.js" type="text/javascript"></script>
 </head>
 <body class="body">
     <script src="/script/scrollComputer.js" type="text/javascript"></script>
     <script type="text/javascript">
-        let scrollComputer = new ScrollComputer('.body__section');
-        scrollComputer.computeScroll();
+        ScrollComputer.computeScroll('.body__section');
     </script>
     <script src="/script/popup.js" type="text/javascript"></script>
 
-    <!--<div class="popup popup_show" style="display: flex">
-        <div class="note-popup note-popup_theme_emerald popup__widget popup__widget_type_classic">
-            <div class="note-popup__exit-cross icon"></div>
-            <div class="note-popup__title-block">
-                <div class="note-popup__title-dash"></div>
-                <h3 class="note-popup__title">TITLE</h3>
-            </div>
-            <div class="note-popup__text">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis distinctio esse iste laborum non odio quasi reiciendis? Assumenda autem cumque excepturi, iure odit sunt ut? A doloribus ex necessitatibus <ullam class=""></ullam></p>
-                <br>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium adipisci aliquam aspernatur atque beatae consequatur delectus error, exercitationem hic ipsa laudantium maxime modi pariatur quos ratione reiciendis repellat sint soluta!</p>
-                <br>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias debitis esse id inventore iure mollitia optio, quam qui quia, tenetur velit vitae voluptatibus? Ab corporis dolor est, nam natus ut.</p>
-            </div>
-        </div>
-    </div>-->
+<!--    <div class="popup popup_theme_emerald popup_show" style="display: flex">-->
+<!--        <div class="note-popup note-popup_type_small popup__widget popup__widget_type_classic">-->
+<!--            <div class="note-popup__exit-cross icon"></div>-->
+<!--            <div class="note-popup__title-container">-->
+<!--                <div class="note-popup__title-dash"></div>-->
+<!--                <h3 class="note-popup__title">TITLE</h3>-->
+<!--            </div>-->
+<!--            <div class="note-popup__text">-->
+<!--                <p class="note-popup__paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis distinctio esse iste laborum non odio quasi reiciendis? Assumenda autem cumque excepturi, iure odit sunt ut? A doloribus ex necessitatibus <ullam class=""></ullam></p>-->
+<!--                <p class="note-popup__paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium adipisci aliquam aspernatur atque beatae consequatur delectus error, exercitationem hic ipsa laudantium maxime modi pariatur quos ratione reiciendis repellat sint soluta!</p>-->
+<!--                <p class="note-popup__paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias debitis esse id inventore iure mollitia optio, quam qui quia, tenetur velit vitae voluptatibus? Ab corporis dolor est, nam natus ut.</p>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!---->
+<!--    <div class="popup popup_theme_emerald popup_show" style="display: flex">-->
+<!--        <div class="note-popup note-popup_type_big popup__widget popup__widget_type_classic">-->
+<!--            <div class="note-popup__exit-cross icon"></div>-->
+<!--            <div class="note-popup__title-container">-->
+<!--                <div class="note-popup__title-block">-->
+<!--                    <span class="note-popup__title-block-text">Help</span>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="note-popup__text">-->
+<!--                <div class="note-popup__text-title"><span>OUR STORY</span></div>-->
+<!--                <p class="note-popup__paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis distinctio esse iste laborum non odio quasi reiciendis? Assumenda autem cumque excepturi, iure odit sunt ut? A doloribus ex necessitatibus <ullam class=""></ullam></p>-->
+<!--                <div class="note-popup__text-title"><span>OUR STORY</span></div>-->
+<!--                <p class="note-popup__paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium adipisci aliquam aspernatur atque beatae consequatur delectus error, exercitationem hic ipsa laudantium maxime modi pariatur quos ratione reiciendis repellat sint soluta!</p>-->
+<!--                <p class="note-popup__paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias debitis esse id inventore iure mollitia optio, quam qui quia, tenetur velit vitae voluptatibus? Ab corporis dolor est, nam natus ut.</p>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
 
 
 
@@ -101,7 +117,27 @@
                     <h2 class="section-title__name about__section-name">OUR STORY</h2>
                 </div>
                 <div class="about__text">
-                
+                  <?php
+                      $stmt = $mysqli->stmt_init();
+                    try {
+                      if (!$stmt->prepare('SELECT `min_desc` FROM `about` WHERE `id` = ?')) {
+                          new Exception('Невозможно подготовить запрос');
+                      }
+                      
+                      $stmt->bind_param('i', $id);
+                      
+                      $id = 1;
+                      
+                      $stmt->execute();
+                      $stmt->bind_result($text);
+                      $stmt->fetch();
+                      
+                      echo $text;
+                      
+                    } catch (Exception $e) {
+                        echo 'Ошибка запроса к БД: ', $e->getMessage();
+                    }
+                  ?>
                 </div>
                 <div class="btn btn_type_classic btn_theme_classic-emerald about__btn-more">
                     <span class="btn__text">Learn More</span>
