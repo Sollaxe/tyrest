@@ -179,7 +179,7 @@ class NotePopup extends Widget {
 
     let whiteList = ['small', 'big'];
     if (!whiteList.includes(widgetType)) {
-      throw new NotePopupError('invalid note type');
+      throw new ValueNotePopupError('is not valid', 'type');
     }
 
     this.widgetType = widgetType;
@@ -220,14 +220,10 @@ class NotePopup extends Widget {
         titleContainer.append(titleBlock);
         break;
     }
-
-
     this.obj.append(titleContainer);
 
-
-
     let text = document.createElement('div');
-    text.className = 'note-popup__text';
+    text.className = 'text-block text-block_theme_emerald note-popup__text';
     text.innerHTML = this.objData.note_text;
     this.obj.append(text);
 
@@ -258,5 +254,12 @@ class NotePopup extends Widget {
   </div>
 */
 
-let note = new NotePopup(0.2, 'popup_theme_emerald', 'big');
-note.open({note_title: 'TITLE', note_text: '<p class="note-popup__paragraph">text text text text text text text text text text text text</p>'});
+let note = new NotePopup(0.2, 'popup_theme_emerald', 'small');
+note.open({
+  note_title: 'TITLE',
+  note_text:'<div class="text-block__title"><span class="text-block__title-text">OUR STORY</span></div>\n' +
+      '<p class="text-block__paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis distinctio esse iste laborum non odio quasi reiciendis? Assumenda autem cumque excepturi, iure odit sunt ut? A doloribus ex necessitatibus <ullam class=""></ullam></p>\n' +
+      '<div class="text-block__title"><span class="text-block__title-text">OUR STORY</span></div>\n' +
+      '<p class="text-block__paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium adipisci aliquam aspernatur atque beatae consequatur delectus error, exercitationem hic ipsa laudantium maxime modi pariatur quos ratione reiciendis repellat sint soluta!</p>\n' +
+      '<p class="text-block__paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias debitis esse id inventore iure mollitia optio, quam qui quia, tenetur velit vitae voluptatibus? Ab corporis dolor est, nam natus ut.</p>'
+});

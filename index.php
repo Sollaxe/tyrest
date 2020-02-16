@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="/style/builds/index.build/tablet.css" media="only screen and (min-width: 451px) and (max-width: 900px)">
     <link rel="stylesheet" href="/style/builds/index.build/mobile.css" media="only screen and (max-width: 450px)">
     <script src="/script/main.js" type="text/javascript"></script>
+    <script src="/script/error.js" type="text/javascript"></script>
 </head>
 <body class="body">
     <script src="/script/scrollComputer.js" type="text/javascript"></script>
@@ -50,12 +51,12 @@
 <!--                    <span class="note-popup__title-block-text">Help</span>-->
 <!--                </div>-->
 <!--            </div>-->
-<!--            <div class="note-popup__text">-->
-<!--                <div class="note-popup__text-title"><span>OUR STORY</span></div>-->
-<!--                <p class="note-popup__paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis distinctio esse iste laborum non odio quasi reiciendis? Assumenda autem cumque excepturi, iure odit sunt ut? A doloribus ex necessitatibus <ullam class=""></ullam></p>-->
-<!--                <div class="note-popup__text-title"><span>OUR STORY</span></div>-->
-<!--                <p class="note-popup__paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium adipisci aliquam aspernatur atque beatae consequatur delectus error, exercitationem hic ipsa laudantium maxime modi pariatur quos ratione reiciendis repellat sint soluta!</p>-->
-<!--                <p class="note-popup__paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias debitis esse id inventore iure mollitia optio, quam qui quia, tenetur velit vitae voluptatibus? Ab corporis dolor est, nam natus ut.</p>-->
+<!--            <div class="text-block text-block_theme_emerald note-popup__text">-->
+<!--                <div class="text-block__title"><span class="text-block__title-text">OUR STORY</span></div>-->
+<!--                <p class="text-block__paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis distinctio esse iste laborum non odio quasi reiciendis? Assumenda autem cumque excepturi, iure odit sunt ut? A doloribus ex necessitatibus <ullam class=""></ullam></p>-->
+<!--                <div class="text-block__title"><span class="text-block__title-text">OUR STORY</span></div>-->
+<!--                <p class="text-block__paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium adipisci aliquam aspernatur atque beatae consequatur delectus error, exercitationem hic ipsa laudantium maxime modi pariatur quos ratione reiciendis repellat sint soluta!</p>-->
+<!--                <p class="text-block__paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias debitis esse id inventore iure mollitia optio, quam qui quia, tenetur velit vitae voluptatibus? Ab corporis dolor est, nam natus ut.</p>-->
 <!--            </div>-->
 <!--        </div>-->
 <!--    </div>-->
