@@ -17,10 +17,10 @@
 .slider_theme_emerald .slider__nav-item:hover {
   background-color: #00c5c2;
 }
-.btn_theme_classic-emerald {
+.btn_type_classic {
   transition: background-color 0.1s, color 0.1s;
 }
-.btn_theme_classic-emerald:hover {
+.btn.theme_emerald.btn_type_classic:hover {
   background-color: #00c5c2;
   color: #fff;
 }
@@ -68,7 +68,7 @@
 .about__content-block {
   justify-items: flex-start;
 }
-.about_theme_white-emerald .about__image {
+.about.theme_white .about__image {
   background-image: url("/style/style-image/logo.png");
 }
 .about-video {

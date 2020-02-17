@@ -39,10 +39,10 @@
 .section-title__hint {
   font-size: 0.875em;
 }
-.section-title_theme_extend {
+.section-title_type_extend {
   grid-gap: 15px;
 }
-.section-title_theme_extend-white {
+.section-title_type_extend-white {
   grid-gap: 15px;
 }
 .expertise__wrap {
