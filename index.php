@@ -65,25 +65,23 @@
 
     <header class="header header_theme_emerald body__section">
         <div class="header__wrap page-wrapper">
-            <div class="header__top-container">
-                <div class="header__top">
-                    <div class="logo-block logo-block_theme_emerald header__logo">
-                        <img class="logo-block__logo header__logo-img" src="/style/style-image/border-logo.png" alt="logo">
-                        <span class="logo-block__brand header__brand text">tyrest</span>
-                    </div>
-                    <!--<nav class="navbar navbar_theme_emerald header__navbar">
-                        <a class="anchor btn btn_type_flex navbar__item navbar__item_active">HOME</a>
-                        <a class="anchor btn btn_type_flex navbar__item">ABOUT</a>
-                        <a class="anchor btn btn_type_flex navbar__item">EXPERTISE</a>
-                        <a class="anchor btn btn_type_flex navbar__item">TEAMS</a>
-                        <a class="anchor btn btn_type_flex navbar__item">WORKS</a>
-                        <a class="anchor btn btn_type_flex navbar__item">PEOPLE SAY</a>
-                        <a class="anchor btn btn_type_flex navbar__item">CONTACT</a>
-                    </nav>
-                    <div class="header__btn-nav btn btn_type_icon"></div>-->
+            <div class="header__top">
+                <div class="logo-block logo-block_theme_emerald header__logo">
+                    <img class="logo-block__logo header__logo-img" src="/style/style-image/border-logo.png" alt="logo">
+                    <span class="logo-block__brand header__brand text">tyrest</span>
                 </div>
+                <!--<nav class="navbar navbar_theme_emerald header__navbar">
+                    <a class="anchor btn btn_type_flex navbar__item navbar__item_active">HOME</a>
+                    <a class="anchor btn btn_type_flex navbar__item">ABOUT</a>
+                    <a class="anchor btn btn_type_flex navbar__item">EXPERTISE</a>
+                    <a class="anchor btn btn_type_flex navbar__item">TEAMS</a>
+                    <a class="anchor btn btn_type_flex navbar__item">WORKS</a>
+                    <a class="anchor btn btn_type_flex navbar__item">PEOPLE SAY</a>
+                    <a class="anchor btn btn_type_flex navbar__item">CONTACT</a>
+                </nav>
+                <div class="header__btn-nav btn btn_type_icon"></div>-->
             </div>
-
+            
             <div class="slider slider_theme_emerald header__slider">
                 <div class="slider__content">
                     <div class="slider__title-container">

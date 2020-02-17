@@ -26,9 +26,10 @@
 }
 
 .slider__nav {
- display: flex;
-  justify-content: center;
-  align-items: center;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 12px;
+  grid-gap: 10px;
 }
 
 .slider__nav-item {
@@ -37,7 +38,6 @@
   border-style: solid;
   border-width: 1px;
   border-radius: 100%;
-  margin: 0 5px;
   transition: background-color .1s ease, border-width .1s ease;
 }
 
