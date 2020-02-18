@@ -116,7 +116,7 @@
   background-size: cover;
 }
 .about-video.theme_emerald .about-video__btn-play {
-  background-image: url("/style/style-image/play-btn-white.png");
+  background-image: url("/style/style-image/icon/play-btn-white-icon.png");
 }
 .about-video.theme_emerald .about-video__hint-btn {
   color: #fff;
@@ -342,9 +342,9 @@
   grid-gap: 15px;
 }
 .header.theme_emerald {
-  background-image: -webkit-linear-gradient(0deg, rgba(9, 5, 47, 0.85) 0%, rgba(49, 29, 94, 0.85) 100%), url("/style/style-image/background-image.png");
-  background-image: -moz-linear-gradient(0deg, rgba(9, 5, 47, 0.85) 0%, rgba(49, 29, 94, 0.85) 100%), url("/style/style-image/background-image.png");
-  background-image: -ms-linear-gradient(0deg, rgba(9, 5, 47, 0.85) 0%, rgba(49, 29, 94, 0.85) 100%), url("/style/style-image/background-image.png");
+  background-image: -webkit-linear-gradient(0deg, rgba(9, 5, 47, 0.85) 0%, rgba(49, 29, 94, 0.85) 100%), url("/style/style-image/background-image-1.png");
+  background-image: -moz-linear-gradient(0deg, rgba(9, 5, 47, 0.85) 0%, rgba(49, 29, 94, 0.85) 100%), url("/style/style-image/background-image-1.png");
+  background-image: -ms-linear-gradient(0deg, rgba(9, 5, 47, 0.85) 0%, rgba(49, 29, 94, 0.85) 100%), url("/style/style-image/background-image-1.png");
   background-repeat: no-repeat;
   background-position: 50% 50%;
   background-size: cover;

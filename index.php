@@ -1,5 +1,6 @@
 <?php
     require 'modules/m_connection.php';
+    require 'modules/expertise.php'
 ?>
 
 <!doctype html>
@@ -62,7 +63,6 @@
 <!--    </div>-->
 
 
-
     <header class="header body__section theme_emerald">
         <div class="header__wrap page-wrapper">
             <div class="header__top">
@@ -116,27 +116,30 @@
                     <h2 class="section-title__name about__section-name">OUR STORY</h2>
                 </div>
                 <div class="about__text">
-                  <?php
-                      $stmt = $mysqli->stmt_init();
-                    try {
-                      if (!$stmt->prepare('SELECT `min_desc` FROM `about` WHERE `id` = ?')) {
-                          new Exception('Невозможно подготовить запрос');
-                      }
-                      
-                      $stmt->bind_param('i', $id);
-                      
-                      $id = 1;
-                      
-                      $stmt->execute();
-                      $stmt->bind_result($text);
-                      $stmt->fetch();
-                      
-                      echo $text;
-                      
-                    } catch (Exception $e) {
-                        echo 'Ошибка запроса к БД: ', $e->getMessage();
-                    }
-                  ?>
+                    <?php
+                        $stmt = $mysqli->stmt_init();
+
+                        //TODO: Переписать в класс About, дабы это всё не валялось вот так
+
+                        try {
+                            if (!$stmt->prepare('SELECT `min_desc` FROM `about` WHERE `id` = ?')) {
+                                new Exception('Невозможно подготовить запрос');
+                            }
+
+                            $stmt->bind_param('i', $id);
+                            $id = 1;
+
+                            $stmt->execute();
+                            $stmt->bind_result($text);
+                            $stmt->fetch();
+
+                            echo $text;
+                        } catch (Exception $e) {
+                            echo 'Ошибка запроса к БД: ', $e->getMessage();
+                        }
+
+                        $stmt->close();
+                    ?>
                 </div>
                 <div class="btn btn_type_classic about__btn-more theme_emerald">
                     <span class="btn__text">Learn More</span>
@@ -164,34 +167,41 @@
                 <div class="section-title__separator"></div>
             </div>
             <div class="expertise__content">
-                <div class="expertise__item">
-                    <div class="icon expertise__item-icon" style="background-image: url('/style/style-image/icon/comp-icon.png')"></div>
-                    <h3 class="expertise__item-name">WEB DESIGN & DEVELOPMENT</h3>
-                    <p class="expertise__item-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium autem dolor explicabo id impedit maxime pariatur reiciendis saepe veritatis vero?</p>
-                </div>
-                <div class="expertise__item">
-                    <div class="icon expertise__item-icon" style="background-image: url('/style/style-image/icon/tassel-icon.png')"></div>
-                    <h3 class="expertise__item-name">BRANDING IDENTITY</h3>
-                    <p class="expertise__item-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium autem dolor explicabo id impedit maxime pariatur reiciendis saepe veritatis vero?</p>
-                </div>
-                <div class="expertise__item">
-                    <div class="icon expertise__item-icon" style="background-image: url('/style/style-image/icon/phone-icon.png')"></div>
-                    <h3 class="expertise__item-name">MOBILE APP</h3>
-                    <p class="expertise__item-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium autem dolor explicabo id impedit maxime pariatur reiciendis saepe veritatis vero?</p>
-                </div>
-                <div class="expertise__item">
-                    <div class="icon expertise__item-icon" style="background-image: url('/style/style-image/icon/diagramm-icon.png')"></div>
-                    <h3 class="expertise__item-name">SEARCH ENGINE OPTIMISATION</h3>
-                    <p class="expertise__item-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium autem dolor explicabo id impedit maxime pariatur reiciendis saepe veritatis vero?</p>
-                </div>
-                <div class="expertise__item">
-                    <div class="icon expertise__item-icon" style="background-image: url('/style/style-image/icon/psp-icon.png')"></div>
-                    <h3 class="expertise__item-name">GAME DEVELOPMENT</h3>
-                    <p class="expertise__item-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium autem dolor explicabo id impedit maxime pariatur reiciendis saepe veritatis vero?</p>
-                </div>
-                <div class="expertise__item"><div class="icon expertise__item-icon" style="background-image: url('/style/style-image/icon/heart-icon.png')"></div>
-                    <h3 class="expertise__item-name">MADE WITH LOVE</h3>
-                    <p class="expertise__item-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium autem dolor explicabo id impedit maxime pariatur reiciendis saepe veritatis vero?</p></div>
+                <?php
+                    $expertise = new Expertise($mysqli);
+                    $expertise->create();
+                ?>
+              
+<!--                <div class="expertise__item">-->
+<!--                    <div class="icon expertise__item-icon" style="background-image: url('/style/upd-image/expertise/comp-icon.png')"></div>-->
+<!--                    <h3 class="expertise__item-name">WEB DESIGN & DEVELOPMENT</h3>-->
+<!--                    <p class="expertise__item-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium autem dolor explicabo id impedit maxime pariatur reiciendis saepe veritatis vero?</p>-->
+<!--                </div>-->
+<!--                <div class="expertise__item">-->
+<!--                    <div class="icon expertise__item-icon" style="background-image: url('/style/upd-image/expertise/tassel-icon.png')"></div>-->
+<!--                    <h3 class="expertise__item-name">BRANDING IDENTITY</h3>-->
+<!--                    <p class="expertise__item-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium autem dolor explicabo id impedit maxime pariatur reiciendis saepe veritatis vero?</p>-->
+<!--                </div>-->
+<!--                <div class="expertise__item">-->
+<!--                    <div class="icon expertise__item-icon" style="background-image: url('/style/upd-image/expertise/phone-icon.png')"></div>-->
+<!--                    <h3 class="expertise__item-name">MOBILE APP</h3>-->
+<!--                    <p class="expertise__item-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium autem dolor explicabo id impedit maxime pariatur reiciendis saepe veritatis vero?</p>-->
+<!--                </div>-->
+<!--                <div class="expertise__item">-->
+<!--                    <div class="icon expertise__item-icon" style="background-image: url('/style/upd-image/expertise/diagramm-icon.png')"></div>-->
+<!--                    <h3 class="expertise__item-name">SEARCH ENGINE OPTIMISATION</h3>-->
+<!--                    <p class="expertise__item-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium autem dolor explicabo id impedit maxime pariatur reiciendis saepe veritatis vero?</p>-->
+<!--                </div>-->
+<!--                <div class="expertise__item">-->
+<!--                    <div class="icon expertise__item-icon" style="background-image: url('/style/upd-image/expertise/psp-icon.png')"></div>-->
+<!--                    <h3 class="expertise__item-name">GAME DEVELOPMENT</h3>-->
+<!--                    <p class="expertise__item-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium autem dolor explicabo id impedit maxime pariatur reiciendis saepe veritatis vero?</p>-->
+<!--                </div>-->
+<!--                <div class="expertise__item">-->
+<!--                    <div class="icon expertise__item-icon" style="background-image: url('/style/upd-image/expertise/heart-icon.png')"></div>-->
+<!--                    <h3 class="expertise__item-name">MADE WITH LOVE</h3>-->
+<!--                    <p class="expertise__item-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium autem dolor explicabo id impedit maxime pariatur reiciendis saepe veritatis vero?</p>-->
+<!--                </div>-->
             </div>
         </div>
     </section>
@@ -285,17 +295,17 @@
 
         <div class="works__list">
             <div class="works__item" style="background-image: url('/style/style-image/maket-1.png')"></div>
-            <div class="works__item" style="background-image: url('/style/style-image/background-image.png')"></div>
+            <div class="works__item" style="background-image: url('/style/style-image/background-image-1.png')"></div>
             <div class="works__item" style="background-image: url('/style/style-image/worker.png')"></div>
             <div class="works__item" style="background-image: url('/style/style-image/worker.png')"></div>
             <div class="works__item" style="background-image: url('/style/style-image/maket-1.png')"></div>
             <div class="works__item" style="background-image: url('/style/style-image/worker.png')"></div>
-            <div class="works__item" style="background-image: url('/style/style-image/background-image.png')"></div>
+            <div class="works__item" style="background-image: url('/style/style-image/background-image-1.png')"></div>
             <div class="works__item" style="background-image: url('/style/style-image/worker.png')"></div>
             <div class="works__item" style="background-image: url('/style/style-image/maket-1.png')"></div>
             <div class="works__item" style="background-image: url('/style/style-image/worker.png')"></div>
             <div class="works__item" style="background-image: url('/style/style-image/worker.png')"></div>
-            <div class="works__item" style="background-image: url('/style/style-image/background-image.png')"></div>
+            <div class="works__item" style="background-image: url('/style/style-image/background-image-1.png')"></div>
         </div>
 
         <div class="page-wrapper works__wrap-bottom">
@@ -368,25 +378,25 @@
                 </div>
                 <div class="contact__client-list">
                     <a class="contact__client-item icon anchor anchor_type_icon"
-                       style="background-image: url('/style/style-image/icon/company/company-logo-1.png') "></a>
+                       style="background-image: url('/style/upd-image/company/company-logo-1.png') "></a>
                     <a class="contact__client-item icon anchor anchor_type_icon"
-                       style="background-image: url('/style/style-image/icon/company/company-logo-2.png') "></a>
+                       style="background-image: url('/style/upd-image/company/company-logo-2.png') "></a>
                     <a class="contact__client-item icon anchor anchor_type_icon"
-                       style="background-image: url('/style/style-image/icon/company/company-logo-3.png') "></a>
+                       style="background-image: url('/style/upd-image/company/company-logo-3.png') "></a>
                     <a class="contact__client-item icon anchor anchor_type_icon"
-                       style="background-image: url('/style/style-image/icon/company/company-logo-4.png') "></a>
+                       style="background-image: url('/style/upd-image/company/company-logo-4.png') "></a>
                     <a class="contact__client-item icon anchor anchor_type_icon"
-                       style="background-image: url('/style/style-image/icon/company/company-logo-5.png') "></a>
+                       style="background-image: url('/style/upd-image/company/company-logo-5.png') "></a>
                     <a class="contact__client-item icon anchor anchor_type_icon"
-                       style="background-image: url('/style/style-image/icon/company/company-logo-6.png') "></a>
+                       style="background-image: url('/style/upd-image/company/company-logo-6.png') "></a>
                     <a class="contact__client-item icon anchor anchor_type_icon"
-                       style="background-image: url('/style/style-image/icon/company/company-logo-7.png') "></a>
+                       style="background-image: url('/style/upd-image/company/company-logo-7.png') "></a>
                     <a class="contact__client-item icon anchor anchor_type_icon"
-                       style="background-image: url('/style/style-image/icon/company/company-logo-8.png') "></a>
+                       style="background-image: url('/style/upd-image/company/company-logo-8.png') "></a>
                     <a class="contact__client-item icon anchor anchor_type_icon"
-                       style="background-image: url('/style/style-image/icon/company/company-logo-9.png') "></a>
+                       style="background-image: url('/style/upd-image/company/company-logo-9.png') "></a>
                     <a class="contact__client-item icon anchor anchor_type_icon"
-                       style="background-image: url('/style/style-image/icon/company/company-logo-10.png') "></a>
+                       style="background-image: url('/style/upd-image/company/company-logo-10.png') "></a>
                 </div>
             </div>
         </div>
@@ -429,32 +439,32 @@
                         <div class="social-share theme_white">
                             <div class="social-share__item">
                                 <div class="social-share__icon"
-                                     style="background-image: url('/style/style-image/icon/social-net/facebook-icon.png')">
+                                     style="background-image: url('/style/upd-image/social-net/facebook-icon.png')">
                                 </div>
                             </div>
                             <div class="social-share__item">
                                 <div class="social-share__icon"
-                                     style="background-image: url('/style/style-image/icon/social-net/dribbble-icon.png')">
+                                     style="background-image: url('/style/upd-image/social-net/dribbble-icon.png')">
                                 </div>
                             </div>
                             <div class="social-share__item">
                                 <div class="social-share__icon"
-                                     style="background-image: url('/style/style-image/icon/social-net/google-icon.png')">
+                                     style="background-image: url('/style/upd-image/social-net/google-icon.png')">
                                 </div>
                             </div>
                             <div class="social-share__item">
                                 <div class="social-share__icon"
-                                     style="background-image: url('/style/style-image/icon/social-net/instagram-icon.png')">
+                                     style="background-image: url('/style/upd-image/social-net/instagram-icon.png')">
                                 </div>
                             </div>
                             <div class="social-share__item">
                                 <div class="social-share__icon"
-                                     style="background-image: url('/style/style-image/icon/social-net/twitter-icon.png')">
+                                     style="background-image: url('/style/upd-image/social-net/twitter-icon.png')">
                                 </div>
                             </div>
                             <div class="social-share__item">
                                 <div class="social-share__icon"
-                                     style="background-image: url('/style/style-image/icon/social-net/youtube-icon.png')">
+                                     style="background-image: url('/style/upd-image/social-net/youtube-icon.png')">
                                 </div>
                             </div>
                         </div>
