@@ -1,6 +1,9 @@
 <?php
     require 'modules/m_connection.php';
-    require 'modules/expertise.php'
+    require 'modules/class/DocSection.php';
+    require 'modules/class/About.php';
+    require 'modules/class/Expertise.php';
+    require 'modules/class/Workers.php';
 ?>
 
 <!doctype html>
@@ -117,28 +120,8 @@
                 </div>
                 <div class="about__text">
                     <?php
-                        $stmt = $mysqli->stmt_init();
-
-                        //TODO: Переписать в класс About, дабы это всё не валялось вот так
-
-                        try {
-                            if (!$stmt->prepare('SELECT `min_desc` FROM `about` WHERE `id` = ?')) {
-                                new Exception('Невозможно подготовить запрос');
-                            }
-
-                            $stmt->bind_param('i', $id);
-                            $id = 1;
-
-                            $stmt->execute();
-                            $stmt->bind_result($text);
-                            $stmt->fetch();
-
-                            echo $text;
-                        } catch (Exception $e) {
-                            echo 'Ошибка запроса к БД: ', $e->getMessage();
-                        }
-
-                        $stmt->close();
+                        $about = new About($mysqli);
+                        $about->createText();
                     ?>
                 </div>
                 <div class="btn btn_type_classic about__btn-more theme_emerald">
@@ -216,62 +199,10 @@
         </div>
 
         <div class="team__list">
-            <div class="worker-tile theme_white team__list-item">
-                <div class="worker-tile__image" style="background-image: url('/style/style-image/worker.png')"></div>
-                <div class="worker-tile__info-block">
-                    <div class="worker-tile__name">ADAM AJAX</div>
-                    <div class="worker-tile__post">DESIGNER</div>
-                </div>
-            </div>
-            <div class="worker-tile theme_white team__list-item">
-                <div class="worker-tile__image" style="background-image: url('/style/style-image/worker.png')"></div>
-                <div class="worker-tile__info-block">
-                    <div class="worker-tile__name">ADAM AJAX</div>
-                    <div class="worker-tile__post">DESIGNER</div>
-                </div>
-            </div>
-            <div class="worker-tile theme_white team__list-item">
-                <div class="worker-tile__image" style="background-image: url('/style/style-image/worker.png')"></div>
-                <div class="worker-tile__info-block">
-                    <div class="worker-tile__name">ADAM AJAX</div>
-                    <div class="worker-tile__post">DESIGNER</div>
-                </div>
-            </div>
-            <div class="worker-tile theme_white team__list-item">
-                <div class="worker-tile__image" style="background-image: url('/style/style-image/worker.png')"></div>
-                <div class="worker-tile__info-block">
-                    <div class="worker-tile__name">ADAM AJAX</div>
-                    <div class="worker-tile__post">DESIGNER</div>
-                </div>
-            </div>
-            <div class="worker-tile theme_white team__list-item">
-                <div class="worker-tile__image" style="background-image: url('/style/style-image/worker.png')"></div>
-                <div class="worker-tile__info-block">
-                    <div class="worker-tile__name">ADAM AJAX</div>
-                    <div class="worker-tile__post">DESIGNER</div>
-                </div>
-            </div>
-            <div class="worker-tile theme_white team__list-item">
-                <div class="worker-tile__image" style="background-image: url('/style/style-image/worker.png')"></div>
-                <div class="worker-tile__info-block">
-                    <div class="worker-tile__name">ADAM AJAX</div>
-                    <div class="worker-tile__post">DESIGNER</div>
-                </div>
-            </div>
-            <div class="worker-tile theme_white team__list-item">
-                <div class="worker-tile__image" style="background-image: url('/style/style-image/worker.png')"></div>
-                <div class="worker-tile__info-block">
-                    <div class="worker-tile__name">ADAM AJAX</div>
-                    <div class="worker-tile__post">DESIGNER</div>
-                </div>
-            </div>
-            <div class="worker-tile theme_white team__list-item">
-                <div class="worker-tile__image" style="background-image: url('/style/style-image/worker.png')"></div>
-                <div class="worker-tile__info-block">
-                    <div class="worker-tile__name">ADAM AJAX</div>
-                    <div class="worker-tile__post">DESIGNER</div>
-                </div>
-            </div>
+            <?php
+                $workers = new Workers($mysqli);
+                $workers->create();
+            ?>
         </div>
 
         <div class="page-wrapper team__wrap-bottom">
@@ -296,15 +227,15 @@
         <div class="works__list">
             <div class="works__item" style="background-image: url('/style/style-image/maket-1.png')"></div>
             <div class="works__item" style="background-image: url('/style/style-image/background-image-1.png')"></div>
-            <div class="works__item" style="background-image: url('/style/style-image/worker.png')"></div>
-            <div class="works__item" style="background-image: url('/style/style-image/worker.png')"></div>
+            <div class="works__item" style="background-image: url('/style/upd-image/workers/adam_ajax.png')"></div>
+            <div class="works__item" style="background-image: url('/style/upd-image/workers/adam_ajax.png')"></div>
             <div class="works__item" style="background-image: url('/style/style-image/maket-1.png')"></div>
-            <div class="works__item" style="background-image: url('/style/style-image/worker.png')"></div>
+            <div class="works__item" style="background-image: url('/style/upd-image/workers/adam_ajax.png')"></div>
             <div class="works__item" style="background-image: url('/style/style-image/background-image-1.png')"></div>
-            <div class="works__item" style="background-image: url('/style/style-image/worker.png')"></div>
+            <div class="works__item" style="background-image: url('/style/upd-image/workers/adam_ajax.png')"></div>
             <div class="works__item" style="background-image: url('/style/style-image/maket-1.png')"></div>
-            <div class="works__item" style="background-image: url('/style/style-image/worker.png')"></div>
-            <div class="works__item" style="background-image: url('/style/style-image/worker.png')"></div>
+            <div class="works__item" style="background-image: url('/style/upd-image/workers/adam_ajax.png')"></div>
+            <div class="works__item" style="background-image: url('/style/upd-image/workers/adam_ajax.png')"></div>
             <div class="works__item" style="background-image: url('/style/style-image/background-image-1.png')"></div>
         </div>
 

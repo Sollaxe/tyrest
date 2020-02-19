@@ -1,28 +1,17 @@
 <?php
-
     //TODO: Адекватно задокументировать класс
-
     /**
      * Class Expertise
      */
-    class Expertise {
-        private $stmt;
-        private $mysqli;
+    class Expertise extends DocSection {
 
         /**
          * Expertise constructor.
          *
          * @param mysqli $mysqli
          */
-        public function __construct($mysqli)
-        {
-            $this->mysqli = $mysqli;
-            $this->stmt = $this->mysqli->stmt_init();
-        }
-
-        private function executeQuery() {
-            $this->stmt->prepare('SELECT `title`, `text`, `img_href` FROM `expertise`');
-            $this->stmt->execute();
+        public function __construct($mysqli) {
+            parent::__construct($mysqli);
         }
 
         /**
@@ -39,11 +28,21 @@
         }
 
         public function create() {
-            $this->executeQuery();
-            $this->stmt->bind_result($title, $text, $imgName);
+            if ($this->executeQuery('SELECT `title`, `text`, `img_href` FROM `expertise`')) {
+                $this->stmt->bind_result($title, $text, $imgName);
 
-            while ($this->stmt->fetch()) {
-                $this->createExpertiseItem($title, $text, $imgName);
+                while ($this->stmt->fetch()) {
+                    $this->createExpertiseItem($title, $text, $imgName);
+                }
+
+                $this->stmt->close();
             }
+        }
+
+        /**
+         * @param string $message
+         */
+        protected function queryErrorHandler($message) {
+            echo "<div>$message</div>";
         }
     }
