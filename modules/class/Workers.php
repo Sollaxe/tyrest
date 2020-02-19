@@ -41,11 +41,4 @@
                 $this->stmt->close();
             }
         }
-
-        /**
-         * @param string $message
-         */
-        protected function queryErrorHandler($message) {
-            echo "<div>$message</div>";
-        }
     }

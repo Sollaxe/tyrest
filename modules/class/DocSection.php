@@ -23,6 +23,7 @@
          *
          * @return bool
          */
+        //
         protected function executeQuery($query) {
             try {
                 if ($this->stmt->prepare($query)) {
@@ -41,5 +42,7 @@
         /**
          * @param string $message
          */
-        abstract protected function queryErrorHandler($message);
+        protected function queryErrorHandler($message) {
+            echo "<div>$message</div>";
+        }
     }

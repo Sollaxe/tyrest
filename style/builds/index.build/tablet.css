@@ -85,6 +85,9 @@
   padding-top: 50px;
   padding-bottom: 50px;
 }
+.works__list {
+  grid-template-rows: 250px 250px;
+}
 .quote-slider {
   grid-gap: 40px;
 }

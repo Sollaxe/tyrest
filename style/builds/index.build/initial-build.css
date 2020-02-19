@@ -412,13 +412,10 @@
   display: grid;
   overflow-x: auto;
   grid-auto-flow: column;
-  grid-template-rows: 200px 200px;
-  grid-auto-columns: minmax(200px, 1fr);
   background-color: #ebebeb;
 }
 .works__item {
   cursor: pointer;
-  height: 200px;
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -431,7 +428,7 @@
   right: 0;
   bottom: 0;
   left: 0;
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.1);
 }
 .works__list::-webkit-scrollbar {
   height: 4px;

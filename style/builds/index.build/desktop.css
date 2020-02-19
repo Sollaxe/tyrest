@@ -132,6 +132,9 @@
   padding-top: 70px;
   padding-bottom: 70px;
 }
+.works__list {
+  grid-template-rows: 300px 300px;
+}
 .works__list::-webkit-scrollbar {
   height: 5px;
 }

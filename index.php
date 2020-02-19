@@ -1,9 +1,12 @@
 <?php
-    require 'modules/m_connection.php';
-    require 'modules/class/DocSection.php';
-    require 'modules/class/About.php';
-    require 'modules/class/Expertise.php';
-    require 'modules/class/Workers.php';
+    $root = realpath($_SERVER["DOCUMENT_ROOT"]);
+
+    require "$root/modules/m_connection.php";
+    require "$root/modules/class/DocSection.php";
+    require "$root/modules/class/About.php";
+    require "$root/modules/class/Expertise.php";
+    require "$root/modules/class/Workers.php";
+    require "$root/modules/class/Works.php";
 ?>
 
 <!doctype html>
@@ -223,22 +226,12 @@
                 <div class="anchor__arrow"></div>
             </a>
         </div>
-
         <div class="works__list">
-            <div class="works__item" style="background-image: url('/style/style-image/maket-1.png')"></div>
-            <div class="works__item" style="background-image: url('/style/style-image/background-image-1.png')"></div>
-            <div class="works__item" style="background-image: url('/style/upd-image/workers/adam_ajax.png')"></div>
-            <div class="works__item" style="background-image: url('/style/upd-image/workers/adam_ajax.png')"></div>
-            <div class="works__item" style="background-image: url('/style/style-image/maket-1.png')"></div>
-            <div class="works__item" style="background-image: url('/style/upd-image/workers/adam_ajax.png')"></div>
-            <div class="works__item" style="background-image: url('/style/style-image/background-image-1.png')"></div>
-            <div class="works__item" style="background-image: url('/style/upd-image/workers/adam_ajax.png')"></div>
-            <div class="works__item" style="background-image: url('/style/style-image/maket-1.png')"></div>
-            <div class="works__item" style="background-image: url('/style/upd-image/workers/adam_ajax.png')"></div>
-            <div class="works__item" style="background-image: url('/style/upd-image/workers/adam_ajax.png')"></div>
-            <div class="works__item" style="background-image: url('/style/style-image/background-image-1.png')"></div>
+            <?php
+                $works = new Works($mysqli);
+                $works->create();
+            ?>
         </div>
-
         <div class="page-wrapper works__wrap-bottom">
             <div class="btn btn_type_classic theme_emerald">
                 <span class="btn__text">LOAD MORE</span>

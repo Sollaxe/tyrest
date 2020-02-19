@@ -96,11 +96,14 @@
   padding-bottom: 35px;
   display: grid;
   justify-items: center;
-  grid-gap: 5px;
+  grid-gap: 15px;
 }
 .works__wrap-bottom {
   padding-top: 35px;
   padding-bottom: 35px;
+}
+.works__list {
+  grid-template-rows: 220px 220px;
 }
 .quote-slider {
   grid-gap: 35px;
