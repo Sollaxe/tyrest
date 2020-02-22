@@ -1,7 +1,6 @@
 
 .person-popup__img-block {
-  display: grid;
-  grid-gap: 10px;
+  grid-area: img;
 }
 
 .person-popup__img-container::after {
@@ -9,8 +8,12 @@
 }
 
 .person-popup__img {
-  width: 200px;
   display: block;
+  width: 200px;
+}
+
+.person-popup__name-block {
+  grid-area: head;
 }
 
 .person-popup__name {
@@ -22,9 +25,7 @@
 }
 
 .person-popup__text-block {
-  display: grid;
-  grid-gap: 15px;
-  padding-top: 10px;
+  grid-area: text;
 }
 
 .person-popup__title {

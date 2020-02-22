@@ -8,18 +8,6 @@
   height: 260px;
 }
 
-.person-popup__img-block::before {
-  content: '';
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  background-color: @emerald;
-  z-index: 2;
-}
-
 .person-popup__img-container::after {
   background-color: rgba(0,0,0,.3);
 }
@@ -32,9 +20,9 @@
 
 .person-popup__name-block {
   position: absolute;
-  z-index: 2;
+  z-index: 3;
   left: 20px;
-  bottom: 20px;
+  top: 20px;
 }
 
 .person-popup__name {

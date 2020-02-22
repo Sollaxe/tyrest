@@ -262,18 +262,20 @@
 .person-popup {
   padding: 20px 20px 35px;
   grid-gap: 20px;
-  grid-template-columns: 200px 1fr;
+  grid-template-areas: "head head" "img text";
 }
 .person-popup__img-block {
-  display: grid;
-  grid-gap: 10px;
+  grid-area: img;
 }
 .person-popup__img-container::after {
   background-color: rgba(0, 0, 0, 0.2);
 }
 .person-popup__img {
-  width: 200px;
   display: block;
+  width: 200px;
+}
+.person-popup__name-block {
+  grid-area: head;
 }
 .person-popup__name {
   color: #413d4b;
@@ -282,9 +284,7 @@
   color: #78777b;
 }
 .person-popup__text-block {
-  display: grid;
-  grid-gap: 15px;
-  padding-top: 10px;
+  grid-area: text;
 }
 .person-popup__title {
   margin-left: 20px;
