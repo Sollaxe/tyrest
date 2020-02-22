@@ -144,6 +144,13 @@ class Widget extends Popup {
   create(data) {
     super.create();
     this.objData = data;
+
+    this.obj = document.createElement('div');
+    this.obj.classList = `popup__widget popup__widget_type_classic`;
+
+    this.exitCrossObj = document.createElement('div');
+    this.exitCrossObj.className = 'popup__exit-cross icon';
+    this.obj.append(this.exitCrossObj);
   }
 
   changeContent(data) {
@@ -168,7 +175,7 @@ class Widget extends Popup {
       }
     }).then(
         bindShow,
-        error => alert(error)
+        error => console.log(error)
     );
   }
 }
@@ -187,13 +194,8 @@ class NotePopup extends Widget {
 
   create(data) {
     super.create(data);
-
-    this.obj = document.createElement('div');
-    this.obj.classList = `note-popup note-popup_type_${this.widgetType} popup__widget popup__widget_type_classic`;
-
-    this.exitCrossObj = document.createElement('div');
-    this.exitCrossObj.className = 'popup__exit-cross icon';
-    this.obj.append(this.exitCrossObj);
+    this.obj.classList.add('note-popup');
+    this.obj.classList.add(`note-popup_type_${this.widgetType}`);
 
     let titleContainer = document.createElement('div');
     titleContainer.className = 'note-popup__title-container';
@@ -255,15 +257,15 @@ class NotePopup extends Widget {
 */
 
 
-// let note = new NotePopup(0.2, 'theme_emerald', 'big');
-// note.open({
-//   note_title: 'TITLE',
-//   note_text:'<div class="text-block__title"><span class="text-block__title-text">OUR STORY</span></div>\n' +
-//       '<p class="text-block__paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis distinctio esse iste laborum non odio quasi reiciendis? Assumenda autem cumque excepturi, iure odit sunt ut? A doloribus ex necessitatibus <ullam class=""></ullam></p>\n' +
-//       '<div class="text-block__title"><span class="text-block__title-text">OUR STORY</span></div>\n' +
-//       '<p class="text-block__paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium adipisci aliquam aspernatur atque beatae consequatur delectus error, exercitationem hic ipsa laudantium maxime modi pariatur quos ratione reiciendis repellat sint soluta!</p>\n' +
-//       '<p class="text-block__paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias debitis esse id inventore iure mollitia optio, quam qui quia, tenetur velit vitae voluptatibus? Ab corporis dolor est, nam natus ut.</p>'
-// });
+let note = new NotePopup(0.2, 'theme_emerald', 'big');
+note.open({
+  note_title: 'TITLE',
+  note_text:'<div class="text-block__title"><span class="text-block__title-text">OUR STORY</span></div>\n' +
+      '<p class="text-block__paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis distinctio esse iste laborum non odio quasi reiciendis? Assumenda autem cumque excepturi, iure odit sunt ut? A doloribus ex necessitatibus <ullam class=""></ullam></p>\n' +
+      '<div class="text-block__title"><span class="text-block__title-text">OUR STORY</span></div>\n' +
+      '<p class="text-block__paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium adipisci aliquam aspernatur atque beatae consequatur delectus error, exercitationem hic ipsa laudantium maxime modi pariatur quos ratione reiciendis repellat sint soluta!</p>\n' +
+      '<p class="text-block__paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias debitis esse id inventore iure mollitia optio, quam qui quia, tenetur velit vitae voluptatibus? Ab corporis dolor est, nam natus ut.</p>'
+});
 
 
 
