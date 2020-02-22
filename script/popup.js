@@ -138,12 +138,10 @@ class NavMenu extends Popup {
 class Widget extends Popup {
   constructor(animDuration, theme) {
     super(animDuration, theme);
-    this.objData = null;
   }
 
   create(data) {
     super.create();
-    this.objData = data;
 
     this.obj = document.createElement('div');
     this.obj.classList = `popup__widget popup__widget_type_classic`;
@@ -154,7 +152,6 @@ class Widget extends Popup {
   }
 
   changeContent(data) {
-    this.objData = data;
   }
 
   open(data) {
@@ -204,29 +201,31 @@ class NotePopup extends Widget {
       case 'small':
         let titleDash = document.createElement('div');
         titleDash.className = 'note-popup__title-dash';
+        titleContainer.append(titleDash);
+
         let title = document.createElement('h3');
         title.className = 'note-popup__title';
-        title.innerHTML = this.objData.note_title;
-
-        titleContainer.append(titleDash);
+        title.innerHTML = data.note_title;
         titleContainer.append(title);
         break;
       case 'big':
         let titleBlock = document.createElement('div');
         titleBlock.className = 'note-popup__title-block';
+        titleBlock.append(titleText);
+
         let titleText = document.createElement('span');
         titleText.className = 'note-popup__title-block-text';
-        titleText.innerHTML = this.objData.note_title;
-
-        titleBlock.append(titleText);
+        titleText.innerHTML = data.note_title;
         titleContainer.append(titleBlock);
         break;
     }
+
     this.obj.append(titleContainer);
 
     let text = document.createElement('div');
     text.className = 'text-block size_m title-align_center theme_emerald note-popup__text';
-    text.innerHTML = this.objData.note_text;
+    text.innerHTML = data.note_text;
+
     this.obj.append(text);
 
     this.container.append(this.obj);
@@ -256,28 +255,110 @@ class NotePopup extends Widget {
   </div>
 */
 
-
-let note = new NotePopup(0.2, 'theme_emerald', 'big');
-note.open({
-  note_title: 'TITLE',
-  note_text:'<div class="text-block__title"><span class="text-block__title-text">OUR STORY</span></div>\n' +
-      '<p class="text-block__paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis distinctio esse iste laborum non odio quasi reiciendis? Assumenda autem cumque excepturi, iure odit sunt ut? A doloribus ex necessitatibus <ullam class=""></ullam></p>\n' +
-      '<div class="text-block__title"><span class="text-block__title-text">OUR STORY</span></div>\n' +
-      '<p class="text-block__paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium adipisci aliquam aspernatur atque beatae consequatur delectus error, exercitationem hic ipsa laudantium maxime modi pariatur quos ratione reiciendis repellat sint soluta!</p>\n' +
-      '<p class="text-block__paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias debitis esse id inventore iure mollitia optio, quam qui quia, tenetur velit vitae voluptatibus? Ab corporis dolor est, nam natus ut.</p>'
-});
-
-
-
-// class PersonPopup extends Widget {
-//   constructor(animDuration, theme) {
-//     super(animDuration, theme);
-//   }
 //
-//   create(data) {
-//     super.create(data);
-//
-//   }
-//
-//
-// }
+// let note = new NotePopup(0.2, 'theme_emerald', 'big');
+// note.open({
+//   note_title: 'TITLE',
+//   note_text:'<div class="text-block__title"><span class="text-block__title-text">OUR STORY</span></div>\n' +
+//       '<p class="text-block__paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis distinctio esse iste laborum non odio quasi reiciendis? Assumenda autem cumque excepturi, iure odit sunt ut? A doloribus ex necessitatibus <ullam class=""></ullam></p>\n' +
+//       '<div class="text-block__title"><span class="text-block__title-text">OUR STORY</span></div>\n' +
+//       '<p class="text-block__paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium adipisci aliquam aspernatur atque beatae consequatur delectus error, exercitationem hic ipsa laudantium maxime modi pariatur quos ratione reiciendis repellat sint soluta!</p>\n' +
+//       '<p class="text-block__paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias debitis esse id inventore iure mollitia optio, quam qui quia, tenetur velit vitae voluptatibus? Ab corporis dolor est, nam natus ut.</p>'
+// });
+
+
+
+class PersonPopup extends Widget {
+  constructor(animDuration, theme) {
+    super(animDuration, theme);
+  }
+
+  /*data {
+    img_name,
+    worker_name
+    worker_post
+    worker_about
+  }*/
+  create(data) {
+    super.create(data);
+    this.obj.classList.add('person-popup');
+
+    let imgBlock = document.createElement('div');
+    imgBlock.className = 'person-popup__img-block';
+
+    let imgContainer = document.createElement('div');
+    imgContainer.className = 'person-popup__img-container';
+    imgBlock.append(imgContainer);
+
+    let img = document.createElement('img');
+    img.className = 'person-popup__img';
+    img.src = `/style/upd-image/workers/${data.img_name}`;
+    imgContainer.append(img);
+
+    let nameBlock = document.createElement('div');
+    nameBlock.className = 'person-popup__name-block';
+    imgBlock.append(nameBlock)
+
+    let name = document.createElement('div');
+    name.className = 'person-popup__name';
+    name.innerText = data.worker_name;
+    nameBlock.append(name);
+
+    let post = document.createElement('div');
+    post.className = 'person-popup__post';
+    post.innerText = data.worker_post;
+    nameBlock.append(post);
+
+    this.obj.append(imgBlock);
+
+    let textBlock = document.createElement('div');
+    textBlock.className = 'person-popup__text-block';
+
+    let title = document.createElement('div');
+    title.className = 'person-popup__title';
+    title.innerText = 'About';
+    textBlock.append(title);
+
+    let text = document.createElement('div');
+    text.className = 'text-block size_m';
+    text.innerHTML = data.worker_about;
+    textBlock.append(text);
+
+    this.obj.append(textBlock);
+
+    this.container.append(this.obj);
+  }
+}
+
+// let person = new PersonPopup(0.2, 'theme_emerald');
+// person.open({
+//   img_name: 'adam_ajax.png',
+//   worker_name: 'Adam Ajax',
+//   worker_post: 'Ceo & Managment',
+//   worker_about: '<p class="text-block__paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto culpa dolore ex facere incidunt iusto nam odit quasi quos ut. Distinctio enim et nostrum nulla quos ratione temporibus voluptas voluptate!</p>\n' +
+//       '          <p class="text-block__paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A beatae dicta, eaque earum libero magnam omnis quae quisquam quo voluptas.</p>\n' +
+//       '          <p class="text-block__paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci cupiditate doloremque facere fuga labore repudiandae.</p>'
+// });
+
+
+/*<!--        <div class="person-popup popup__widget popup__widget_type_classic">-->
+<!--            <div class="popup__exit-cross icon"></div>-->
+    <!--            <div class="person-popup__img-block">-->
+    <!--                <div class="person-popup__img-container">-->
+    <!--                    <img src="/style/upd-image/workers/adam_ajax.png" class="person-popup__img">-->
+    <!--                </div>-->
+    <!---->
+    <!--                <div class="person-popup__name-block">-->
+    <!--                    <div class="person-popup__name">Adam Ajax</div>-->
+<!--                    <div class="person-popup__post">Ceo & Managment</div>-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--            <div class="person-popup__text-block">-->
+    <!--                <div class="person-popup__title">About</div>-->
+    <!--                <div class="text-block size_m">-->
+    <!--                    <p class="text-block__paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto culpa dolore ex facere incidunt iusto nam odit quasi quos ut. Distinctio enim et nostrum nulla quos ratione temporibus voluptas voluptate!</p>-->
+<!--                    <p class="text-block__paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A beatae dicta, eaque earum libero magnam omnis quae quisquam quo voluptas.</p>-->
+<!--                    <p class="text-block__paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci cupiditate doloremque facere fuga labore repudiandae.</p>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->*/
