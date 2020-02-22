@@ -216,6 +216,9 @@
     justify-items: center;
   }
 }
+.popup {
+  padding: 50px 10px;
+}
 .person-popup {
   grid-gap: 20px;
   grid-template-rows: 260px 1fr;
@@ -254,5 +257,17 @@
 }
 .person-popup__title {
   display: none;
+}
+.works-popup {
+  grid-gap: 40px;
+  padding: 20px 15px;
+}
+.works-popup__head {
+  display: grid;
+  grid-gap: 20px;
+  justify-items: center;
+}
+.works-popup__nav-item-container {
+  max-width: 310px;
 }
 /*# sourceMappingURL=tablet.css.map */

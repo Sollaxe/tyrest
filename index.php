@@ -75,6 +75,136 @@
 <!--        </div>-->
 <!--    </div>-->
 
+    <div class="popup theme_emerald popup_show" style="display: flex">
+        <div class="works-popup popup__widget popup__widget_type_classic">
+            <div class="popup__exit-cross icon"></div>
+            <div class="works-popup__head">
+                <div class="works-popup__title-block">Our Works</div>
+                <nav class="works-popup__nav">
+                    <div class="works-popup__nav-arrow icon" style="background-image: url('/style/style-image/icon/dark-arrow-left-icon.png')"></div>
+                    <div class="works-popup__nav-item-container">
+                        <div class="works-popup__nav-item">1</div>
+                        <div class="works-popup__nav-item">2</div>
+                        <div class="works-popup__nav-item">3</div>
+                        <div class="works-popup__nav-item">4</div>
+                        <div class="works-popup__nav-item">5</div>
+                        <div class="works-popup__nav-item">6</div>
+                        <div class="works-popup__nav-item">7</div>
+                        <div class="works-popup__nav-item">8</div>
+                        <div class="works-popup__nav-item">9</div>
+                        <div class="works-popup__nav-item">10</div>
+                    </div>
+                    <div class="works-popup__nav-arrow icon" style="background-image: url('/style/style-image/icon/dark-arrow-right-icon.png')"></div>
+                </nav>
+            </div>
+            <div class="works-popup__works-list">
+
+                <div class="work-tile theme_emerald">
+                    <div class="work-tile__img"></div>
+                    <div class="work-tile__content">
+                        <div class="work-tile__name">WEB DESIGN & DEVELOPMENT</div>
+                        <p class="work-tile__desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum cupiditate deserunt ducimus esse exercitationem magni maxime, odit rerum tempora vitae.</p>
+                        <div class="work-tile__link-block">
+                            <a class="anchor anchor_type_arrow theme_emerald size_l">
+                                <span class="anchor__text">See All</span>
+                                <div class="anchor__arrow"></div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="work-tile theme_emerald">
+                    <div class="work-tile__img"></div>
+                    <div class="work-tile__content">
+                        <div class="work-tile__name">WEB DESIGN & DEVELOPMENT</div>
+                        <p class="work-tile__desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum cupiditate deserunt ducimus esse exercitationem magni maxime, odit rerum tempora vitae.</p>
+                        <div class="work-tile__link-block">
+                            <a class="anchor anchor_type_arrow theme_emerald size_l">
+                                <span class="anchor__text">See All</span>
+                                <div class="anchor__arrow"></div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="work-tile theme_emerald">
+                    <div class="work-tile__img"></div>
+                    <div class="work-tile__content">
+                        <div class="work-tile__name">WEB DESIGN & DEVELOPMENT</div>
+                        <p class="work-tile__desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum cupiditate deserunt ducimus esse exercitationem magni maxime, odit rerum tempora vitae.</p>
+                        <div class="work-tile__link-block">
+                            <a class="anchor anchor_type_arrow theme_emerald size_l">
+                                <span class="anchor__text">See All</span>
+                                <div class="anchor__arrow"></div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="work-tile theme_emerald">
+                    <div class="work-tile__img"></div>
+                    <div class="work-tile__content">
+                        <div class="work-tile__name">WEB DESIGN & DEVELOPMENT</div>
+                        <p class="work-tile__desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum cupiditate deserunt ducimus esse exercitationem magni maxime, odit rerum tempora vitae.</p>
+                        <div class="work-tile__link-block">
+                            <a class="anchor anchor_type_arrow theme_emerald size_l">
+                                <span class="anchor__text">See All</span>
+                                <div class="anchor__arrow"></div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="work-tile theme_emerald">
+                    <div class="work-tile__img"></div>
+                    <div class="work-tile__content">
+                        <div class="work-tile__name">WEB DESIGN & DEVELOPMENT</div>
+                        <p class="work-tile__desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum cupiditate deserunt ducimus esse exercitationem magni maxime, odit rerum tempora vitae.</p>
+                        <div class="work-tile__link-block">
+                            <a class="anchor anchor_type_arrow theme_emerald size_l">
+                                <span class="anchor__text">See All</span>
+                                <div class="anchor__arrow"></div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="work-tile theme_emerald">
+                    <div class="work-tile__img"></div>
+                    <div class="work-tile__content">
+                        <div class="work-tile__name">WEB DESIGN & DEVELOPMENT</div>
+                        <p class="work-tile__desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum cupiditate deserunt ducimus esse exercitationem magni maxime, odit rerum tempora vitae.</p>
+                        <div class="work-tile__link-block">
+                            <a class="anchor anchor_type_arrow theme_emerald size_l">
+                                <span class="anchor__text">See All</span>
+                                <div class="anchor__arrow"></div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="works-popup__bottom">
+                <nav class="works-popup__nav">
+                    <div class="works-popup__nav-arrow icon" style="background-image: url('/style/style-image/icon/dark-arrow-left-icon.png')"></div>
+                    <div class="works-popup__nav-item-container">
+                        <div class="works-popup__nav-item">1</div>
+                        <div class="works-popup__nav-item">2</div>
+                        <div class="works-popup__nav-item">3</div>
+                        <div class="works-popup__nav-item">4</div>
+                        <div class="works-popup__nav-item">5</div>
+                        <div class="works-popup__nav-item">6</div>
+                        <div class="works-popup__nav-item">7</div>
+                        <div class="works-popup__nav-item">8</div>
+                        <div class="works-popup__nav-item">9</div>
+                        <div class="works-popup__nav-item">10</div>
+                    </div>
+                    <div class="works-popup__nav-arrow icon" style="background-image: url('/style/style-image/icon/dark-arrow-right-icon.png')"></div>
+                </nav>
+            </div>
+        </div>
+    </div>
+
 
     <header class="header body__section theme_emerald">
         <div class="header__wrap page-wrapper">
@@ -228,7 +358,7 @@
             <div class="section-title section-title_type_classic theme_dark">
                 <h2 class="section-title__name">OUR WORKS</h2>
             </div>
-            <a class="works__repos-link anchor anchor_type_arrow theme_dark anchor_size_m">
+            <a class="works__repos-link anchor anchor_type_arrow theme_dark size_m">
                 <span class="anchor__text">See All Project in dribbble</span>
                 <div class="anchor__arrow"></div>
             </a>

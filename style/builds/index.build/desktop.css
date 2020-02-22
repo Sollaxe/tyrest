@@ -259,6 +259,9 @@
 .footer__nav-item {
   cursor: pointer;
 }
+.popup {
+  padding: 90px 0;
+}
 .person-popup {
   padding: 20px 20px 35px;
   grid-gap: 20px;
@@ -304,5 +307,21 @@
   width: 10px;
   border-radius: 1px;
   background-color: #00c5c2;
+}
+.works-popup {
+  grid-gap: 40px;
+  padding: 20px;
+}
+.works-popup__head {
+  display: flex;
+}
+.works-popup__title-block {
+  margin-right: 60px;
+}
+.works-popup__nav-item-container {
+  max-width: 350px;
+}
+.works-popup__nav-item {
+  cursor: pointer;
 }
 /*# sourceMappingURL=desktop.css.map */

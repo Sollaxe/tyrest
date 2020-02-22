@@ -21,18 +21,39 @@
   }
 
   .anchor__arrow {
-    background-image: url("/style/style-image/icon/arrow-right-icon.png");
+    background-image: url("/style/style-image/icon/dark-arrow-right-icon.png");
   }
 }
 
-.anchor_size_m {
+.anchor.theme_emerald {
+  .anchor__text {
+    color: @emerald;
+  }
 
   .anchor__arrow {
-    height: 12px;
-    width: 8px;
+    background-image: url("/style/style-image/icon/emerald-arrow-right-icon.png");
+  }
+}
+
+.anchor.size_m {
+
+  .anchor__arrow {
+    height: 10px;
+    width: 6px;
   }
 
   .anchor__text {
     .text_em-size(14);
+  }
+}
+
+.anchor.size_l {
+  .anchor__arrow {
+    height: 10px;
+    width: 6px;
+  }
+
+  .anchor__text {
+    .text_em-size(16);
   }
 }

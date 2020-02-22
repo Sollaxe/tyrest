@@ -207,6 +207,9 @@
 .footer__nav {
   grid-gap: 20px;
 }
+.popup {
+  padding: 30px 10px;
+}
 .person-popup {
   grid-gap: 20px;
   grid-template-rows: 260px 1fr;
@@ -245,5 +248,20 @@
 }
 .person-popup__title {
   display: none;
+}
+.works-popup {
+  grid-gap: 30px;
+  padding: 15px 10px;
+}
+.works-popup__head {
+  display: grid;
+  grid-gap: 20px;
+  justify-items: center;
+}
+.works-popup__nav {
+  grid-gap: 15px;
+}
+.works-popup__nav-item-container {
+  max-width: 230px;
 }
 /*# sourceMappingURL=mobile.css.map */
