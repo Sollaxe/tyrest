@@ -598,6 +598,15 @@
   padding-top: 90px;
   background-color: rgba(0, 0, 0, 0.7);
 }
+.popup__exit-cross {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  z-index: 2;
+}
 .popup_hide {
   -webkit-animation-name: hide_popup;
   -moz-animation-name: hide_popup;
@@ -642,6 +651,9 @@
   border-color: #00c5c2;
   background-color: white;
   color: #413d4b;
+}
+.popup.theme_emerald .popup__exit-cross {
+  background-image: url("/style/style-image/icon/emerald-cross-icon.png");
 }
 @keyframes show_popup {
   0% {
@@ -1018,15 +1030,6 @@
   justify-items: flex-start;
   position: relative;
 }
-.note-popup__exit-cross {
-  position: absolute;
-  top: 25px;
-  right: 25px;
-  width: 24px;
-  height: 24px;
-  background-image: url("/style/style-image/icon/emerald-cross-icon.png");
-  cursor: pointer;
-}
 .note-popup__title-container {
   display: grid;
   grid-auto-flow: column;
@@ -1073,24 +1076,58 @@
 }
 .text-block {
   display: grid;
-  grid-gap: 20px;
 }
-.text-block .text-block__title {
+.text-block__title {
   font-family: 'PlayfairDisplay_Medium', serif;
-  font-size: 1.5em;
-  display: flex;
-  justify-content: center;
 }
-.text-block .text-block__title .text-block__title-text {
+.text-block__title-text {
   border-bottom: 1px solid;
 }
-.text-block .text-block__paragraph {
+.text-block__paragraph {
   font-family: 'Roboto_Light', sans-serif;
+}
+.text-block.theme_emerald .text-block__title-text {
+  border-color: #00c5c2;
+}
+.text-block.size_m {
+  grid-gap: 20px;
+}
+.text-block.size_m .text-block__title {
+  font-size: 1.5em;
+}
+.text-block.size_m .text-block__paragraph {
   font-size: 0.9375em;
   line-height: 1.25rem;
 }
-.text-block.theme_emerald .text-block__title .text-block__title-text {
-  border-color: #00c5c2;
+.text-block.title-align_center .text-block__title {
+  display: flex;
+  justify-content: center;
+}
+.person-popup {
+  width: 620px;
+  display: grid;
+  align-items: flex-start;
+  position: relative;
+}
+.person-popup__img-container {
+  position: relative;
+}
+.person-popup__img-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+}
+.person-popup__name {
+  font-family: 'Roboto_Regular', sans-serif;
+  font-size: 1.5em;
+}
+.person-popup__post {
+  font-family: 'Roboto_Light', sans-serif;
+  font-size: 1em;
 }
 .page-wrapper {
   max-width: 960px;

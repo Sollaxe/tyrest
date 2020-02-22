@@ -50,23 +50,30 @@
 <!--        </div>-->
 <!--    </div>-->
 <!---->
-<!--    <div class="popup popup_theme_emerald popup_show" style="display: flex">-->
-<!--        <div class="note-popup note-popup_type_big popup__widget popup__widget_type_classic">-->
-<!--            <div class="note-popup__exit-cross icon"></div>-->
-<!--            <div class="note-popup__title-container">-->
-<!--                <div class="note-popup__title-block">-->
-<!--                    <span class="note-popup__title-block-text">Help</span>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--            <div class="text-block text-block_theme_emerald note-popup__text">-->
-<!--                <div class="text-block__title"><span class="text-block__title-text">OUR STORY</span></div>-->
-<!--                <p class="text-block__paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis distinctio esse iste laborum non odio quasi reiciendis? Assumenda autem cumque excepturi, iure odit sunt ut? A doloribus ex necessitatibus <ullam class=""></ullam></p>-->
-<!--                <div class="text-block__title"><span class="text-block__title-text">OUR STORY</span></div>-->
-<!--                <p class="text-block__paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium adipisci aliquam aspernatur atque beatae consequatur delectus error, exercitationem hic ipsa laudantium maxime modi pariatur quos ratione reiciendis repellat sint soluta!</p>-->
-<!--                <p class="text-block__paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias debitis esse id inventore iure mollitia optio, quam qui quia, tenetur velit vitae voluptatibus? Ab corporis dolor est, nam natus ut.</p>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
+
+    <div class="popup theme_emerald popup_show" style="display: flex">
+        <div class="person-popup popup__widget popup__widget_type_classic">
+            <div class="popup__exit-cross icon"></div>
+            <div class="person-popup__img-block">
+                <div class="person-popup__img-container">
+                    <img src="/style/upd-image/workers/adam_ajax.png" class="person-popup__img">
+                </div>
+
+                <div class="person-popup__name-block">
+                    <div class="person-popup__name">Adam Ajax</div>
+                    <div class="person-popup__post">Ceo & Managment</div>
+                </div>
+            </div>
+            <div class="person-popup__text-block">
+                <div class="person-popup__title">About</div>
+                <div class="text-block size_m">
+                    <p class="text-block__paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto culpa dolore ex facere incidunt iusto nam odit quasi quos ut. Distinctio enim et nostrum nulla quos ratione temporibus voluptas voluptate!</p>
+                    <p class="text-block__paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A beatae dicta, eaque earum libero magnam omnis quae quisquam quo voluptas.</p>
+                    <p class="text-block__paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci cupiditate doloremque facere fuga labore repudiandae.</p>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
     <header class="header body__section theme_emerald">

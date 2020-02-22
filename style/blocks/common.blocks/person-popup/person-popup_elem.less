@@ -1,0 +1,22 @@
+
+
+.person-popup__img-container {
+  position: relative;
+}
+
+.person-popup__img-container::after {
+  content: '';
+  position: absolute;
+  .absolut_position_coords(0,0,0,0);
+  z-index: 2;
+}
+
+.person-popup__name {
+  .text_font_roboto-regular();
+  .text_em-size(24);
+}
+
+.person-popup__post {
+  .text_font_roboto-light();
+  .text_em-size(16);
+}

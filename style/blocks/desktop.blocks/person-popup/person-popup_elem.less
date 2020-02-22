@@ -1,0 +1,50 @@
+
+.person-popup__img-block {
+  display: grid;
+  grid-gap: 10px;
+}
+
+.person-popup__img-container::after {
+  background-color: rgba(0,0,0,.2);
+}
+
+.person-popup__img {
+  width: 200px;
+  display: block;
+}
+
+.person-popup__name {
+  color: @dark-purple;
+}
+
+.person-popup__post {
+  color: @grey;
+}
+
+.person-popup__text-block {
+  display: grid;
+  grid-gap: 15px;
+  padding-top: 10px;
+}
+
+.person-popup__title {
+  margin-left: 20px;
+}
+
+.person-popup__title {
+  .text_font_roboto-regular();
+  .text_em-size(24);
+  color: @dark-purple;
+  position: relative;
+}
+
+.person-popup__title::before {
+  content: '';
+  position: absolute;
+  top: calc(50% - 1px);
+  left: -20px;
+  height: 2px;
+  width: 10px;
+  border-radius: 1px;
+  background-color: @emerald;
+}

@@ -192,7 +192,7 @@ class NotePopup extends Widget {
     this.obj.classList = `note-popup note-popup_type_${this.widgetType} popup__widget popup__widget_type_classic`;
 
     this.exitCrossObj = document.createElement('div');
-    this.exitCrossObj.className = 'note-popup__exit-cross icon';
+    this.exitCrossObj.className = 'popup__exit-cross icon';
     this.obj.append(this.exitCrossObj);
 
     let titleContainer = document.createElement('div');
@@ -223,7 +223,7 @@ class NotePopup extends Widget {
     this.obj.append(titleContainer);
 
     let text = document.createElement('div');
-    text.className = 'text-block theme_emerald note-popup__text';
+    text.className = 'text-block size_m title-align_center theme_emerald note-popup__text';
     text.innerHTML = this.objData.note_text;
     this.obj.append(text);
 
@@ -254,6 +254,7 @@ class NotePopup extends Widget {
   </div>
 */
 
+
 // let note = new NotePopup(0.2, 'theme_emerald', 'big');
 // note.open({
 //   note_title: 'TITLE',
@@ -263,3 +264,18 @@ class NotePopup extends Widget {
 //       '<p class="text-block__paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium adipisci aliquam aspernatur atque beatae consequatur delectus error, exercitationem hic ipsa laudantium maxime modi pariatur quos ratione reiciendis repellat sint soluta!</p>\n' +
 //       '<p class="text-block__paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias debitis esse id inventore iure mollitia optio, quam qui quia, tenetur velit vitae voluptatibus? Ab corporis dolor est, nam natus ut.</p>'
 // });
+
+
+
+// class PersonPopup extends Widget {
+//   constructor(animDuration, theme) {
+//     super(animDuration, theme);
+//   }
+//
+//   create(data) {
+//     super.create(data);
+//
+//   }
+//
+//
+// }
