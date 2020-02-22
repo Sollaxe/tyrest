@@ -5,18 +5,18 @@ class PopupError extends Error {
   }
 }
 
+class ParamPopupError extends PopupError{
+  constructor(message, paramName) {
+    super(message);
+    this.name = 'ValueNotePopupError';
+    this.nameValue = paramName;
+    this.message = '\"' + this.nameValue + '\": ' + this.message;
+  }
+}
+
 class NotePopupError extends PopupError{
   constructor(message) {
     super(message);
     this.name = 'NotePopupError';
-  }
-}
-
-class ValueNotePopupError extends NotePopupError {
-  constructor(message, nameVal) {
-    super(message);
-    this.name = 'ValueNotePopupError';
-    this.nameValue = nameVal;
-    this.message = '\"' + this.nameValue + '\" ' + this.message;
   }
 }

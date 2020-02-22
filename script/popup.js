@@ -1,17 +1,20 @@
 class Popup {
+  _animDuration;
+  _styleTheme;
+  container = null;
+  obj = null;
+  exitCrossObj = null;
+
   constructor(animDuration, theme) {
-    this.container = null;
-    this.styleTheme = theme;
-    this.animDuration = animDuration;
-    this.obj = null;
-    this.exitCrossObj = null;
+    this._styleTheme = theme;
+    this._animDuration = +animDuration;
   }
 
   create() {
     this.container = document.createElement('div');
-    this.container.className = `popup ${this.styleTheme}`;
+    this.container.className = `popup ${this._styleTheme}`;
     this.container.style.display = 'none';
-    this.container.style.animationDuration = this.animDuration + 's';
+    this.container.style.animationDuration = this._animDuration + 's';
     document.body.prepend(this.container);
   }
 
@@ -35,7 +38,7 @@ class Popup {
     this.container.classList.add('popup_hide');
 
     let bindHandler = this.handlerTimeoutHide.bind(this);
-    setTimeout(bindHandler, this.animDuration * 1000);
+    setTimeout(bindHandler, this._animDuration * 1000);
   }
 
   open() {
@@ -55,10 +58,14 @@ class Popup {
 }
 
 class NavMenu extends Popup {
+  _navElemArr;
+  _itemAnimDuration;
+  navElemDomObjs;
+
   constructor(animDuration, theme, itemAnimDuration, navElemArr) {
     super(animDuration, theme);
-    this.navElemArr = navElemArr;
-    this.itemAnimDuration = itemAnimDuration;
+    this._navElemArr = navElemArr;
+    this._itemAnimDuration = +itemAnimDuration;
     this.navElemDomObjs = [];
   }
 
@@ -85,11 +92,11 @@ class NavMenu extends Popup {
     let navList = document.createElement('nav');
     navList.className = 'nav-menu__list';
 
-    this.navElemArr.forEach(function (item) {
+    this._navElemArr.forEach(function (item) {
       let currItem = document.createElement('div');
       currItem.className = 'nav-menu__item';
       currItem.innerHTML = item.innerText;
-      currItem.style.animationDuration = self.itemAnimDuration + 's';
+      currItem.style.animationDuration = self._itemAnimDuration + 's';
 
       if (item.type === 'active') {
         currItem.classList.add('nav-menu__item_active');
@@ -117,8 +124,8 @@ class NavMenu extends Popup {
         } else {
           self.navElemDomObjs[i].classList.add('nav-menu__item_show');
         }
-      }, (self.itemAnimDuration * 1000) - 50);
-    }, this.animDuration * 1000);
+      }, (self._itemAnimDuration * 1000) - 50);
+    }, this._animDuration * 1000);
   }
 
   handlerTimeoutHide() {
@@ -178,26 +185,28 @@ class Widget extends Popup {
 }
 
 class NotePopup extends Widget {
+  _widgetType;
+
   constructor(animDuration, theme, widgetType) {
     super(animDuration, theme);
 
     let whiteList = ['small', 'big'];
     if (!whiteList.includes(widgetType)) {
-      throw new ValueNotePopupError('is not valid', 'type');
+      throw new ParamPopupError('is not valid', 'type');
     }
 
-    this.widgetType = widgetType;
+    this._widgetType = widgetType;
   }
 
   create(data) {
     super.create(data);
     this.obj.classList.add('note-popup');
-    this.obj.classList.add(`note-popup_type_${this.widgetType}`);
+    this.obj.classList.add(`note-popup_type_${this._widgetType}`);
 
     let titleContainer = document.createElement('div');
     titleContainer.className = 'note-popup__title-container';
 
-    switch (this.widgetType) {
+    switch (this._widgetType) {
       case 'small':
         let titleDash = document.createElement('div');
         titleDash.className = 'note-popup__title-dash';
@@ -330,15 +339,15 @@ class PersonPopup extends Widget {
   }
 }
 
-// let person = new PersonPopup(0.2, 'theme_emerald');
-// person.open({
-//   img_name: 'adam_ajax.png',
-//   worker_name: 'Adam Ajax',
-//   worker_post: 'Ceo & Managment',
-//   worker_about: '<p class="text-block__paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto culpa dolore ex facere incidunt iusto nam odit quasi quos ut. Distinctio enim et nostrum nulla quos ratione temporibus voluptas voluptate!</p>\n' +
-//       '          <p class="text-block__paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A beatae dicta, eaque earum libero magnam omnis quae quisquam quo voluptas.</p>\n' +
-//       '          <p class="text-block__paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci cupiditate doloremque facere fuga labore repudiandae.</p>'
-// });
+let person = new PersonPopup(0.2, 'theme_emerald');
+person.open({
+  img_name: 'adam_ajax.png',
+  worker_name: 'Adam Ajax',
+  worker_post: 'Ceo & Managment',
+  worker_about: '<p class="text-block__paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto culpa dolore ex facere incidunt iusto nam odit quasi quos ut. Distinctio enim et nostrum nulla quos ratione temporibus voluptas voluptate!</p>\n' +
+      '          <p class="text-block__paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A beatae dicta, eaque earum libero magnam omnis quae quisquam quo voluptas.</p>\n' +
+      '          <p class="text-block__paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci cupiditate doloremque facere fuga labore repudiandae.</p>'
+});
 
 
 /*<!--        <div class="person-popup popup__widget popup__widget_type_classic">-->
