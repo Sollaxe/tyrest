@@ -1,9 +1,9 @@
 class Popup {
   _animDuration;
   _styleTheme;
-  container = null;
-  obj = null;
-  exitCrossObj = null;
+  container;
+  obj;
+  exitCrossObj;
 
   constructor(animDuration, theme) {
     this._styleTheme = theme;
@@ -42,7 +42,7 @@ class Popup {
   }
 
   open() {
-    if (this.container !== null) {
+    if (this.container !== undefined) {
       this.show();
     } else {
       this.create();
@@ -51,7 +51,7 @@ class Popup {
   }
 
   exit() {
-    if (this.container !== null) {
+    if (this.container !== undefined) {
       this.hide();
     }
   }
@@ -170,7 +170,7 @@ class Widget extends Popup {
         reject(new Error('data is not exist'));
       }
 
-      if (self.container !== null) {
+      if (self.container !== undefined) {
         self.changeContent(data);
         resolve();
       } else {
@@ -324,7 +324,7 @@ class PersonPopup extends Widget {
     this.post.innerText = data.worker_post;
     nameBlock.append(this.post);
 
-    this.obj.append(nameBlock)
+    this.obj.append(nameBlock);
 
     let imgBlock = document.createElement('div');
     imgBlock.className = 'person-popup__img-block';
@@ -382,3 +382,124 @@ class PersonPopup extends Widget {
 <!--                </div>-->
 <!--            </div>-->
 <!--        </div>-->*/
+
+
+class WorkPopup extends Widget {
+  _workItemList = [];
+  _navObj;
+
+  constructor(animDuration, theme) {
+    super(animDuration, theme);
+    this._navObj = new WorksNav(  20, 0.15);
+  }
+
+  // data = {
+  //   img_name,
+  //   work_name,
+  //   work_desc,
+  //   work_id
+  // }
+  createWorkItem(data) {
+    let item = document.createElement('div');
+    item.className = `work-tile ${this._styleTheme}`;
+    {
+      let imgBlock = document.createElement('div');
+      imgBlock.className = 'work-tile__img';
+      imgBlock.style.backgroundImage = `url(\'/style/upd-image/works/${data.img_name}\')`;
+      item.append(imgBlock);
+
+      let content = document.createElement('div');
+      content.className = 'work-tile__content';
+      item.append(content);
+      {
+        let name = document.createElement('div');
+        name.className = 'work-tile__name';
+        name.innerText = data.work_name;
+        content.append(name);
+
+        let desc = document.createElement('p');
+        desc.className = 'work-tile__desc';
+        desc.innerText = data.work_desc;
+        content.append(desc);
+
+        let linkBlock = document.createElement('div');
+        linkBlock.className = 'work-tile__link-block';
+        content.append(linkBlock);
+        {
+          let anchor = document.createElement('a');
+          anchor.className = `anchor anchor_type_arrow ${this._styleTheme} size_l`;
+          anchor.dataset.workId = data.work_id;
+          linkBlock.append(anchor);
+          {
+            let anchorText = document.createElement('span');
+            anchorText.className = 'anchor__text';
+            anchorText.innerText = 'See All';
+            anchor.append(anchorText);
+
+            let anchorArrow = document.createElement('div');
+            anchorArrow.className = 'anchor__arrow';
+            anchor.append(anchorArrow);
+          }
+        }
+      }
+    }
+
+    return item;
+  }
+
+
+  changeContent(data) {
+    super.changeContent(data);
+  }
+
+
+  create(data) {
+    super.create(data);
+    let self = this;
+
+    this.obj.classList.add('works-popup');
+    this.container.append(this.obj);
+    {
+      let worksHead = document.createElement('div');
+      worksHead.className = 'works-popup__head';
+      this.obj.append(worksHead);
+      {
+        let popupTitle = document.createElement('div');
+        popupTitle.className = 'works-popup__title-block';
+        popupTitle.innerText = 'Our Works';
+        worksHead.append(popupTitle);
+      }
+
+      let workList = document.createElement('div');
+      workList.className = 'works-popup__works-list';
+      this.obj.append(workList);
+      {
+        data.forEach(function (item, index) {
+          let currItem = self.createWorkItem(item);
+          self._workItemList[index] = currItem;
+          workList.append(currItem);
+        });
+      }
+
+      if (this._navObj !== undefined) {
+        let worksBottom = document.createElement('div');
+        worksBottom.className = 'works-popup__bottom';
+        this.obj.append(worksBottom);
+        {
+          worksBottom.append(this._navObj.createNav());
+          this._navObj.activateItem(3);
+        }
+      }
+    }
+
+  }
+}
+
+let test = new WorkPopup(0.2, 'theme_emerald');
+
+test.open([{
+  img_name: 'maket-1.png',
+  work_name: 'test work',
+  work_desc: 'test desc',
+  work_id: 1
+}]);

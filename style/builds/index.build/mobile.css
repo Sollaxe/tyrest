@@ -253,15 +253,10 @@
   grid-gap: 30px;
   padding: 15px 10px;
 }
-.works-popup__head {
-  display: grid;
-  grid-gap: 20px;
-  justify-items: center;
-}
 .works-popup__nav {
   grid-gap: 15px;
 }
-.works-popup__nav-item-container {
+.works-popup__nav-carousel {
   max-width: 230px;
 }
 /*# sourceMappingURL=mobile.css.map */

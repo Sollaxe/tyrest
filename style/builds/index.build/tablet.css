@@ -262,12 +262,7 @@
   grid-gap: 40px;
   padding: 20px 15px;
 }
-.works-popup__head {
-  display: grid;
-  grid-gap: 20px;
-  justify-items: center;
-}
-.works-popup__nav-item-container {
+.works-popup__nav-carousel {
   max-width: 310px;
 }
 /*# sourceMappingURL=tablet.css.map */

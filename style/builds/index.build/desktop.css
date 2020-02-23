@@ -312,16 +312,14 @@
   grid-gap: 40px;
   padding: 20px;
 }
-.works-popup__head {
-  display: flex;
-}
-.works-popup__title-block {
-  margin-right: 60px;
-}
-.works-popup__nav-item-container {
+.works-popup__nav-carousel {
   max-width: 350px;
 }
 .works-popup__nav-item {
   cursor: pointer;
+}
+.popup.theme_emerald .works-popup .works-popup__nav-item:hover {
+  background-color: #00c5c2;
+  color: white;
 }
 /*# sourceMappingURL=desktop.css.map */

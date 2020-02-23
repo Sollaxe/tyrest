@@ -26,14 +26,15 @@
     <link rel="stylesheet" href="/style/builds/index.build/tablet.css" media="only screen and (min-width: 451px) and (max-width: 900px)">
     <link rel="stylesheet" href="/style/builds/index.build/mobile.css" media="only screen and (max-width: 450px)">
     <script src="/script/main.js" type="text/javascript"></script>
-    <script src="/script/error.js" type="text/javascript"></script>
+    <script src="/script/class/Error.js" type="text/javascript"></script>
 </head>
 <body class="body">
-    <script src="/script/scrollComputer.js" type="text/javascript"></script>
+    <script src="/script/class/ScrollComputer.js" type="text/javascript"></script>
     <script type="text/javascript">
         ScrollComputer.computeScroll('.body__section');
     </script>
-    <script src="/script/popup.js" type="text/javascript"></script>
+    <script src="/script/class/WorksNav.js"></script>
+    <script src="/script/class/Popup.js" type="text/javascript"></script>
 
 <!--    <div class="popup popup_theme_emerald popup_show" style="display: flex">-->
 <!--        <div class="note-popup note-popup_type_small popup__widget popup__widget_type_classic">-->
@@ -75,137 +76,54 @@
 <!--        </div>-->
 <!--    </div>-->
 
-    <div class="popup theme_emerald popup_show" style="display: flex">
-        <div class="works-popup popup__widget popup__widget_type_classic">
-            <div class="popup__exit-cross icon"></div>
-            <div class="works-popup__head">
-                <div class="works-popup__title-block">Our Works</div>
-                <nav class="works-popup__nav">
-                    <div class="works-popup__nav-arrow icon" style="background-image: url('/style/style-image/icon/dark-arrow-left-icon.png')"></div>
-                    <div class="works-popup__nav-item-container">
-                        <div class="works-popup__nav-item">1</div>
-                        <div class="works-popup__nav-item">2</div>
-                        <div class="works-popup__nav-item">3</div>
-                        <div class="works-popup__nav-item">4</div>
-                        <div class="works-popup__nav-item">5</div>
-                        <div class="works-popup__nav-item">6</div>
-                        <div class="works-popup__nav-item">7</div>
-                        <div class="works-popup__nav-item">8</div>
-                        <div class="works-popup__nav-item">9</div>
-                        <div class="works-popup__nav-item">10</div>
-                    </div>
-                    <div class="works-popup__nav-arrow icon" style="background-image: url('/style/style-image/icon/dark-arrow-right-icon.png')"></div>
-                </nav>
-            </div>
-            <div class="works-popup__works-list">
-
-                <div class="work-tile theme_emerald">
-                    <div class="work-tile__img"></div>
-                    <div class="work-tile__content">
-                        <div class="work-tile__name">WEB DESIGN & DEVELOPMENT</div>
-                        <p class="work-tile__desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum cupiditate deserunt ducimus esse exercitationem magni maxime, odit rerum tempora vitae.</p>
-                        <div class="work-tile__link-block">
-                            <a class="anchor anchor_type_arrow theme_emerald size_l">
-                                <span class="anchor__text">See All</span>
-                                <div class="anchor__arrow"></div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="work-tile theme_emerald">
-                    <div class="work-tile__img"></div>
-                    <div class="work-tile__content">
-                        <div class="work-tile__name">WEB DESIGN & DEVELOPMENT</div>
-                        <p class="work-tile__desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum cupiditate deserunt ducimus esse exercitationem magni maxime, odit rerum tempora vitae.</p>
-                        <div class="work-tile__link-block">
-                            <a class="anchor anchor_type_arrow theme_emerald size_l">
-                                <span class="anchor__text">See All</span>
-                                <div class="anchor__arrow"></div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="work-tile theme_emerald">
-                    <div class="work-tile__img"></div>
-                    <div class="work-tile__content">
-                        <div class="work-tile__name">WEB DESIGN & DEVELOPMENT</div>
-                        <p class="work-tile__desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum cupiditate deserunt ducimus esse exercitationem magni maxime, odit rerum tempora vitae.</p>
-                        <div class="work-tile__link-block">
-                            <a class="anchor anchor_type_arrow theme_emerald size_l">
-                                <span class="anchor__text">See All</span>
-                                <div class="anchor__arrow"></div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="work-tile theme_emerald">
-                    <div class="work-tile__img"></div>
-                    <div class="work-tile__content">
-                        <div class="work-tile__name">WEB DESIGN & DEVELOPMENT</div>
-                        <p class="work-tile__desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum cupiditate deserunt ducimus esse exercitationem magni maxime, odit rerum tempora vitae.</p>
-                        <div class="work-tile__link-block">
-                            <a class="anchor anchor_type_arrow theme_emerald size_l">
-                                <span class="anchor__text">See All</span>
-                                <div class="anchor__arrow"></div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="work-tile theme_emerald">
-                    <div class="work-tile__img"></div>
-                    <div class="work-tile__content">
-                        <div class="work-tile__name">WEB DESIGN & DEVELOPMENT</div>
-                        <p class="work-tile__desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum cupiditate deserunt ducimus esse exercitationem magni maxime, odit rerum tempora vitae.</p>
-                        <div class="work-tile__link-block">
-                            <a class="anchor anchor_type_arrow theme_emerald size_l">
-                                <span class="anchor__text">See All</span>
-                                <div class="anchor__arrow"></div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="work-tile theme_emerald">
-                    <div class="work-tile__img"></div>
-                    <div class="work-tile__content">
-                        <div class="work-tile__name">WEB DESIGN & DEVELOPMENT</div>
-                        <p class="work-tile__desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum cupiditate deserunt ducimus esse exercitationem magni maxime, odit rerum tempora vitae.</p>
-                        <div class="work-tile__link-block">
-                            <a class="anchor anchor_type_arrow theme_emerald size_l">
-                                <span class="anchor__text">See All</span>
-                                <div class="anchor__arrow"></div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-            <div class="works-popup__bottom">
-                <nav class="works-popup__nav">
-                    <div class="works-popup__nav-arrow icon" style="background-image: url('/style/style-image/icon/dark-arrow-left-icon.png')"></div>
-                    <div class="works-popup__nav-item-container">
-                        <div class="works-popup__nav-item">1</div>
-                        <div class="works-popup__nav-item">2</div>
-                        <div class="works-popup__nav-item">3</div>
-                        <div class="works-popup__nav-item">4</div>
-                        <div class="works-popup__nav-item">5</div>
-                        <div class="works-popup__nav-item">6</div>
-                        <div class="works-popup__nav-item">7</div>
-                        <div class="works-popup__nav-item">8</div>
-                        <div class="works-popup__nav-item">9</div>
-                        <div class="works-popup__nav-item">10</div>
-                    </div>
-                    <div class="works-popup__nav-arrow icon" style="background-image: url('/style/style-image/icon/dark-arrow-right-icon.png')"></div>
-                </nav>
-            </div>
-        </div>
-    </div>
+<!--    <div class="popup theme_emerald popup_show" style="display: flex">-->
+<!--        <div class="works-popup popup__widget popup__widget_type_classic">-->
+<!--            <div class="popup__exit-cross icon"></div>-->
+<!--            <div class="works-popup__head">-->
+<!--                <div class="works-popup__title-block">Our Works</div>-->
+<!--                <nav class="works-popup__nav">-->
+<!--                    <div class="works-popup__nav-arrow icon" style="background-image: url('/style/style-image/icon/dark-arrow-left-icon.png')"></div>-->
+<!--                    <div class="works-popup__nav-item-container">-->
+<!--                        <div class="works-popup__nav-item">1</div>-->
+<!--                        <div class="works-popup__nav-item">2</div>-->
+<!--                        <div class="works-popup__nav-item">3</div>-->
+<!--                    </div>-->
+<!--                    <div class="works-popup__nav-arrow icon" style="background-image: url('/style/style-image/icon/dark-arrow-right-icon.png')"></div>-->
+<!--                </nav>-->
+<!--            </div>-->
+<!--            <div class="works-popup__works-list">-->
+<!---->
+<!--                <div class="work-tile theme_emerald">-->
+<!--                    <div class="work-tile__img" style="background-image: url('/style/upd-image/works/')"></div>-->
+<!--                    <div class="work-tile__content">-->
+<!--                        <div class="work-tile__name">WEB DESIGN & DEVELOPMENT</div>-->
+<!--                        <p class="work-tile__desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum cupiditate deserunt ducimus esse exercitationem magni maxime, odit rerum tempora vitae.</p>-->
+<!--                        <div class="work-tile__link-block">-->
+<!--                            <a data-work-id="1" class="anchor anchor_type_arrow theme_emerald size_l">-->
+<!--                                <span class="anchor__text">See All</span>-->
+<!--                                <div class="anchor__arrow"></div>-->
+<!--                            </a>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!---->
+<!--            </div>-->
+<!--            <div class="works-popup__bottom">-->
+<!--                <nav class="works-popup__nav">-->
+<!--                    <div class="works-popup__nav-arrow icon" style="background-image: url('/style/style-image/icon/dark-arrow-left-icon.png')"></div>-->
+<!--                    <div class="works-popup__nav-item-container">-->
+<!--                        <div class="works-popup__nav-item">1</div>-->
+<!--                        <div class="works-popup__nav-item">2</div>-->
+<!--                        <div class="works-popup__nav-item">3</div>-->
+<!--                    </div>-->
+<!--                    <div class="works-popup__nav-arrow icon" style="background-image: url('/style/style-image/icon/dark-arrow-right-icon.png')"></div>-->
+<!--                </nav>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
 
 
+<!--TODO: Сверстать окно ошибок для пользователя     -->
     <header class="header body__section theme_emerald">
         <div class="header__wrap page-wrapper">
             <div class="header__top">
@@ -247,7 +165,7 @@
             </div>
         </div>
     </header>
-    <script src="/script/navbar.js" type="text/javascript"></script>
+    <script src="/script/class/Navbar.js" type="text/javascript"></script>
 
     <section class="about body__section theme_white">
         <div class="page-wrapper about__wrap">

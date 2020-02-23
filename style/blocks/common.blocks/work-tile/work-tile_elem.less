@@ -1,6 +1,17 @@
 .work-tile__img {
   height: 220px;
-  background-color: grey;
+  position: relative;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.work-tile__img::after {
+  content: '';
+  position: absolute;
+  .absolut_position_coords(0,0,0,0);
+  z-index: 2;
+  background-color: rgba(0,0,0,0.2);
 }
 
 .work-tile__content {
