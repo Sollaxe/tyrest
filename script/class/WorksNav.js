@@ -7,6 +7,7 @@ class WorksNav {
 
   _itemArr = []; // Массив с элементами навигации
   _activeItem; // Активный элемент навигации
+  _activeItemIndex; //
   _arrowPrev; // Стрелка "назад"
   _arrowNext; // Стрелка "вперёд"
 
@@ -85,6 +86,21 @@ class WorksNav {
     return this.nav;
   }
 
+  activateItem(index) {
+    if (this._activeItem !== undefined) {
+
+      this._activeItem.classList.remove('active');
+    }
+    this._activeItemIndex = index;
+
+    this._activeItem = this._itemArr[index];
+    this._activeItem.classList.add('active');
+
+    this.computeGeometry();
+    this.drawItem();
+  }
+
+  //Вычисление геометрии карусели
   computeGeometry() {
     let containerStyle = getComputedStyle(this.navContainer);
     let carouselStyle = getComputedStyle(this.navCarousel);
@@ -97,25 +113,40 @@ class WorksNav {
     this._carouselWidth = parseInt(carouselStyle.maxWidth);
     this._carouselOffset = parseInt(this.navContainer.style.marginLeft);
 
+    this.computeVisibleItem();
+
+    let bindRecomputeGeometry = this.recomputeGeometry.bind(this);
+    let bindRedrawItem = this.redrawItem.bind(this);
+    window.addEventListener('resize', function () {
+      bindRecomputeGeometry();
+      bindRedrawItem();
+    });
+  }
+
+  //Перевычисление геометрии
+  recomputeGeometry() {
+    let currWidth = parseInt(getComputedStyle(this.navCarousel).maxWidth);
+    if (this._carouselWidth !== currWidth) {
+      this._carouselWidth = currWidth;
+      this.computeVisibleItem();
+    }
+  }
+
+  //Вычисление параметров для видимых элементов навигации
+  computeVisibleItem() {
     //Мы прибавляем к ширине карусели ширину отступа, так как у последнего элемента навигации нет отступа и количество видимых элементов, без этого, вычисляется неверно
     this._numMaxVisibleItem = (this._carouselWidth + this._itemGap) / this._itemSpaceReq;
     this._numVisibleItem = this.numPage < this._numMaxVisibleItem ? this.numPage : this._numMaxVisibleItem;
 
-    let bindRecomputeGeometry = this.recomputeGeometry.bind(this);
-    window.addEventListener('resize', bindRecomputeGeometry);
+    this._lastItemIndex = (this._activeItemIndex + this._numVisibleItem) - 1; //Приблизительное вычисление индекса последнего видимого элемента
+
+    //Индекс первого видимого элемента,
+    //Так как он может быть не в начале окна карусели, а, например в середине, то мы пытаемся на него перейти
+    //функция перехода к элементу возвратит уже индекс того элемента, который по факту находится в начале
+    this._firstItemIndex = this.slideOnItem(this._activeItemIndex);
   }
 
-  recomputeGeometry() {
-    let currWidth = parseInt(getComputedStyle(this.navCarousel).maxWidth);
-
-    if (this._carouselWidth !== currWidth) {
-      this._carouselWidth = currWidth;
-      this._numMaxVisibleItem = (this._carouselWidth + this._itemGap) / this._itemSpaceReq;
-      this._numVisibleItem = this.numPage < this._numMaxVisibleItem ? this.numPage : this._numMaxVisibleItem;
-      console.log(this._carouselWidth);
-    }
-  }
-
+  //Перейти на один элемент вперёд
   slideForward() {
     if (this._carouselElemOffset + this._numVisibleItem < this.numPage) {
       let self = this;
@@ -127,6 +158,7 @@ class WorksNav {
       this._carouselOffset += this._itemSpaceReq;
       this.navContainer.style.marginLeft = '-' + this._carouselOffset + 'px';
       this._carouselElemOffset++;
+
       this._lastItemIndex++;
       this._itemArr[this._lastItemIndex].style.transform = 'scale(1)';
 
@@ -138,6 +170,7 @@ class WorksNav {
     }
   }
 
+  //Перейти на один элемент назад
   slideBack() {
     if (this._carouselElemOffset > 0) {
       let self = this;
@@ -149,19 +182,19 @@ class WorksNav {
       this._carouselOffset -= this._itemSpaceReq;
       this.navContainer.style.marginLeft = '-' + this._carouselOffset + 'px';
       this._carouselElemOffset--;
+
       this._firstItemIndex--;
       this._itemArr[this._firstItemIndex].style.transform = 'scale(1)';
 
       setTimeout(function () {
         self._arrowPrev.addEventListener('click', self.bindSlideBack)
       }, this._itemAnimDuration * 1000);
-
-
     } else {
       return false;
     }
   }
 
+  //Переход на индекс
   slideOnItem(index) {
     for (let i = index; i >= 0; i--) {
       if (i + this._numVisibleItem <= this.numPage) {
@@ -173,19 +206,8 @@ class WorksNav {
     }
   }
 
-  activateItem(index) {
-    this.computeGeometry();
-
-    this._lastItemIndex = (index + this._numVisibleItem) - 1; //Приблизительное вычисление индекса последнего видимого элемента
-
-    if (this._activeItem !== undefined) {
-      this._activeItem.classList.remove('active');
-    }
-
-    this._activeItem = this._itemArr[index];
-    this._activeItem.classList.add('active');
-
-    this._firstItemIndex = this.slideOnItem(index); //Индекс первого видимого элемента
+  //Отрисовка элементов
+  drawItem() {
     //Отрисовка видимых элементов навигации
     for (let i = this._firstItemIndex; i <= this._lastItemIndex; i++) {
       let currItem = this._itemArr[i];
@@ -201,5 +223,14 @@ class WorksNav {
         break;
       }
     }
+  }
+
+  //Переотрисовка элементов
+  redrawItem() {
+    for (let i = this._firstItemIndex; i <= this._lastItemIndex; i++) {
+      this._itemArr[i].style.transform = 'scale(0)';
+    }
+
+    this.drawItem();
   }
 }
