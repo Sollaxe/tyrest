@@ -385,7 +385,8 @@ class PersonPopup extends Widget {
 
 
 class WorkPopup extends Widget {
-  _workItemList = [];
+  workListObj;
+
   _navObj;
 
   constructor(animDuration, theme) {
@@ -447,12 +448,31 @@ class WorkPopup extends Widget {
     return item;
   }
 
-
+  // data = {
+  //   page = int;
+  //   work_arr = [array];
+  // }
   changeContent(data) {
     super.changeContent(data);
+    let self = this;
+
+    let workListChildren = this.workListObj.children;
+    for (let i = 0; i < workListChildren.length; i++) {
+      workListChildren[i].remove();
+    }
+
+    data.work_arr.forEach(function (item, index) {
+      let currItem = self.createWorkItem(item);
+      self.workListObj.append(currItem);
+    });
+
+    this._navObj.activateItem(data.page - 1);
   }
 
-
+  // data = {
+  //   page = int;
+  //   work_arr = [array];
+  // }
   create(data) {
     super.create(data);
     let self = this;
@@ -470,14 +490,13 @@ class WorkPopup extends Widget {
         worksHead.append(popupTitle);
       }
 
-      let workList = document.createElement('div');
-      workList.className = 'works-popup__works-list';
-      this.obj.append(workList);
+      this.workListObj = document.createElement('div');
+      this.workListObj.className = 'works-popup__works-list';
+      this.obj.append(this.workListObj);
       {
-        data.forEach(function (item, index) {
+        data.work_arr.forEach(function (item, index) {
           let currItem = self.createWorkItem(item);
-          self._workItemList[index] = currItem;
-          workList.append(currItem);
+          self.workListObj.append(currItem);
         });
       }
 
@@ -487,7 +506,7 @@ class WorkPopup extends Widget {
         this.obj.append(worksBottom);
         {
           worksBottom.append(this._navObj.createNav());
-          this._navObj.activateItem(3);
+          this._navObj.activateItem(data.page - 1);
         }
       }
     }
@@ -495,11 +514,33 @@ class WorkPopup extends Widget {
   }
 }
 
-let test = new WorkPopup(0.2, 'theme_emerald');
-
-test.open([{
-  img_name: 'maket-1.png',
-  work_name: 'test work',
-  work_desc: 'test desc',
-  work_id: 1
-}]);
+// let test = new WorkPopup(0.2, 'theme_emerald');
+// test.open({
+//   page: 1,
+//   work_arr: [
+//     {
+//       img_name: 'maket-1.png',
+//       work_name: 'test work',
+//       work_desc: 'test desc',
+//       work_id: 1
+//     }
+//   ]
+// });
+//
+// setTimeout(function () {
+//   test.exit();
+//
+//   setTimeout(function () {
+//     test.open({
+//       page: 2,
+//       work_arr: [
+//         {
+//           img_name: 'maket-2.png',
+//           work_name: 'test work',
+//           work_desc: 'test desc',
+//           work_id: 1
+//         }
+//       ]
+//     });
+//   }, 1500)
+// }, 1000)

@@ -1,12 +1,12 @@
 <?php
     $root = realpath($_SERVER["DOCUMENT_ROOT"]);
 
-    require "$root/modules/m_connection.php";
-    require "$root/modules/class/DocSection.php";
-    require "$root/modules/class/About.php";
-    require "$root/modules/class/Expertise.php";
-    require "$root/modules/class/Workers.php";
-    require "$root/modules/class/Works.php";
+    require "$root/php/m_connection.php";
+    require "$root/php/class/DocSection.php";
+    require "$root/php/class/About.php";
+    require "$root/php/class/Expertise.php";
+    require "$root/php/class/Workers.php";
+    require "$root/php/class/Works.php";
 ?>
 
 <!doctype html>
