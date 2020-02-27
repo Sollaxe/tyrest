@@ -265,4 +265,66 @@
 .works-popup__nav-carousel {
   max-width: 310px;
 }
+.project-popup__head,
+.project-popup__about {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.project-popup__head {
+  height: 60px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 3;
+}
+.project-popup__name-dash {
+  display: none;
+}
+.project-popup__name {
+  font-family: 'Roboto_Light', sans-serif;
+}
+.project-popup__about {
+  grid-template-columns: 1fr 1px 300px;
+}
+.project-popup__text-block,
+.project-popup__info-block {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.project-popup__info-block {
+  align-content: flex-start;
+  grid-template-rows: auto 1px auto;
+}
+@media screen and (max-width: 800px) {
+  .project-popup__about {
+    grid-template-columns: auto;
+    padding-bottom: 40px;
+  }
+  .project-popup__info-block {
+    grid-template-rows: auto;
+  }
+  .project-popup__anchor {
+    justify-self: flex-start;
+  }
+  .project-popup__hr {
+    display: none;
+  }
+  .project-popup__text-block,
+  .project-popup__info-block {
+    padding: 0;
+  }
+  .project-popup__worker-list {
+    grid-template-columns: repeat(auto-fill, minmax(235px, 1fr));
+  }
+  .project-popup__share-section {
+    justify-items: center;
+  }
+  .project-popup__social-share {
+    justify-content: center;
+  }
+}
+.popup.theme_emerald .project-popup .project-popup__name {
+  color: white;
+}
 /*# sourceMappingURL=tablet.css.map */
