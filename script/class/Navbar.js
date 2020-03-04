@@ -1,70 +1,89 @@
 /**
  * @class Navbar - класс панели навигации
  *
+ * @method constructor
+ *    @param str parentSelector - Селектор родительского блока для панели навигации, в данном случае это parent
+ *    @param str theme - css-класс стилистической темы панели навигации
+ *    @param array newElemArr - Массив с элементами навигации
+ *
  * @method switchNav() - Запрашивает ширину документа, и исходя из этих данных переключает вид панели навигации
- * @method getDocumentSize() - Возвращает ширину документа
- *    @return int - ширина объекта
  * @method createNavbar() - Создаёт десктопную версию панели напигации
  * @method createButToNav() - Создаёт кнопку, для активации мобильной версии панели навигации
  * @method launch() - Вызывает методы Navbar'а, с вызова этой функции начинается функционирование данной программы
  *
- * @param str parentSelector - Селектор родительского блока для панели навигации, в данном случае это parent
- * @param str theme - css-класс стилистической темы панели навигации
- * @param array newElemArr - Массив с элементами навигации
+ * @property array _navElemObj - массив с элементами меню
+ *    @example array
+ *    [
+ *      {
+ *        inner_text = 'str',
+ *        type = 'str'
+ *      }
+ *    ]
+ *
+ * @property int _docSize - Ширина документа
+ * @property string _styleTheme - Стиль навигации
+ *
+ * @property DOM parent - Родительский элемент
+ * @property DOM menuBut - Кнопка вызова меню навигации
+ * @property DOM obj - Навигация
  */
 class Navbar {
+  _navElemObj;
+  _docSize;
+  _styleTheme;
+
+  parent;
+  menuBut;
+  obj;
+
   constructor(parentSelector, theme, navElemArr) {
     this.parent = document.querySelector(parentSelector);
-    this.navElemObj = navElemArr;
-    this.docSize = 0;
-    this.butToNav = null;
-    this.navbar = null;
-    this.objTheme = theme;
+    this._navElemObj = navElemArr;
+    this._docSize = 0;
+    this.menuBut = null;
+    this.obj = null;
+    this._styleTheme = theme;
   }
 
   switchNav() {
-    this.docSize = this.getDocumentSize();
-    if (this.docSize < 901 && this.butToNav === null) {
+    this._docSize = document.documentElement.clientWidth;
+    if (this._docSize < 901 && this.menuBut === null) {
       this.createButToNav();
-    } else if (this.docSize >= 901 && this.navbar === null) {
+    } else if (this._docSize >= 901 && this.obj === null) {
       this.createNavbar();
     }
   }
 
-  getDocumentSize() {
-    return document.documentElement.clientWidth;
-  }
-
   createNavbar() {
     let self = this;
-    this.navbar = document.createElement('nav');
-    this.navbar.className = `navbar header__navbar ${this.objTheme}`;
+    this.obj = document.createElement('nav');
+    this.obj.className = `navbar header__navbar ${this._styleTheme}`;
 
-    this.navElemObj.forEach(function (item) {
+    this._navElemObj.forEach(function (item) {
       let currElem = document.createElement('a');
       currElem.className = 'anchor btn btn_type_flex navbar__item';
-      currElem.innerHTML = item.innerText;
+      currElem.innerHTML = item.inner_text;
 
       if (item.type === 'active') {
         currElem.classList.add('navbar__item_active');
       }
 
-      self.navbar.append(currElem);
+      self.obj.append(currElem);
     });
 
-    this.parent.append(this.navbar);
+    this.parent.append(this.obj);
   }
 
 
   createButToNav() {
-    this.butToNav = document.createElement('div');
-    this.butToNav.className = 'header__btn-nav btn btn_type_icon';
-    this.parent.append(this.butToNav);
+    this.menuBut = document.createElement('div');
+    this.menuBut.className = 'header__btn-nav btn btn_type_icon';
+    this.parent.append(this.menuBut);
 
-    let navMenu = new NavMenu(0.2, 'theme_emerald', 0.13, this.navElemObj);
+    let navMenu = new NavMenu(0.2, 'theme_emerald', 0.13, this._navElemObj);
     let handlerMenuOpen =  navMenu.open.bind(navMenu);
 
-    this.butToNav.addEventListener('click', handlerMenuOpen);
+    this.menuBut.addEventListener('click', handlerMenuOpen);
   }
 
   launch() {
@@ -76,13 +95,13 @@ class Navbar {
 }
 
 /**
+ * @function NavItem - Функция-конструктор для создания объектов-элементов навигации
  *
- * @param innerText - Текст элемента навигации
+ * @param inner_text - Текст элемента навигации
  * @param type - тип элемента навигации
- * @constructor
  */
-function NavItem(innerText, type = 'inactive') {
-  this.innerText = innerText;
+function NavItem(inner_text, type = 'inactive') {
+  this.inner_text = inner_text;
   this.type = type;
 }
 

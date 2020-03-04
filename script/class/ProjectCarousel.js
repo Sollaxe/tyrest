@@ -1,8 +1,51 @@
+
+/**
+ * @class ProjectCarousel
+ *
+ * @method constructor
+ *    @param str theme - Тема карусели
+ *
+ * @method setNavHandlers - Установить обработчики на элементы навигации
+ * @method navItemHandler - Обработчик элементов навигации
+ * @method slideNext - Переключить на след.слайд
+ * @method slidePrev - Переключить на пред.слайд
+ *
+ * @method slideOn - Переключить на N-ый слайд
+ *    @param int id - Идентификатор слайда(отсчёт с нуля)
+ *
+ * @method createItem - Создать слайд
+ *    @param obj data - Объект с данными слайда
+ *        @property string img_name - Имя файла с картинкой
+ *
+ * @method createNavItem - Создать элемент навигации
+ *    @param int num - Номер элемента навигации(отсчёт с нуля)
+ *
+ * @method create - Создать карусель и вставить в родительский элемент
+ *    @param array dataArray - массив с данными карусели
+ *    @param DOM parentElem - Родительский элемент
+ *
+ * @method changeContent - Изменить контент карусели(слайды и навигацию)
+ *    @param array dataArray - Новый массив с данными карусели
+ *
+ * TODO: Пересмотреть функционал данного метода и переделать(при надобности)
+ * @method deactivate - Сброс обработчиков с панели навигации карусели
+ *
+ * @property string _styleTheme - Тема карусели
+ * @property int _currSlideId - Идентификатор текущего слайда(отсчёт с нуля)
+ * @property int _currNumSlide - Текущее количество слайдов
+ * @property array _navItemArray - Массив с DOM элементами навигации
+ * @property array _itemArray - Массив с DOM элементами слайдов
+ *
+ * @property DOM arrNext - Кнопка "Вперёд"
+ * @property DOM arrPrev - Кнопка "Назад"
+ * @property DOM nav - Навигация
+ * @property DOM itemContainer - Контейнер со слайдами
+ * @property DOM obj - Карусель
+ */
 class ProjectCarousel {
   _styleTheme;
   _currSlideId;
   _currNumSlide;
-  _bindItemHandler;
   _navItemArray = [];
   _itemArray = [];
 
@@ -17,15 +60,12 @@ class ProjectCarousel {
   }
 
   setNavHandlers() {
-    this._bindItemHandler = this.navItemHandler.bind(this);
-
     for (let i = 0; i < this.nav.children.length; i++) {
-      this.nav.children[i].addEventListener('click', this._bindItemHandler);
+      this.nav.children[i].addEventListener('click', this.navItemHandler.bind(this));
     }
   }
 
-
-
+  //TODO: Попробовать вынести объявление этой функции в конструтор и сразу её там привязать к контексту (дабы не плодить методы)
   navItemHandler(event) {
     let item = event.currentTarget;
     let id = +item.dataset.num;
@@ -76,10 +116,10 @@ class ProjectCarousel {
     return imgContainer;
   }
 
-  createNavItem(id) {
+  createNavItem(num) {
     let navItem = document.createElement('div');
     navItem.className = 'project-carousel__nav-item';
-    navItem.dataset.num = String(id);
+    navItem.dataset.num = String(num);
     return navItem;
   }
 
@@ -173,7 +213,7 @@ class ProjectCarousel {
     this.setNavHandlers();
   }
 
-  exit() {
+  deactivate() {
     this._currSlideId = null;
     for (let i = 0; i < this.nav.children.length; i++) {
       this.nav.children[i].removeEventListener('click', this._bindItemHandler);

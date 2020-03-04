@@ -2,6 +2,9 @@
     //TODO: Адекватно задокументировать класс
     /**
      * Class DocSection
+     *
+     * @property mysqli_stmt $stmt
+     * @property mysqli $mysqli
      */
     abstract class DocSection {
         protected $stmt;
