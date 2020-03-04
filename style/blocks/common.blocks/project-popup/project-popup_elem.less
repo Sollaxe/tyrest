@@ -1,8 +1,8 @@
 .project-popup__head {
   display: grid;
   grid-auto-flow: column;
-  justify-content: space-between;
   align-items: center;
+  justify-content: flex-start;
 }
 
 .project-popup__name {
@@ -10,7 +10,7 @@
 }
 
 .project-popup__exit-cross {
-  position: static;
+  top: 18px;
 }
 
 .project-popup__about {
@@ -20,9 +20,10 @@
   padding-bottom: 20px;
 }
 
-.project-popup__text-block {
+.project-popup__text-section {
   display: grid;
   grid-gap: 20px;
+  align-content: flex-start;
 }
 
 .project-popup__anchor {
@@ -38,7 +39,7 @@
   grid-gap: 20px;
 }
 
-.project-popup__worker-block {
+.project-popup__worker-section {
   display: grid;
   grid-gap: 20px;
 }
@@ -52,7 +53,6 @@
   display: grid;
   grid-template-columns: 50px 1fr;
   grid-gap: 15px;
-  height: 50px;
 }
 
 .project-popup__worker-img {

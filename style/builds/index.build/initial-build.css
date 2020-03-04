@@ -617,7 +617,7 @@
   width: 24px;
   height: 24px;
   cursor: pointer;
-  z-index: 2;
+  z-index: 4;
 }
 .popup_hide {
   -webkit-animation-name: hide_popup;
@@ -1287,14 +1287,14 @@
 .project-popup__head {
   display: grid;
   grid-auto-flow: column;
-  justify-content: space-between;
   align-items: center;
+  justify-content: flex-start;
 }
 .project-popup__name {
   font-size: 1.5em;
 }
 .project-popup__exit-cross {
-  position: static;
+  top: 18px;
 }
 .project-popup__about {
   display: grid;
@@ -1302,9 +1302,10 @@
   padding-top: 20px;
   padding-bottom: 20px;
 }
-.project-popup__text-block {
+.project-popup__text-section {
   display: grid;
   grid-gap: 20px;
+  align-content: flex-start;
 }
 .project-popup__anchor {
   justify-self: flex-end;
@@ -1316,7 +1317,7 @@
   display: grid;
   grid-gap: 20px;
 }
-.project-popup__worker-block {
+.project-popup__worker-section {
   display: grid;
   grid-gap: 20px;
 }
@@ -1328,7 +1329,6 @@
   display: grid;
   grid-template-columns: 50px 1fr;
   grid-gap: 15px;
-  height: 50px;
 }
 .project-popup__worker-img {
   width: 50px;
@@ -1396,6 +1396,7 @@
 .project-carousel {
   height: 500px;
   position: relative;
+  overflow-x: hidden;
 }
 .project-carousel__nav-arrow {
   width: 15px;
@@ -1430,19 +1431,8 @@
 .project-carousel__container {
   height: 100%;
   width: 100%;
-  overflow: hidden;
   display: flex;
-  position: relative;
-}
-.project-carousel__container::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background-color: rgba(0, 0, 0, 0.15);
-  z-index: 2;
+  transition: transform 0.3s;
 }
 .project-carousel__item {
   height: 100%;
@@ -1451,6 +1441,17 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+}
+.project-carousel__item::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.15);
+  z-index: 2;
 }
 .project-carousel__item-img {
   max-height: 100%;

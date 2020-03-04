@@ -35,18 +35,8 @@
 .project-carousel__container {
   height: 100%;
   width: 100%;
-  overflow: hidden;
   display: flex;
-  position: relative;
-}
-
-
-.project-carousel__container::after {
-  content: '';
-  position: absolute;
-  .absolut_position_coords(0,0,0,0);
-  background-color: rgba(0,0,0,.15);
-  z-index: 2;
+  transition: transform .3s;
 }
 
 .project-carousel__item {
@@ -56,6 +46,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+}
+
+.project-carousel__item::after {
+  content: '';
+  position: absolute;
+  .absolut_position_coords(0,0,0,0);
+  background-color: rgba(0,0,0,.15);
+  z-index: 2;
 }
 
 .project-carousel__item-img {

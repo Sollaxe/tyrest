@@ -34,127 +34,132 @@
 <script type="text/javascript">
   ScrollComputer.computeScroll('.body__section');
 </script>
-<script src="/script/class/WorksNav.js"></script>
+<script src="/script/class/WorksNav.js" type="text/javascript"></script>
+<script src="/script/class/ProjectCarousel.js" type="text/javascript"></script>
+<script src="/script/class/ShareBlock.js" type="text/javascript"></script>
 <script src="/script/class/Popup.js" type="text/javascript"></script>
 
 
-<div class="popup theme_emerald popup_show" style="display: flex">
-    <div class="project-popup popup__widget popup__widget_type_classic">
-
-        <div class="project-popup__head">
-            <div class="project-popup__name-block">
-                <div class="project-popup__name-dash"></div>
-                <span class="project-popup__name">PROJECT NAME</span>
-            </div>
-            <div class="popup__exit-cross icon project-popup__exit-cross"></div>
-        </div>
-        <div class="project-carousel theme_emerald">
-            <div class="project-carousel__nav-arrow project-carousel__nav-arrow_left icon"></div>
-            <div class="project-carousel__nav-arrow project-carousel__nav-arrow_right icon"></div>
-            <div class="project-carousel__nav">
-                <div class="project-carousel__nav-item"></div>
-                <div class="project-carousel__nav-item active"></div>
-                <div class="project-carousel__nav-item"></div>
-                <div class="project-carousel__nav-item"></div>
-            </div>
-            <div class="project-carousel__container">
-                <div class="project-carousel__item">
-                    <img class="project-carousel__item-img" src="/style/upd-image/works/maket-1.png" alt="">
-                </div>
-                <div class="project-carousel__item"></div>
-                <div class="project-carousel__item"></div>
-            </div>
-        </div>
-        <div class="project-popup__about">
-            <div class="project-popup__text-block">
-                <h4 class="project-popup__section-title size_m">ABOUT PROJECT</h4>
-                <div class="text-block size_m title-align_left theme_emerald project-popup__text">
-                    <p class="text-block__paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ab
-                        culpa debitis dolores enim eveniet expedita ipsa, ipsum, itaque laborum laudantium minima
-                        nostrum numquam odit perferendis praesentium quae qui ratione veritatis vero! A dolores eos
-                        illum iusto laborum tenetur? Nihil?</p>
-                    <p class="text-block__paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ab
-                        culpa debitis dolores enim eveniet expedita ipsa, ipsum, itaque laborum laudantium minima
-                        nostrum numquam odit perferendis praesentium quae qui ratione veritatis vero! A dolores eos
-                        illum iusto laborum tenetur? Nihil?</p>
-                    <p class="text-block__paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ab
-                        culpa debitis dolores enim eveniet expedita ipsa, ipsum, itaque laborum laudantium minima
-                        nostrum numquam odit perferendis praesentium quae qui ratione veritatis vero! A dolores eos
-                        illum iusto laborum tenetur? Nihil?</p>
-                </div>
-                <div class="project-popup__anchor anchor anchor_type_arrow theme_emerald size_l">
-                    <span class="anchor__text">See All Project in Dribbble</span>
-                    <div class="anchor__arrow"></div>
-                </div>
-            </div>
-            <div class="project-popup__hr"></div>
-            <div class="project-popup__info-block">
-                <div class="project-popup__worker-block">
-                    <h4 class="project-popup__section-title size_m">WORKERS</h4>
-                    <div class="project-popup__worker-list">
-                        <div class="project-popup__worker">
-                            <div class="project-popup__worker-img" style="background-image: url('/style/upd-image/workers/adam_ajax.png')"></div>
-                            <div class="project-popup__worker-name-block">
-                                <span class="project-popup__worker-name">Adam Ajax</span>
-                                <span class="project-popup__worker-post">Ceo & Managment</span>
-                            </div>
-                        </div>
-                        <div class="project-popup__worker">
-                            <div class="project-popup__worker-img" style="background-image: url('/style/upd-image/workers/adam_ajax.png')"></div>
-                            <div class="project-popup__worker-name-block">
-                                <span class="project-popup__worker-name">Adam Ajax</span>
-                                <span class="project-popup__worker-post">Ceo & Managment</span>
-                            </div>
-                        </div>
-                        <div class="project-popup__worker">
-                            <div class="project-popup__worker-img" style="background-image: url('/style/upd-image/workers/adam_ajax.png')"></div>
-                            <div class="project-popup__worker-name-block">
-                                <span class="project-popup__worker-name">Adam Ajax</span>
-                                <span class="project-popup__worker-post">Ceo & Managment</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-popup__hr"></div>
-                <div class="project-popup__share-section">
-                    <h4 class="project-popup__section-title size_s">SHARE</h4>
-                    <div class="social-share theme_dark project-popup__social-share">
-                        <div class="social-share__item">
-                            <div class="social-share__icon"
-                                 style="background-image: url('/style/upd-image/social-net/dark/facebook-icon.png')">
-                            </div>
-                        </div>
-                        <div class="social-share__item">
-                            <div class="social-share__icon"
-                                 style="background-image: url('/style/upd-image/social-net/dark/dribbble-icon.png')">
-                            </div>
-                        </div>
-                        <div class="social-share__item">
-                            <div class="social-share__icon"
-                                 style="background-image: url('/style/upd-image/social-net/dark/google-icon.png')">
-                            </div>
-                        </div>
-                        <div class="social-share__item">
-                            <div class="social-share__icon"
-                                 style="background-image: url('/style/upd-image/social-net/dark/instagram-icon.png')">
-                            </div>
-                        </div>
-                        <div class="social-share__item">
-                            <div class="social-share__icon"
-                                 style="background-image: url('/style/upd-image/social-net/dark/twitter-icon.png')">
-                            </div>
-                        </div>
-                        <div class="social-share__item">
-                            <div class="social-share__icon"
-                                 style="background-image: url('/style/upd-image/social-net/dark/youtube-icon.png')">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+<!--<div class="popup theme_emerald popup_show" style="display: flex">-->
+<!--    <div class="project-popup popup__widget popup__widget_type_classic">-->
+<!--    <div class="popup__exit-cross icon project-popup__exit-cross"></div>-->
+<!--        <div class="project-popup__head">-->
+<!--            <div class="project-popup__name-block">-->
+<!--                <div class="project-popup__name-dash"></div>-->
+<!--                <span class="project-popup__name">PROJECT NAME</span>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="project-carousel theme_emerald">-->
+<!--            <div class="project-carousel__nav-arrow project-carousel__nav-arrow_left icon"></div>-->
+<!--            <div class="project-carousel__nav-arrow project-carousel__nav-arrow_right icon"></div>-->
+<!--            <div class="project-carousel__nav">-->
+<!--                <div class="project-carousel__nav-item"></div>-->
+<!--                <div class="project-carousel__nav-item active"></div>-->
+<!--                <div class="project-carousel__nav-item"></div>-->
+<!--                <div class="project-carousel__nav-item"></div>-->
+<!--            </div>-->
+<!--            <div class="project-carousel__container">-->
+<!--                <div class="project-carousel__item">-->
+<!--                    <img class="project-carousel__item-img" src="/style/upd-image/works/maket-1.png" alt="">-->
+<!--                </div>-->
+<!--                <div class="project-carousel__item">-->
+<!--                    <img class="project-carousel__item-img" src="/style/upd-image/works/maket-2.png" alt="">-->
+<!--                </div>-->
+<!--                <div class="project-carousel__item">-->
+<!--                    <img class="project-carousel__item-img" src="/style/upd-image/works/maket-1.png" alt="">-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="project-popup__about">-->
+<!--            <div class="project-popup__text-section">-->
+<!--                <h4 class="project-popup__section-title size_m">ABOUT PROJECT</h4>-->
+<!--                <div class="text-block size_m title-align_left theme_emerald project-popup__text">-->
+<!--                    <p class="text-block__paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ab-->
+<!--                        culpa debitis dolores enim eveniet expedita ipsa, ipsum, itaque laborum laudantium minima-->
+<!--                        nostrum numquam odit perferendis praesentium quae qui ratione veritatis vero! A dolores eos-->
+<!--                        illum iusto laborum tenetur? Nihil?</p>-->
+<!--                    <p class="text-block__paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ab-->
+<!--                        culpa debitis dolores enim eveniet expedita ipsa, ipsum, itaque laborum laudantium minima-->
+<!--                        nostrum numquam odit perferendis praesentium quae qui ratione veritatis vero! A dolores eos-->
+<!--                        illum iusto laborum tenetur? Nihil?</p>-->
+<!--                    <p class="text-block__paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ab-->
+<!--                        culpa debitis dolores enim eveniet expedita ipsa, ipsum, itaque laborum laudantium minima-->
+<!--                        nostrum numquam odit perferendis praesentium quae qui ratione veritatis vero! A dolores eos-->
+<!--                        illum iusto laborum tenetur? Nihil?</p>-->
+<!--                </div>-->
+<!--                <a href="#" class="project-popup__anchor anchor anchor_type_arrow theme_emerald size_l">-->
+<!--                    <span class="anchor__text">See All Project in Dribbble</span>-->
+<!--                    <div class="anchor__arrow"></div>-->
+<!--                </a>-->
+<!--            </div>-->
+<!--            <div class="project-popup__hr"></div>-->
+<!--            <div class="project-popup__info-block">-->
+<!--                <div class="project-popup__worker-section">-->
+<!--                    <h4 class="project-popup__section-title size_m">WORKERS</h4>-->
+<!--                    <div class="project-popup__worker-list">-->
+<!--                        <div class="project-popup__worker">-->
+<!--                            <div class="project-popup__worker-img" style="background-image: url('/style/upd-image/workers/adam_ajax.png')"></div>-->
+<!--                            <div class="project-popup__worker-name-block">-->
+<!--                                <span class="project-popup__worker-name">Adam Ajax</span>-->
+<!--                                <span class="project-popup__worker-post">Ceo & Managment</span>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="project-popup__worker">-->
+<!--                            <div class="project-popup__worker-img" style="background-image: url('/style/upd-image/workers/adam_ajax.png')"></div>-->
+<!--                            <div class="project-popup__worker-name-block">-->
+<!--                                <span class="project-popup__worker-name">Adam Ajax</span>-->
+<!--                                <span class="project-popup__worker-post">Ceo & Managment</span>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="project-popup__worker">-->
+<!--                            <div class="project-popup__worker-img" style="background-image: url('/style/upd-image/workers/adam_ajax.png')"></div>-->
+<!--                            <div class="project-popup__worker-name-block">-->
+<!--                                <span class="project-popup__worker-name">Adam Ajax</span>-->
+<!--                                <span class="project-popup__worker-post">Ceo & Managment</span>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="project-popup__hr"></div>-->
+<!--                <div class="project-popup__share-section">-->
+<!--                    <h4 class="project-popup__section-title size_s">SHARE</h4>-->
+<!--                    <div class="social-share theme_dark project-popup__social-share">-->
+<!--                        <div class="social-share__item">-->
+<!--                            <div class="social-share__icon"-->
+<!--                                 style="background-image: url('/style/upd-image/social-net/theme_dark/facebook-icon.png')">-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="social-share__item">-->
+<!--                            <div class="social-share__icon"-->
+<!--                                 style="background-image: url('/style/upd-image/social-net/theme_dark/dribbble-icon.png')">-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="social-share__item">-->
+<!--                            <div class="social-share__icon"-->
+<!--                                 style="background-image: url('/style/upd-image/social-net/theme_dark/google-icon.png')">-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="social-share__item">-->
+<!--                            <div class="social-share__icon"-->
+<!--                                 style="background-image: url('/style/upd-image/social-net/theme_dark/instagram-icon.png')">-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="social-share__item">-->
+<!--                            <div class="social-share__icon"-->
+<!--                                 style="background-image: url('/style/upd-image/social-net/theme_dark/twitter-icon.png')">-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="social-share__item">-->
+<!--                            <div class="social-share__icon"-->
+<!--                                 style="background-image: url('/style/upd-image/social-net/theme_dark/youtube-icon.png')">-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
 
 
 <!--TODO: Сверстать окно ошибок для пользователя     -->
@@ -461,32 +466,32 @@
                     <div class="social-share theme_white">
                         <div class="social-share__item">
                             <div class="social-share__icon"
-                                 style="background-image: url('/style/upd-image/social-net/white/facebook-icon.png')">
+                                 style="background-image: url('/style/upd-image/social-net/theme_white/facebook-icon.png')">
                             </div>
                         </div>
                         <div class="social-share__item">
                             <div class="social-share__icon"
-                                 style="background-image: url('/style/upd-image/social-net/white/dribbble-icon.png')">
+                                 style="background-image: url('/style/upd-image/social-net/theme_white/dribbble-icon.png')">
                             </div>
                         </div>
                         <div class="social-share__item">
                             <div class="social-share__icon"
-                                 style="background-image: url('/style/upd-image/social-net/white/google-icon.png')">
+                                 style="background-image: url('/style/upd-image/social-net/theme_white/google-icon.png')">
                             </div>
                         </div>
                         <div class="social-share__item">
                             <div class="social-share__icon"
-                                 style="background-image: url('/style/upd-image/social-net/white/instagram-icon.png')">
+                                 style="background-image: url('/style/upd-image/social-net/theme_white/instagram-icon.png')">
                             </div>
                         </div>
                         <div class="social-share__item">
                             <div class="social-share__icon"
-                                 style="background-image: url('/style/upd-image/social-net/white/twitter-icon.png')">
+                                 style="background-image: url('/style/upd-image/social-net/theme_white/twitter-icon.png')">
                             </div>
                         </div>
                         <div class="social-share__item">
                             <div class="social-share__icon"
-                                 style="background-image: url('/style/upd-image/social-net/white/youtube-icon.png')">
+                                 style="background-image: url('/style/upd-image/social-net/theme_white/youtube-icon.png')">
                             </div>
                         </div>
                     </div>

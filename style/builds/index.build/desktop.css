@@ -347,7 +347,7 @@
 .project-popup__about {
   grid-template-columns: 1fr 1px 300px;
 }
-.project-popup__text-block,
+.project-popup__text-section,
 .project-popup__info-block {
   padding-top: 20px;
   padding-bottom: 20px;

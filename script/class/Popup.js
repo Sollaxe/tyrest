@@ -546,3 +546,293 @@ class WorkListPopup extends Widget {
 //     });
 //   }, 1500)
 // }, 1000)
+
+class ProjectPopup extends Widget{
+  _carousel;
+  _shareBlock;
+  _workerArray = [];
+
+  aboutText;
+  projectLink;
+  workerList;
+  projectName;
+
+  constructor(animDuration, theme) {
+    super(animDuration, theme);
+    this._carousel = new ProjectCarousel(this._styleTheme);
+    this._shareBlock = new ShareBlock('theme_dark');
+  }
+
+  createSectionTitle(text, sizeStyle) {
+    let sectionTitle = document.createElement('h4');
+    sectionTitle.className = `project-popup__section-title ${sizeStyle}`;
+    sectionTitle.innerText = text;
+    return sectionTitle;
+  }
+
+  // workerData = {
+  //   id: int,
+  //   img_name: 'str',
+  //   name: 'str',
+  //   post: 'str'
+  // }
+  createWorker(workerData) {
+    let worker = document.createElement('div');
+    worker.className = 'project-popup__worker';
+    worker.dataset.id = workerData.id;
+    {
+      let img = document.createElement('div');
+      img.className = 'project-popup__worker-img';
+      img.style.backgroundImage = `url(\'/style/upd-image/workers/${workerData.img_name}\')`;
+      worker.append(img);
+
+      let nameBlock = document.createElement('div');
+      nameBlock.className = 'project-popup__worker-name-block';
+      worker.append(nameBlock);
+      {
+        let name = document.createElement('span');
+        name.className = 'project-popup__worker-name';
+        name.innerText = workerData.name;
+        nameBlock.append(name);
+
+        let post = document.createElement('span');
+        post.className = 'project-popup__worker-post';
+        post.innerText = workerData.post;
+        nameBlock.append(post);
+      }
+    }
+
+    return worker;
+  }
+
+  // data = {
+  //   project_name: 'str',
+  //   about_text: 'str',
+  //   work_link: 'str',
+  //   carousel_item: [
+  //     {
+  //       img_name: 'str'
+  //     }
+  //   ],
+  //   worker_items: [
+  //     {
+  //       id: int,
+  //       img_name: 'str',
+  //       name: 'str',
+  //       post: 'str'
+  //     }
+  //   ],
+  //   share_items: [
+  //     {
+  //       icon_name: 'str',
+  //       soc_name: 'str'
+  //     }
+  //   ]
+  // }
+  create(data) {
+    super.create(data);
+    let self = this;
+
+    let hr = document.createElement('div');
+    hr.className = 'project-popup__hr';
+
+    this.obj.classList.add('project-popup');
+    this.container.append(this.obj);
+    {
+      this.exitCrossObj.classList.add('project-popup__exit-cross');
+
+      let head = document.createElement('div');
+      head.className = 'project-popup__head';
+      this.obj.append(head);
+      {
+        let nameBlock = document.createElement('div');
+        nameBlock.className = 'project-popup__name-block';
+        head.append(nameBlock);
+        {
+          let nameDash = document.createElement('div');
+          nameDash.className = 'project-popup__name-dash';
+          nameBlock.append(nameDash);
+
+          this.projectName = document.createElement('span');
+          this.projectName.className = 'project-popup__name';
+          this.projectName.innerText = data.project_name;
+          nameBlock.append(this.projectName);
+        }
+      }
+
+      this._carousel.create(data.carousel_item, this.obj);
+
+      let about = document.createElement('div');
+      about.className = 'project-popup__about';
+      this.obj.append(about);
+      {
+        let textSection = document.createElement('div');
+        textSection.className = 'project-popup__text-section';
+        about.append(textSection);
+        {
+          textSection.append(this.createSectionTitle('ABOUT PROJECT', 'size_m'));
+
+          this.aboutText = document.createElement('div');
+          this.aboutText.className = `text-block size_m title-align_left ${this._styleTheme} project-popup__text`;
+          this.aboutText.innerHTML = data.about_text;
+          textSection.append(this.aboutText);
+
+          this.projectLink = document.createElement('a');
+          this.projectLink.className = `project-popup__anchor anchor anchor_type_arrow ${this._styleTheme} size_l`;
+          this.projectLink.href = data.work_link;
+          textSection.append(this.projectLink);
+          {
+            let linkText = document.createElement('span');
+            linkText.className = 'anchor__text';
+            linkText.innerText = 'See All Project in Dribbble';
+            this.projectLink.append(linkText);
+
+            let linkArrow = document.createElement('div');
+            linkArrow.className = 'anchor__arrow';
+            this.projectLink.append(linkArrow);
+          }
+        }
+
+        about.append(hr.cloneNode());
+
+        let infoBlock = document.createElement('div');
+        infoBlock.className = 'project-popup__info-block';
+        about.append(infoBlock);
+        {
+          let workerSection = document.createElement('div');
+          workerSection.className = 'project-popup__worker-section';
+          infoBlock.append(workerSection);
+          {
+            workerSection.append(this.createSectionTitle('WORKERS', 'size_m'));
+
+            this.workerList = document.createElement('div');
+            this.workerList.className = 'project-popup__worker-list';
+            workerSection.append(this.workerList);
+            {
+              data.worker_items.forEach(function (item, index) {
+                let worker = self.createWorker(item)
+                self._workerArray[index] = worker;
+                self.workerList.append(worker);
+              });
+            }
+          }
+
+          infoBlock.append(hr.cloneNode());
+
+          let shareSection = document.createElement('div');
+          shareSection.className = 'project-popup__share-section';
+          infoBlock.append(shareSection);
+          {
+            shareSection.append(this.createSectionTitle('SHARE', 'size_s'));
+
+            this._shareBlock.create(data.share_items, shareSection);
+          }
+        }
+      }
+    }
+
+    this.container.append(this.obj);
+  }
+
+  exit() {
+    super.exit();
+    this._carousel.exit();
+  }
+
+
+  // data = {
+  //   project_name: 'str',
+  //   about_text: 'str',
+  //   work_link: 'str',
+  //   carousel_item: [
+  //     {
+  //       img_name: 'str'
+  //     }
+  //   ],
+  //   worker_items: [
+  //     {
+  //       id: int,
+  //       img_name: 'str',
+  //       name: 'str',
+  //       post: 'str'
+  //     }
+  //   ]
+  // }
+  changeContent(data) {
+    super.changeContent(data);
+    let self = this;
+
+    this._carousel.changeContent(data.carousel_item);
+
+    this.projectName.innerText = data.project_name;
+    this.aboutText.innerHTML = data.about_text;
+    this.projectLink.href = data.work_link;
+
+    for (let item of this._workerArray) {
+      item.remove();
+    }
+
+    this._workerArray = [];
+
+    data.worker_items.forEach(function (item, index) {
+      let worker = self.createWorker(item)
+      self._workerArray[index] = worker;
+      self.workerList.append(worker);
+    });
+  }
+}
+
+// let test = new ProjectPopup(0.2, 'theme_emerald');
+// test.open({
+//   project_name: 'PROJECT',
+//   about_text: '<p class="text-block__paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ab\n' +
+//       '            culpa debitis dolores enim eveniet expedita ipsa, ipsum, itaque laborum laudantium minima\n' +
+//       '            nostrum numquam odit perferendis praesentium quae qui ratione veritatis vero! A dolores eos\n' +
+//       '            illum iusto laborum tenetur? Nihil?</p>\n' +
+//       '        <p class="text-block__paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ab\n' +
+//       '            culpa debitis dolores enim eveniet expedita ipsa, ipsum, itaque laborum laudantium minima\n' +
+//       '            nostrum numquam odit perferendis praesentium quae qui ratione veritatis vero! A dolores eos\n' +
+//       '            illum iusto laborum tenetur? Nihil?</p>\n' +
+//       '        <p class="text-block__paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ab\n' +
+//       '            culpa debitis dolores enim eveniet expedita ipsa, ipsum, itaque laborum laudantium minima\n' +
+//       '            nostrum numquam odit perferendis praesentium quae qui ratione veritatis vero! A dolores eos\n' +
+//       '            illum iusto laborum tenetur? Nihil?</p>',
+//   work_link: '#',
+//   carousel_item: [
+//     {
+//       img_name: 'maket-1.png'
+//     },
+//     {
+//       img_name: 'maket-2.png'
+//     },
+//     {
+//       img_name: 'maket-1.png'
+//     }
+//   ],
+//   worker_items: [
+//     {
+//       id: 1,
+//       img_name: 'adam_ajax.png',
+//       name: 'Adam Ajax',
+//       post: 'Adam Ajax'
+//     },
+//     {
+//       id: 1,
+//       img_name: 'adam_ajax.png',
+//       name: 'Adam Ajax',
+//       post: 'Adam Ajax'
+//     },
+//     {
+//       id: 1,
+//       img_name: 'adam_ajax.png',
+//       name: 'Adam Ajax',
+//       post: 'Adam Ajax'
+//     }
+//   ],
+//   share_items: [
+//     {
+//       icon_name: 'facebook-icon.png',
+//       soc_name: 'facebook'
+//     }
+//   ]
+// });

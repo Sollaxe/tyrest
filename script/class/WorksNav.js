@@ -53,7 +53,7 @@ class WorksNav {
     {
       this._arrowPrev = document.createElement('div');
       this._arrowPrev.className = 'works-popup__nav-arrow icon';
-      this._arrowPrev.style.backgroundImage = 'url(\'/style/style-image/icon/dark-arrow-left-icon.png\')';
+      this._arrowPrev.style.backgroundImage = 'url(\'/style/style-image/icon/theme_dark-arrow-left-icon.png\')';
       this._arrowPrev.addEventListener('click', this.bindSlideBack);
       this.nav.append(this._arrowPrev);
 
@@ -77,7 +77,7 @@ class WorksNav {
 
       this._arrowNext = document.createElement('div');
       this._arrowNext.className = 'works-popup__nav-arrow icon';
-      this._arrowNext.style.backgroundImage = 'url(\'/style/style-image/icon/dark-arrow-right-icon.png\')';
+      this._arrowNext.style.backgroundImage = 'url(\'/style/style-image/icon/theme_dark-arrow-right-icon.png\')';
       this._arrowNext.addEventListener('click', this.bindSlideForward);
       this.nav.append(this._arrowNext);
     }
