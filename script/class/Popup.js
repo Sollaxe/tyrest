@@ -40,6 +40,7 @@ class Popup {
     this.container.classList.remove('popup_show');
     this.container.classList.add('popup_hide');
 
+    //TODO: Переписать под event type animationend
     let bindHandler = this.handlerTimeoutHide.bind(this);
     setTimeout(bindHandler, this._animDuration * 1000);
   }
@@ -118,6 +119,7 @@ class NavMenu extends Popup {
     let self = this;
     let i = 0;
 
+    //TODO: Переписать под event type animationend
     setTimeout(function () {
       self._navElemDomObjs[i].classList.add('nav-menu__item_show');
       let intervalID = setInterval(function () {

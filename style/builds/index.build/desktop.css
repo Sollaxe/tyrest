@@ -9,12 +9,12 @@
   grid-column-end: 4;
 }
 .slider__nav-item {
-  transition: background-color 0.1s ease, border-width 0.1s ease;
+  transition: background-color 0.2s ease, border-width 0.2s ease;
 }
 .slider__nav-item:hover {
   border-width: 0;
 }
-.slider_theme_emerald .slider__nav-item:hover {
+.slider.theme_emerald .slider__nav-item:hover {
   background-color: #00c5c2;
 }
 .btn_type_classic {

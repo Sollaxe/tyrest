@@ -26,7 +26,6 @@
          *
          * @return bool
          */
-        //
         protected function executeQuery($query) {
             try {
                 if ($this->stmt->prepare($query)) {
