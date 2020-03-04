@@ -58,22 +58,22 @@
             </div>
         </div>
 
-        <div class="slider theme_emerald header__slider slider__content">
-            <div class="slider__title-container">
-                <h3 class="slider__title-block active">Lorem ipsum dolor sit.</h3>
-                <h3 class="slider__title-block">Lorem ipsum dolor sit.</h3>
-                <h3 class="slider__title-block">Lorem ipsum dolor sit.</h3>
+        <div class="head-slider theme_emerald header__slider">
+            <div class="head-slider__title-container">
+                <h3 class="head-slider__title-block active">Lorem ipsum dolor sit.</h3>
+                <h3 class="head-slider__title-block">Lorem ipsum dolor sit.</h3>
+                <h3 class="head-slider__title-block">Lorem ipsum dolor sit.</h3>
             </div>
-            <div class="slider__separator"></div>
-            <div class="slider__text-container">
-                <p class="slider__text active">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam atque,
+            <div class="head-slider__separator"></div>
+            <div class="head-slider__text-container">
+                <p class="head-slider__text active">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam atque,
                     blanditiis deleniti doloremque eius enim
                 </p>
-                <p class="slider__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam atque,
+                <p class="head-slider__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam atque,
                     blanditiis deleniti doloremque eius enim in molestiae nemo neque nobis, numquam omnis optio
                     pariatur porro repellat sed soluta. Consequatur deleniti dolore officia. Assumenda eius facere
                 </p>
-                <p class="slider__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam atque,
+                <p class="head-slider__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam atque,
                     blanditiis deleniti doloremque eius enim in molestiae nemo neque nobis, numquam omnis optio
                     pariatur porro repellat sed soluta. Con
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam atque,
@@ -81,14 +81,14 @@
                     pariatur porro repellat sed soluta. Con
                 </p>
             </div>
-            <div class="btn btn_type_classic slider__btn-more theme_emerald">
+            <div class="btn btn_type_classic head-slider__btn-more theme_emerald">
                 <span class="btn__text">LEARN MORE</span>
             </div>
-            <div class="slider__nav">
-                <div class="slider__nav-item slider__nav-item_active"></div>
-                <div class="slider__nav-item"></div>
-                <div class="slider__nav-item"></div>
-                <div class="slider__nav-item"></div>
+            <div class="head-slider__nav">
+                <div class="head-slider__nav-item active"></div>
+                <div class="head-slider__nav-item"></div>
+                <div class="head-slider__nav-item"></div>
+                <div class="head-slider__nav-item"></div>
             </div>
         </div>
     </div>
@@ -109,7 +109,7 @@
         document.querySelector(containerSelector).style.height = `${max}px`;
     }
 
-    sliderComputeHeight('.slider__text', '.slider__text-container');
+    sliderComputeHeight('.head-slider__text', '.head-slider__text-container');
 
 </script>
 

@@ -28,13 +28,13 @@
   grid-gap: 50px;
   padding-bottom: 50px;
 }
-.slider__title-block {
+.head-slider__title-block {
   font-size: 1.25em;
 }
-.slider__text {
+.head-slider__text {
   font-size: 0.875em;
 }
-.slider__content {
+.head-slider__content {
   grid-template-rows: 24px 1px 1fr 40px;
   grid-gap: 20px;
 }

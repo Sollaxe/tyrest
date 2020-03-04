@@ -538,17 +538,17 @@
   justify-content: center;
   align-items: center;
 }
-.slider {
+.head-slider {
   display: grid;
   grid-gap: 30px;
   align-items: flex-start;
   grid-template-rows: 40px 1px 1fr 40px 12px;
   align-content: space-between;
 }
-.slider__title-container {
+.head-slider__title-container {
   position: relative;
 }
-.slider__title-block {
+.head-slider__title-block {
   font-family: 'PlayfairDisplay_Black', serif;
   font-size: 2em;
   text-align: center;
@@ -558,19 +558,19 @@
   right: 0;
   opacity: 0;
 }
-.slider__title-block.active {
+.head-slider__title-block.active {
   z-index: 2;
   opacity: 1;
 }
-.slider__separator {
+.head-slider__separator {
   width: 30px;
   height: 1px;
   justify-self: center;
 }
-.slider__text-container {
+.head-slider__text-container {
   position: relative;
 }
-.slider__text {
+.head-slider__text {
   font-family: 'Roboto_Thin', sans-serif;
   font-size: 1em;
   line-height: 1.5em;
@@ -581,21 +581,21 @@
   right: 0;
   opacity: 0;
 }
-.slider__text.active {
+.head-slider__text.active {
   z-index: 2;
   opacity: 1;
 }
-.slider__btn-more {
+.head-slider__btn-more {
   justify-self: center;
 }
-.slider__nav {
+.head-slider__nav {
   justify-self: center;
   display: grid;
   grid-auto-flow: column;
   grid-auto-columns: 12px;
   grid-gap: 10px;
 }
-.slider__nav-item {
+.head-slider__nav-item {
   height: 12px;
   width: 12px;
   border-style: solid;
@@ -603,20 +603,20 @@
   border-radius: 100%;
   transition: background-color 0.1s ease, border-width 0.1s ease;
 }
-.slider__nav-item_active {
+.head-slider__nav-item.active {
   border-width: 0;
   cursor: auto;
 }
-.slider.theme_emerald {
+.head-slider.theme_emerald {
   color: white;
 }
-.slider.theme_emerald .slider__separator {
+.head-slider.theme_emerald .head-slider__separator {
   background-color: #00c5c2;
 }
-.slider.theme_emerald .slider__nav-item {
+.head-slider.theme_emerald .head-slider__nav-item {
   border-color: white;
 }
-.slider.theme_emerald .slider__nav-item_active {
+.head-slider.theme_emerald .head-slider__nav-item.active {
   background-color: #00c5c2;
 }
 .popup {
