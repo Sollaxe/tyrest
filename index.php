@@ -58,21 +58,31 @@
             </div>
         </div>
 
-        <div class="slider theme_emerald header__slider">
-            <div class="slider__content">
-                <div class="slider__title-container">
-                    <div class="slider__title active">Lorem ipsum dolor sit.</div>
-                </div>
-                <div class="slider__separator"></div>
-                <div class="slider__text-container">
-                    <p class="slider__text active">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam atque,
-                        blanditiis deleniti doloremque eius enim in molestiae nemo neque nobis, numquam omnis optio
-                        pariatur porro repellat sed soluta. Consequatur deleniti dolore officia. Assumenda eius facere
-                        in, laborum non quisquam voluptatibus.</p>
-                </div>
-                <div class="btn btn_type_classic slider__btn-more theme_emerald">
-                    <span class="btn__text">LEARN MORE</span>
-                </div>
+        <div class="slider theme_emerald header__slider slider__content">
+            <div class="slider__title-container">
+                <h3 class="slider__title-block active">Lorem ipsum dolor sit.</h3>
+                <h3 class="slider__title-block">Lorem ipsum dolor sit.</h3>
+                <h3 class="slider__title-block">Lorem ipsum dolor sit.</h3>
+            </div>
+            <div class="slider__separator"></div>
+            <div class="slider__text-container">
+                <p class="slider__text active">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam atque,
+                    blanditiis deleniti doloremque eius enim
+                </p>
+                <p class="slider__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam atque,
+                    blanditiis deleniti doloremque eius enim in molestiae nemo neque nobis, numquam omnis optio
+                    pariatur porro repellat sed soluta. Consequatur deleniti dolore officia. Assumenda eius facere
+                </p>
+                <p class="slider__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam atque,
+                    blanditiis deleniti doloremque eius enim in molestiae nemo neque nobis, numquam omnis optio
+                    pariatur porro repellat sed soluta. Con
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam atque,
+                    blanditiis deleniti doloremque eius enim in molestiae nemo neque nobis, numquam omnis optio
+                    pariatur porro repellat sed soluta. Con
+                </p>
+            </div>
+            <div class="btn btn_type_classic slider__btn-more theme_emerald">
+                <span class="btn__text">LEARN MORE</span>
             </div>
             <div class="slider__nav">
                 <div class="slider__nav-item slider__nav-item_active"></div>
@@ -83,6 +93,26 @@
         </div>
     </div>
 </header>
+
+<!--TODO: Переписать эту функцию как метод объекта HeadSlider-->
+<script type="text/javascript">
+
+    function sliderComputeHeight(textSelector, containerSelector) {
+        let arr = document.querySelectorAll(textSelector);
+        let max = 0;
+
+        for (let i = 0; i < arr.length; i++) {
+          let height = arr[i].clientHeight;
+          max = (max < height) ? height : max;
+        }
+
+        document.querySelector(containerSelector).style.height = `${max}px`;
+    }
+
+    sliderComputeHeight('.slider__text', '.slider__text-container');
+
+</script>
+
 <script src="/script/class/Navbar.js" type="text/javascript"></script>
 
 <section class="about body__section theme_white">
