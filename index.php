@@ -61,19 +61,19 @@
         <div class="head-slider theme_emerald header__slider">
             <div class="head-slider__title-container">
                 <h3 class="head-slider__title-block active">Lorem ipsum dolor sit.</h3>
-                <h3 class="head-slider__title-block">Lorem ipsum dolor sit.</h3>
-                <h3 class="head-slider__title-block">Lorem ipsum dolor sit.</h3>
+                <h3 class="head-slider__title-block">dolor sit.</h3>
+                <h3 class="head-slider__title-block">Lorem ipsum sit.</h3>
             </div>
             <div class="head-slider__separator"></div>
             <div class="head-slider__text-container">
-                <p class="head-slider__text active">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam atque,
+                <p data-num="0" class="head-slider__text active">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam atque,
                     blanditiis deleniti doloremque eius enim
                 </p>
-                <p class="head-slider__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam atque,
+                <p data-num="1" class="head-slider__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam atque,
                     blanditiis deleniti doloremque eius enim in molestiae nemo neque nobis, numquam omnis optio
                     pariatur porro repellat sed soluta. Consequatur deleniti dolore officia. Assumenda eius facere
                 </p>
-                <p class="head-slider__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam atque,
+                <p data-num="2" class="head-slider__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam atque,
                     blanditiis deleniti doloremque eius enim in molestiae nemo neque nobis, numquam omnis optio
                     pariatur porro repellat sed soluta. Con
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam atque,
@@ -85,32 +85,20 @@
                 <span class="btn__text">LEARN MORE</span>
             </div>
             <div class="head-slider__nav">
-                <div class="head-slider__nav-item active"></div>
-                <div class="head-slider__nav-item"></div>
-                <div class="head-slider__nav-item"></div>
-                <div class="head-slider__nav-item"></div>
+                <div data-num="0" class="head-slider__nav-item active"></div>
+                <div data-num="1" class="head-slider__nav-item"></div>
+                <div data-num="2" class="head-slider__nav-item"></div>
             </div>
         </div>
     </div>
 </header>
 
+<script src="/script/class/HeadSlider.js" type="text/javascript"></script>
+
 <!--TODO: Переписать эту функцию как метод объекта HeadSlider-->
 <script type="text/javascript">
-
-    function sliderComputeHeight(textSelector, containerSelector) {
-        let arr = document.querySelectorAll(textSelector);
-        let max = 0;
-
-        for (let i = 0; i < arr.length; i++) {
-          let height = arr[i].clientHeight;
-          max = (max < height) ? height : max;
-        }
-
-        document.querySelector(containerSelector).style.height = `${max}px`;
-    }
-
-    sliderComputeHeight('.head-slider__text', '.head-slider__text-container');
-
+    let test = new HeadSlider('.head-slider');
+    test.launch();
 </script>
 
 <script src="/script/class/Navbar.js" type="text/javascript"></script>

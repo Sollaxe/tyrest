@@ -14,9 +14,9 @@ class ParamPopupError extends PopupError{
   }
 }
 
-class NotePopupError extends PopupError{
+class HeadSliderError extends Error {
   constructor(message) {
     super(message);
-    this.name = 'NotePopupError';
+    this.name = 'HeadSliderError';
   }
 }

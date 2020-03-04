@@ -56,12 +56,12 @@
   display: grid;
   grid-auto-flow: column;
   grid-auto-columns: 12px;
-  grid-gap: 10px;
+  grid-gap: 14px;
 }
 
 .head-slider__nav-item {
-  height: 12px;
-  width: 12px;
+  height: 14px;
+  width: 14px;
   border-style: solid;
   border-width: 1px;
   border-radius: 100%;
@@ -71,5 +71,11 @@
 .head-slider__nav-item.active {
   border-width: 0;
   cursor: auto;
+}
+
+.head-slider__title-block,
+.head-slider__text,
+.head-slider__nav-item {
+  transition: opacity .5s;
 }
 
