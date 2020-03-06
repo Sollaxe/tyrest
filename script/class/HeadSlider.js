@@ -2,6 +2,9 @@ class HeadSlider {
   obj;
 
   _textContainer;
+  _textItemArr;
+  _highestTextItem;
+  _currHeight;
   _titleContainer;
   _nav;
   _currSlideNum;
@@ -10,6 +13,7 @@ class HeadSlider {
     this.obj = document.querySelector(objSelector);
     this._titleContainer = document.querySelector(`${objSelector}__title-container`);
     this._textContainer = document.querySelector(`${objSelector}__text-container`);
+    this._textItemArr = this._textContainer.children;
     this._nav = document.querySelector(`${objSelector}__nav`);
     this._currSlideNum = 0;
 
@@ -24,6 +28,8 @@ class HeadSlider {
     }
 
     this.setNavHandler();
+
+    window.addEventListener('resize', this.recomputeHeight.bind(this));
   }
 
   setNavHandler() {
@@ -54,15 +60,32 @@ class HeadSlider {
   }
 
   computeHeight() {
-    let arr = this._textContainer.children;
+    let maxHeight = this.findMaxItemHeight();
+
+    this._textContainer.style.height = `${maxHeight}px`;
+    this._currHeight = maxHeight;
+  }
+
+  findMaxItemHeight() {
     let max = 0;
 
-    for (let i = 0; i < arr.length; i++) {
-      let height = arr[i].clientHeight;
-      max = (max < height) ? height : max;
+    for (let i = 0; i < this._textItemArr.length; i++) {
+      let height = this._textItemArr[i].clientHeight;
+      if (max < height) {
+        max = height;
+      }
     }
 
-    this._textContainer.style.height = `${max}px`;
+    return max;
+  }
+
+  recomputeHeight() {
+    let maxHeight = this.findMaxItemHeight();
+
+    if (maxHeight !== this._currHeight) {
+      this._textContainer.style.height = `${maxHeight}px`;
+      this._currHeight = maxHeight;
+    }
   }
 
   //TODO: Написать функции для обработки свайпа слайдов
