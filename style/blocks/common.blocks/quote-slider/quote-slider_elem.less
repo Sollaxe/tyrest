@@ -1,6 +1,22 @@
+.quote-slider__switch-block {
+  position: relative;
+  width: 100%;
+}
+
 .quote-slider__switch-item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
   display: grid;
   justify-items: center;
+  grid-gap: 40px;
+  opacity: 0;
+  transition: opacity .3s;
+}
+
+.quote-slider__switch-item.active {
+  opacity: 1;
 }
 
 .quote-slider__quote {
@@ -28,23 +44,4 @@
   .text_em-size(12);
 }
 
-.quote-slider__nav {
-  display: grid;
-  grid-template-columns: 11px 1fr 11px;
-  align-items: center;
-}
 
-.quote-slider__nav-list {
-  overflow-x: hidden;
-}
-
-.quote-slider__nav-list-container {
-  display: grid;
-  grid-auto-flow: column;
-  align-items: center;
-}
-
-.quote-slider__nav-item {
-  border-radius: 50%;
-  background-color: grey;
-}

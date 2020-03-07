@@ -1,0 +1,24 @@
+.inf-carousel {
+  display: grid;
+  grid-template-columns: 11px 1fr 11px;
+  align-items: center;
+}
+.inf-carousel__list {
+  overflow-x: hidden;
+}
+.inf-carousel__item-container {
+  display: grid;
+  grid-auto-flow: column;
+  align-items: center;
+}
+.inf-carousel__item {
+  border-radius: 50%;
+  background-color: grey;
+}
+.quote-slider.theme_white .inf-carousel__nav-arrow_left {
+  background-image: url("/style/style-image/icon/quote-arr-left-icon.png");
+}
+.quote-slider.theme_white .inf-carousel__nav-arrow_right {
+  background-image: url("/style/style-image/icon/quote-arr-right-icon.png");
+}
+/*# sourceMappingURL=inf-carousel.css.map */

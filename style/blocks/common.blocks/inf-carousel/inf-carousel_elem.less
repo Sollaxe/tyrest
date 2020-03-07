@@ -1,0 +1,39 @@
+.inf-carousel__list {
+  overflow-x: hidden;
+}
+
+.inf-carousel__item-container {
+  display: grid;
+  grid-auto-flow: column;
+  align-items: center;
+}
+
+.inf-carousel__item {
+  position: relative;
+  border-radius: 50%;
+  background-color: grey;
+  transition: all .3s ease-out;
+  transform: scale(0);
+  opacity: 0;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.inf-carousel__item:after {
+  content: '';
+  background-color: rgba(0,0,0,.2);
+  transition: background-color .3s;
+  position: absolute;
+  .absolut_position_coords(0,0,0,0);
+  border-radius: 50%;
+}
+
+.inf-carousel__item.active:after {
+  background-color: rgba(0,0,0,.1);
+}
+
+.inf-carousel__item.visible {
+  transform: scale(1);
+  opacity: 1;
+}

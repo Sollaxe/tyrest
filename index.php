@@ -95,7 +95,6 @@
 
 <script src="/script/class/HeadSlider.js" type="text/javascript"></script>
 
-<!--TODO: Переписать эту функцию как метод объекта HeadSlider-->
 <script type="text/javascript">
     let test = new HeadSlider('.head-slider');
     test.launch();
@@ -235,7 +234,55 @@
         <div class="worker-rev__quotes-img icon"></div>
         <div class="quote-slider worker-rev__quote-slider theme_white">
             <div class="quote-slider__switch-block">
-                <div class="quote-slider__switch-item">
+                <div data-num="0" class="quote-slider__switch-item">
+                    <p class="quote-slider__quote">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab
+                        accusantium autem beatae consectetur consequuntur dolores dolorum eius eligendi esse eum ex
+                        excepturi facere fuga hic id illum incidunt mollitia nam, natus necessitatibus non obcaecati
+                        officia perspiciatis quae, quam ratione, ullam veritatis vitae voluptate voluptatem! Aliquam
+                        inventore itaque minus porro saepe?</p>
+                    <div class="quote-slider__name-block">
+                        <span class="quote-slider__name">JANE GALADRIEN</span>
+                        <span class="quote-slider__post">CEO MANAGER</span>
+                    </div>
+                </div>
+                <div data-num="1" class="quote-slider__switch-item">
+                    <p class="quote-slider__quote">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab
+                        accusantium autem beatae consectetur consequuntur dolores dolorum eius eligendi esse eum ex
+                        excepturi facere fuga hic id illum incidunt mollitia nam, natus necessitatibus non obcaecati
+                        officia perspiciatis quae, quam ratione, ullam veritatis vitae voluptate voluptatem! Aliquam
+                        inventore itaque minus porro saepe?</p>
+                    <div class="quote-slider__name-block">
+                        <span class="quote-slider__name">JANE GALADRIEN</span>
+                        <span class="quote-slider__post">CEO MANAGER</span>
+                    </div>
+                </div>
+                <div data-num="2" class="quote-slider__switch-item active">
+                    <p class="quote-slider__quote">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab
+                        accusantium autem beatae consectetur consequuntur dolores dolorum eius eligendi esse eum ex
+                        excepturi facere fuga hic id illum?</p>
+                    <div class="quote-slider__name-block">
+                        <span class="quote-slider__name">JANE</span>
+                        <span class="quote-slider__post">CEO</span>
+                    </div>
+                </div>
+                <div data-num="3" class="quote-slider__switch-item">
+                    <p class="quote-slider__quote">consequuntur dolores dolorum eius eligendi esse eum ex
+                        excepturi facere fuga hic id illum incidunt mollitia nam, natus necessitatibus non obcaecati
+                        officia perspiciatis quae, quam ratione, ullam veritatis vitae voluptate voluptatem! Aliquam
+                        inventore itaque minus porro saepe?</p>
+                    <div class="quote-slider__name-block">
+                        <span class="quote-slider__name">ADAM AJAX</span>
+                        <span class="quote-slider__post">PROG</span>
+                    </div>
+                </div>
+                <div data-num="4" class="quote-slider__switch-item">
+                    <p class="quote-slider__quote">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                    <div class="quote-slider__name-block">
+                        <span class="quote-slider__name">JANE GALADRIEN</span>
+                        <span class="quote-slider__post">CEO MANAGER</span>
+                    </div>
+                </div>
+                <div data-num="5" class="quote-slider__switch-item">
                     <p class="quote-slider__quote">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab
                         accusantium autem beatae consectetur consequuntur dolores dolorum eius eligendi esse eum ex
                         excepturi facere fuga hic id illum incidunt mollitia nam, natus necessitatibus non obcaecati
@@ -247,28 +294,33 @@
                     </div>
                 </div>
             </div>
-            <div class="quote-slider__nav">
-                <div class="quote-slider__nav-arrow quote-slider__nav-arrow_left btn btn_type_icon"></div>
-                <div class="quote-slider__nav-list">
-                    <div class="quote-slider__nav-list-container">
-                        <div class="quote-slider__nav-item"></div>
-                        <div class="quote-slider__nav-item"></div>
-                        <div class="quote-slider__nav-item quote-slider__nav-item_active"></div>
-                        <div class="quote-slider__nav-item"></div>
-                        <div class="quote-slider__nav-item"></div>
-                        <div class="quote-slider__nav-item"></div>
-                        <div class="quote-slider__nav-item"></div>
-                        <div class="quote-slider__nav-item"></div>
-                        <div class="quote-slider__nav-item"></div>
-                        <div class="quote-slider__nav-item"></div>
-                        <div class="quote-slider__nav-item"></div>
+            <div class="inf-carousel theme_white quote-slider__nav">
+                <div data-action="prev" class="inf-carousel__nav-arrow style_left btn btn_type_icon"></div>
+                <div class="inf-carousel__list">
+                    <div class="inf-carousel__item-container">
+                        <div style="background-image: url('/style/upd-image/workers/adam_ajax.png')" data-num="0" class="inf-carousel__item visible"></div>
+                        <div style="background-image: url('/style/upd-image/workers/adam_ajax.png')" data-num="1" class="inf-carousel__item visible"></div>
+                        <div style="background-image: url('/style/upd-image/workers/adam_ajax.png')" data-num="2" class="inf-carousel__item active visible"></div>
+                        <div style="background-image: url('/style/upd-image/workers/adam_ajax.png')" data-num="3" class="inf-carousel__item visible"></div>
+                        <div style="background-image: url('/style/upd-image/workers/adam_ajax.png')" data-num="4" class="inf-carousel__item visible"></div>
+                        <div style="background-image: url('/style/upd-image/workers/adam_ajax.png')" data-num="5" class="inf-carousel__item"></div>
                     </div>
                 </div>
-                <div class="quote-slider__nav-arrow quote-slider__nav-arrow_right btn btn_type_icon"></div>
+                <div data-action="next" class="inf-carousel__nav-arrow style_right btn btn_type_icon"></div>
             </div>
         </div>
     </div>
 </section>
+
+<script src="/script/class/InfinityCarousel.js" type="text/javascript"></script>
+<script src="/script/class/QuoteSlider.js" type="text/javascript"></script>
+<script type="text/javascript">
+    let test1 = new QuoteSlider('.quote-slider', 'quote-slider', 2);
+    test1.launch();
+    console.dir(test1);
+</script>
+
+
 
 <section class="contact theme_white body__section">
     <div class="page-wrapper contact__wrap">

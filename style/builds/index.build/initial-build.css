@@ -856,10 +856,25 @@
 .quote-slider {
   display: grid;
   justify-items: center;
+  width: 100%;
+}
+.quote-slider__switch-block {
+  position: relative;
+  width: 100%;
 }
 .quote-slider__switch-item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
   display: grid;
   justify-items: center;
+  grid-gap: 40px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.quote-slider__switch-item.active {
+  opacity: 1;
 }
 .quote-slider__quote {
   font-family: 'PlayfairDisplay_Regular', serif;
@@ -881,30 +896,55 @@
   font-family: 'Roboto_Light', sans-serif;
   font-size: 0.75em;
 }
-.quote-slider__nav {
+.quote-slider.theme_white .quote-slider__switch-block {
+  color: #fff;
+}
+.inf-carousel {
   display: grid;
   grid-template-columns: 11px 1fr 11px;
   align-items: center;
 }
-.quote-slider__nav-list {
+.inf-carousel__list {
   overflow-x: hidden;
 }
-.quote-slider__nav-list-container {
+.inf-carousel__item-container {
   display: grid;
   grid-auto-flow: column;
   align-items: center;
 }
-.quote-slider__nav-item {
+.inf-carousel__item {
+  position: relative;
   border-radius: 50%;
   background-color: grey;
+  transition: all 0.3s ease-out;
+  transform: scale(0);
+  opacity: 0;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
 }
-.quote-slider.theme_white .quote-slider__switch-block {
-  color: #fff;
+.inf-carousel__item:after {
+  content: '';
+  background-color: rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: 50%;
 }
-.quote-slider.theme_white .quote-slider__nav-arrow_left {
+.inf-carousel__item.active:after {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+.inf-carousel__item.visible {
+  transform: scale(1);
+  opacity: 1;
+}
+.inf-carousel.theme_white .inf-carousel__nav-arrow.style_left {
   background-image: url("/style/style-image/icon/quote-arr-left-icon.png");
 }
-.quote-slider.theme_white .quote-slider__nav-arrow_right {
+.inf-carousel.theme_white .inf-carousel__nav-arrow.style_right {
   background-image: url("/style/style-image/icon/quote-arr-right-icon.png");
 }
 .icon-text {

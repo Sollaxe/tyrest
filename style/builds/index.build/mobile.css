@@ -105,30 +105,28 @@
 .quote-slider {
   grid-gap: 35px;
 }
-.quote-slider__switch-item {
-  grid-gap: 35px;
-}
 .quote-slider__name-block {
   grid-gap: 6px;
 }
-.quote-slider__nav {
+.inf-carousel {
   grid-gap: 15px;
 }
-.quote-slider__nav-arrow {
+.inf-carousel__nav-arrow {
   width: 11px;
   height: 21px;
 }
-.quote-slider__nav-list {
+.inf-carousel__list {
   max-width: 235px;
 }
-.quote-slider__nav-list-container {
+.inf-carousel__item-container {
   grid-gap: 10px;
+  height: 55px;
 }
-.quote-slider__nav-item {
+.inf-carousel__item {
   width: 35px;
   height: 35px;
 }
-.quote-slider__nav-item_active {
+.inf-carousel__item.active {
   width: 55px;
   height: 55px;
 }

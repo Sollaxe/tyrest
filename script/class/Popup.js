@@ -356,7 +356,7 @@ class WorkListPopup extends Widget {
 
   constructor(animDuration, theme) {
     super(animDuration, theme);
-    this._navObj = new WorksNav(  20, 0.15);
+    this._navObj = new WorksNav(20, 0.15);
   }
 
   // data = {

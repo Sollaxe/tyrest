@@ -1,0 +1,22 @@
+.inf-carousel {
+  grid-gap: 15px;
+}
+.inf-carousel__nav-arrow {
+  width: 11px;
+  height: 21px;
+}
+.inf-carousel__list {
+  max-width: 235px;
+}
+.inf-carousel__item-container {
+  grid-gap: 10px;
+}
+.inf-carousel__item {
+  width: 35px;
+  height: 35px;
+}
+.inf-carousel__item.active {
+  width: 55px;
+  height: 55px;
+}
+/*# sourceMappingURL=inf-carousel.css.map */
