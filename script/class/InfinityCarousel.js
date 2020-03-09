@@ -53,6 +53,12 @@ class InfinityCarousel {
     this._items = this._itemContainer.children;
     this._itemSpaceReq = this._items[0].clientWidth + this._containerGap;
 
+    for (let i = this._numFirstVisibleItem; i <= this._numLastVisibleItem; i++) {
+      this._items[i].classList.add('visible')
+    }
+
+    this._items[this._numActiveItem].classList.add('active');
+
 
     window.addEventListener('resize', function () {
       if (self._containerHeight !== self._itemContainer.clientHeight) {
@@ -68,8 +74,6 @@ class InfinityCarousel {
         self._containerGap = parseInt(getComputedStyle(self._itemContainer).gridColumnGap);
         self._containerHeight = self._itemContainer.clientHeight;
         self._itemSpaceReq = self._items[0].clientWidth + self._containerGap;
-
-
 
         self._items[self._numActiveItem].classList.remove('active');
 

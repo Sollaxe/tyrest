@@ -7,6 +7,8 @@
     require "$root/php/class/Expertise.php";
     require "$root/php/class/Workers.php";
     require "$root/php/class/Works.php";
+    require "$root/php/class/QuoteSlider.php";
+    require "$root/php/class/HeadSlider.php";
 ?> 
 
 <!doctype html>
@@ -46,7 +48,10 @@
 <!--    </div>-->
 <!--</div>-->
 
-
+<?php
+    $headSlider = new HeadSlider($mysqli);
+    $headSlider->create();
+?>
 <!--TODO: Сверстать окно ошибок для пользователя     -->
 <!--TODO: Повесить на генерируемые элементы обработчики-->
 <header class="header body__section theme_emerald">
@@ -60,34 +65,23 @@
 
         <div class="head-slider theme_emerald header__slider">
             <div class="head-slider__title-container">
-                <h3 class="head-slider__title-block active">Lorem ipsum dolor sit.</h3>
-                <h3 class="head-slider__title-block">dolor sit.</h3>
-                <h3 class="head-slider__title-block">Lorem ipsum sit.</h3>
+                <?php
+                    $headSlider->createTitle();
+                ?>
             </div>
             <div class="head-slider__separator"></div>
             <div class="head-slider__text-container">
-                <p data-num="0" class="head-slider__text active">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam atque,
-                    blanditiis deleniti doloremque eius enim
-                </p>
-                <p data-num="1" class="head-slider__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam atque,
-                    blanditiis deleniti doloremque eius enim in molestiae nemo neque nobis, numquam omnis optio
-                    pariatur porro repellat sed soluta. Consequatur deleniti dolore officia. Assumenda eius facere
-                </p>
-                <p data-num="2" class="head-slider__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam atque,
-                    blanditiis deleniti doloremque eius enim in molestiae nemo neque nobis, numquam omnis optio
-                    pariatur porro repellat sed soluta. Con
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam atque,
-                    blanditiis deleniti doloremque eius enim in molestiae nemo neque nobis, numquam omnis optio
-                    pariatur porro repellat sed soluta. Con
-                </p>
+                <?php
+                    $headSlider->createText();
+                ?>
             </div>
             <div class="btn btn_type_classic head-slider__btn-more theme_emerald">
                 <span class="btn__text">LEARN MORE</span>
             </div>
             <div class="head-slider__nav">
-                <div data-num="0" class="head-slider__nav-item active"></div>
-                <div data-num="1" class="head-slider__nav-item"></div>
-                <div data-num="2" class="head-slider__nav-item"></div>
+                <?php
+                    $headSlider->createNav();
+                ?>
             </div>
         </div>
     </div>
@@ -147,37 +141,6 @@
                 $expertise = new Expertise($mysqli);
                 $expertise->create();
             ?>
-
-            <!--                <div class="expertise__item">-->
-            <!--                    <div class="icon expertise__item-icon" style="background-image: url('/style/upd-image/expertise/comp-icon.png')"></div>-->
-            <!--                    <h3 class="expertise__item-name">WEB DESIGN & DEVELOPMENT</h3>-->
-            <!--                    <p class="expertise__item-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium autem dolor explicabo id impedit maxime pariatur reiciendis saepe veritatis vero?</p>-->
-            <!--                </div>-->
-            <!--                <div class="expertise__item">-->
-            <!--                    <div class="icon expertise__item-icon" style="background-image: url('/style/upd-image/expertise/tassel-icon.png')"></div>-->
-            <!--                    <h3 class="expertise__item-name">BRANDING IDENTITY</h3>-->
-            <!--                    <p class="expertise__item-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium autem dolor explicabo id impedit maxime pariatur reiciendis saepe veritatis vero?</p>-->
-            <!--                </div>-->
-            <!--                <div class="expertise__item">-->
-            <!--                    <div class="icon expertise__item-icon" style="background-image: url('/style/upd-image/expertise/phone-icon.png')"></div>-->
-            <!--                    <h3 class="expertise__item-name">MOBILE APP</h3>-->
-            <!--                    <p class="expertise__item-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium autem dolor explicabo id impedit maxime pariatur reiciendis saepe veritatis vero?</p>-->
-            <!--                </div>-->
-            <!--                <div class="expertise__item">-->
-            <!--                    <div class="icon expertise__item-icon" style="background-image: url('/style/upd-image/expertise/diagramm-icon.png')"></div>-->
-            <!--                    <h3 class="expertise__item-name">SEARCH ENGINE OPTIMISATION</h3>-->
-            <!--                    <p class="expertise__item-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium autem dolor explicabo id impedit maxime pariatur reiciendis saepe veritatis vero?</p>-->
-            <!--                </div>-->
-            <!--                <div class="expertise__item">-->
-            <!--                    <div class="icon expertise__item-icon" style="background-image: url('/style/upd-image/expertise/psp-icon.png')"></div>-->
-            <!--                    <h3 class="expertise__item-name">GAME DEVELOPMENT</h3>-->
-            <!--                    <p class="expertise__item-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium autem dolor explicabo id impedit maxime pariatur reiciendis saepe veritatis vero?</p>-->
-            <!--                </div>-->
-            <!--                <div class="expertise__item">-->
-            <!--                    <div class="icon expertise__item-icon" style="background-image: url('/style/upd-image/expertise/heart-icon.png')"></div>-->
-            <!--                    <h3 class="expertise__item-name">MADE WITH LOVE</h3>-->
-            <!--                    <p class="expertise__item-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium autem dolor explicabo id impedit maxime pariatur reiciendis saepe veritatis vero?</p>-->
-            <!--                </div>-->
         </div>
     </div>
 </section>
@@ -229,81 +192,27 @@
     </div>
 </section>
 
+<?php
+    $quoteSlider = new QuoteSlider($mysqli);
+    $quoteSlider->create();
+?>
+
 <section class="worker-rev theme_emerald body__section">
     <div class="page-wrapper worker-rev__wrap">
         <div class="worker-rev__quotes-img icon"></div>
         <div class="quote-slider worker-rev__quote-slider theme_white">
             <div class="quote-slider__switch-block">
-                <div data-num="0" class="quote-slider__switch-item">
-                    <p class="quote-slider__quote">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab
-                        accusantium autem beatae consectetur consequuntur dolores dolorum eius eligendi esse eum ex
-                        excepturi facere fuga hic id illum incidunt mollitia nam, natus necessitatibus non obcaecati
-                        officia perspiciatis quae, quam ratione, ullam veritatis vitae voluptate voluptatem! Aliquam
-                        inventore itaque minus porro saepe?</p>
-                    <div class="quote-slider__name-block">
-                        <span class="quote-slider__name">JANE GALADRIEN</span>
-                        <span class="quote-slider__post">CEO MANAGER</span>
-                    </div>
-                </div>
-                <div data-num="1" class="quote-slider__switch-item">
-                    <p class="quote-slider__quote">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab
-                        accusantium autem beatae consectetur consequuntur dolores dolorum eius eligendi esse eum ex
-                        excepturi facere fuga hic id illum incidunt mollitia nam, natus necessitatibus non obcaecati
-                        officia perspiciatis quae, quam ratione, ullam veritatis vitae voluptate voluptatem! Aliquam
-                        inventore itaque minus porro saepe?</p>
-                    <div class="quote-slider__name-block">
-                        <span class="quote-slider__name">JANE GALADRIEN</span>
-                        <span class="quote-slider__post">CEO MANAGER</span>
-                    </div>
-                </div>
-                <div data-num="2" class="quote-slider__switch-item active">
-                    <p class="quote-slider__quote">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab
-                        accusantium autem beatae consectetur consequuntur dolores dolorum eius eligendi esse eum ex
-                        excepturi facere fuga hic id illum?</p>
-                    <div class="quote-slider__name-block">
-                        <span class="quote-slider__name">JANE</span>
-                        <span class="quote-slider__post">CEO</span>
-                    </div>
-                </div>
-                <div data-num="3" class="quote-slider__switch-item">
-                    <p class="quote-slider__quote">consequuntur dolores dolorum eius eligendi esse eum ex
-                        excepturi facere fuga hic id illum incidunt mollitia nam, natus necessitatibus non obcaecati
-                        officia perspiciatis quae, quam ratione, ullam veritatis vitae voluptate voluptatem! Aliquam
-                        inventore itaque minus porro saepe?</p>
-                    <div class="quote-slider__name-block">
-                        <span class="quote-slider__name">ADAM AJAX</span>
-                        <span class="quote-slider__post">PROG</span>
-                    </div>
-                </div>
-                <div data-num="4" class="quote-slider__switch-item">
-                    <p class="quote-slider__quote">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                    <div class="quote-slider__name-block">
-                        <span class="quote-slider__name">JANE GALADRIEN</span>
-                        <span class="quote-slider__post">CEO MANAGER</span>
-                    </div>
-                </div>
-                <div data-num="5" class="quote-slider__switch-item">
-                    <p class="quote-slider__quote">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab
-                        accusantium autem beatae consectetur consequuntur dolores dolorum eius eligendi esse eum ex
-                        excepturi facere fuga hic id illum incidunt mollitia nam, natus necessitatibus non obcaecati
-                        officia perspiciatis quae, quam ratione, ullam veritatis vitae voluptate voluptatem! Aliquam
-                        inventore itaque minus porro saepe?</p>
-                    <div class="quote-slider__name-block">
-                        <span class="quote-slider__name">JANE GALADRIEN</span>
-                        <span class="quote-slider__post">CEO MANAGER</span>
-                    </div>
-                </div>
+                <?php
+                    $quoteSlider->createQuotes();
+                ?>
             </div>
             <div class="inf-carousel theme_white quote-slider__nav">
                 <div data-action="prev" class="inf-carousel__nav-arrow style_left btn btn_type_icon"></div>
                 <div class="inf-carousel__list">
                     <div class="inf-carousel__item-container">
-                        <div style="background-image: url('/style/upd-image/workers/adam_ajax.png')" data-num="0" class="inf-carousel__item visible"></div>
-                        <div style="background-image: url('/style/upd-image/workers/adam_ajax.png')" data-num="1" class="inf-carousel__item visible"></div>
-                        <div style="background-image: url('/style/upd-image/workers/adam_ajax.png')" data-num="2" class="inf-carousel__item active visible"></div>
-                        <div style="background-image: url('/style/upd-image/workers/adam_ajax.png')" data-num="3" class="inf-carousel__item visible"></div>
-                        <div style="background-image: url('/style/upd-image/workers/adam_ajax.png')" data-num="4" class="inf-carousel__item visible"></div>
-                        <div style="background-image: url('/style/upd-image/workers/adam_ajax.png')" data-num="5" class="inf-carousel__item"></div>
+                        <?php
+                            $quoteSlider->createNav();
+                        ?>
                     </div>
                 </div>
                 <div data-action="next" class="inf-carousel__nav-arrow style_right btn btn_type_icon"></div>

@@ -20,6 +20,8 @@ class QuoteSlider {
     this._itemArr = this.obj.querySelectorAll(`.${this.cssClass}__switch-item`);
     this._itemGap = parseInt(getComputedStyle(this._itemArr[0]).gridRowGap);
 
+    this._itemArr[this._activeItemNum].classList.add('active');
+
     this._nav = new InfinityCarousel('inf-carousel', 0.3, this.slideOn.bind(this));
     this._nav.setOn(`.${this.cssClass}__nav`);
   }
@@ -42,7 +44,7 @@ class QuoteSlider {
       }
     }
 
-    return max + this._itemGap;
+    return max;
   }
 
   slideOn(num) {

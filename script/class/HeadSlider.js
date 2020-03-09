@@ -3,7 +3,6 @@ class HeadSlider {
 
   _textContainer;
   _textItemArr;
-  _highestTextItem;
   _currHeight;
   _titleContainer;
   _nav;
@@ -26,6 +25,10 @@ class HeadSlider {
         this._titleContainer.children.length !== this._nav.children.length) {
       throw new HeadSliderError('Number of title-block not equal number of text-block');
     }
+
+    this._titleContainer.children[0].classList.add('active');
+    this._textContainer.children[0].classList.add('active');
+    this._nav.children[0].classList.add('active');
 
     this.setNavHandler();
 

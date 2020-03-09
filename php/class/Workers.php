@@ -31,7 +31,7 @@
         }
 
         public function create() {
-            if ($this->executeQuery('SELECT `id`, `name`, `post`, `avatar_href` FROM `workers`')) {
+            if ($this->executeQuery('SELECT `id`, `name`, `post`, avatar_name FROM `workers`')) {
                 $this->stmt->bind_result($id, $name, $post, $imgName);
 
                 while ($this->stmt->fetch()) {
