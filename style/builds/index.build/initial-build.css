@@ -460,6 +460,7 @@
 .anchor {
   cursor: pointer;
   text-decoration: none;
+  color: inherit;
 }
 .anchor__arrow {
   background-size: contain;

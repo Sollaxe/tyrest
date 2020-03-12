@@ -1,6 +1,9 @@
 class HeadSlider {
   obj;
 
+  _btnMore;
+  _notePopup;
+
   _textContainer;
   _textItemArr;
   _currHeight;
@@ -16,6 +19,7 @@ class HeadSlider {
     this._nav = document.querySelector(`${objSelector}__nav`);
     this._currSlideNum = 0;
 
+    this._btnMore = this.obj.querySelector(`${objSelector}__btn-more`);
   }
 
   launch() {
@@ -31,6 +35,8 @@ class HeadSlider {
     this._nav.children[0].classList.add('active');
 
     this.setNavHandler();
+
+    this._btnMore.addEventListener('click', this.btnHandler.bind(this));
 
     window.addEventListener('resize', this.recomputeHeight.bind(this));
   }
@@ -48,6 +54,21 @@ class HeadSlider {
     if (targetNum !== this._currSlideNum) {
       this.slideOn(targetNum);
     }
+  }
+
+  btnHandler() {
+    if (this._notePopup === undefined) {
+      this._notePopup = new NotePopup(0.2, 'theme_emerald', 'small');
+    }
+
+    this._notePopup.open({
+      note_title: 'TITLE',
+      note_text:'<div class="text-block__title"><span class="text-block__title-text">OUR STORY</span></div>\n' +
+          '<p class="text-block__paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis distinctio esse iste laborum non odio quasi reiciendis? Assumenda autem cumque excepturi, iure odit sunt ut? A doloribus ex necessitatibus <ullam class=""></ullam></p>\n' +
+          '<div class="text-block__title"><span class="text-block__title-text">OUR STORY</span></div>\n' +
+          '<p class="text-block__paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium adipisci aliquam aspernatur atque beatae consequatur delectus error, exercitationem hic ipsa laudantium maxime modi pariatur quos ratione reiciendis repellat sint soluta!</p>\n' +
+          '<p class="text-block__paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias debitis esse id inventore iure mollitia optio, quam qui quia, tenetur velit vitae voluptatibus? Ab corporis dolor est, nam natus ut.</p>'
+    });
   }
 
   slideOn(num) {

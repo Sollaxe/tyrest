@@ -40,6 +40,7 @@
 <script src="/script/class/ProjectCarousel.js" type="text/javascript"></script>
 <script src="/script/class/ShareBlock.js" type="text/javascript"></script>
 <script src="/script/class/Popup.js" type="text/javascript"></script>
+<script src="/script/class/Section.js"></script>
 
 
 <!--<div class="popup theme_emerald popup_show" style="display: flex">-->
@@ -88,15 +89,14 @@
 </header>
 
 <script src="/script/class/HeadSlider.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-    let test = new HeadSlider('.head-slider');
-    test.launch();
-</script>
-
 <script src="/script/class/Navbar.js" type="text/javascript"></script>
 
-<section class="about body__section theme_white">
+<script type="text/javascript">
+    let headSlider = new HeadSlider('.head-slider');
+    headSlider.launch();
+</script>
+
+<section id="about" class="about body__section theme_white">
     <div class="page-wrapper about__wrap">
         <div class="about__image-block">
             <div class="about__image"></div>
@@ -118,6 +118,10 @@
     </div>
 </section>
 
+<script type="text/javascript">
+    let aboutSection = new AboutSection('about');
+</script>
+
 <section class="about-video theme_emerald body__section">
     <div class="page-wrapper about-video__wrap">
         <div class="about-video__play-block">
@@ -129,7 +133,7 @@
     </div>
 </section>
 
-<section class="expertise theme_white body__section">
+<section id="expertise" class="expertise theme_white body__section">
     <div class="page-wrapper expertise__wrap">
         <div class="section-title section-title_type_extend theme_dark">
             <h2 class="section-title__name">EXPERTISE</h2>
@@ -145,7 +149,7 @@
     </div>
 </section>
 
-<section class="team theme_emerald body__section">
+<section id="team" class="team theme_emerald body__section">
     <div class="page-wrapper team__wrap-top">
         <div class="section-title section-title_type_extend theme_white">
             <h2 class="section-title__name">MEET OUR AMAZING TEAM</h2>
@@ -163,13 +167,17 @@
 
     <div class="page-wrapper team__wrap-bottom">
         <span class="team__btn-hint">Become part of our dream team, let’s join us!</span>
-        <div class="btn btn_type_classic theme_emerald">
+        <div class="btn btn_type_classic team__btn-hiring theme_emerald">
             <span class="btn__text">WE ARE HIRING</span>
         </div>
     </div>
 </section>
 
-<section class="works theme_white body__section">
+<script type="text/javascript">
+    let teamSection = new TeamSection('team');
+</script>
+
+<section id="works" class="works theme_white body__section">
     <div class="page-wrapper works__wrap-top">
         <div class="section-title section-title_type_classic theme_dark">
             <h2 class="section-title__name">OUR WORKS</h2>
@@ -186,18 +194,21 @@
         ?>
     </div>
     <div class="page-wrapper works__wrap-bottom">
-        <div class="btn btn_type_classic theme_emerald">
+        <div class="btn btn_type_classic works__btn-more theme_emerald">
             <span class="btn__text">LOAD MORE</span>
         </div>
     </div>
 </section>
 
+<script type="text/javascript">
+    let workSection = new WorkSection('works');
+</script>
+
 <?php
     $quoteSlider = new QuoteSlider($mysqli);
     $quoteSlider->create();
 ?>
-
-<section class="worker-rev theme_emerald body__section">
+<section id="worker-rev" class="worker-rev theme_emerald body__section">
     <div class="page-wrapper worker-rev__wrap">
         <div class="worker-rev__quotes-img icon"></div>
         <div class="quote-slider worker-rev__quote-slider theme_white">
@@ -231,7 +242,7 @@
 
 
 
-<section class="contact theme_white body__section">
+<section id="contact" class="contact theme_white body__section">
     <div class="page-wrapper contact__wrap">
         <div class="contact__user-mess-block">
             <div class="section-title section-title_type_classic theme_dark">

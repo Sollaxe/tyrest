@@ -101,6 +101,7 @@ class NavMenu extends Popup {
       let currItem = document.createElement('div');
       currItem.className = 'nav-menu__item';
       currItem.innerHTML = item.inner_text;
+      currItem.href = item.href;
       currItem.style.animationDuration = self._itemAnimDuration + 's';
 
       if (item.type === 'active') {
@@ -230,7 +231,7 @@ class NotePopup extends Widget {
         titleBlock.className = 'note-popup__title-block';
 
         this._title = document.createElement('span');
-        this._title.className = 'note-popup__title-block-_text';
+        this._title.className = 'note-popup__title-block-text';
         this._title.innerHTML = data.note_title;
         titleBlock.append(this._title);
 
@@ -241,7 +242,7 @@ class NotePopup extends Widget {
     this.obj.append(titleContainer);
 
     this._text = document.createElement('div');
-    this._text.className = '_text-block size_m _title-align_center theme_emerald note-popup__text';
+    this._text.className = 'text-block size_m title-align_center theme_emerald note-popup__text';
     this._text.innerHTML = data.note_text;
 
     this.obj.append(this._text);
@@ -321,7 +322,7 @@ class PersonPopup extends Widget {
     this.obj.append(imgBlock);
 
     this.textBlock = document.createElement('div');
-    this.textBlock.className = 'person-popup__text-block _text-block size_m';
+    this.textBlock.className = 'person-popup__text-block text-block size_m';
     this.textBlock.innerHTML = data.worker_about;
 
     this.obj.append(this.textBlock);
@@ -344,9 +345,9 @@ class PersonPopup extends Widget {
 //   img_name: 'adam_ajax.png',
 //   worker_name: 'Adam Ajax',
 //   worker_post: 'Ceo & Managment',
-//   worker_about: '<p class="_text-block__paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto culpa dolore ex facere incidunt iusto nam odit quasi quos ut. Distinctio enim et nostrum nulla quos ratione temporibus voluptas voluptate!</p>\n' +
-//       '          <p class="_text-block__paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A beatae dicta, eaque earum libero magnam omnis quae quisquam quo voluptas.</p>\n' +
-//       '          <p class="_text-block__paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci cupiditate doloremque facere fuga labore repudiandae.</p>'
+//   worker_about: '<p class="text-block__paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto culpa dolore ex facere incidunt iusto nam odit quasi quos ut. Distinctio enim et nostrum nulla quos ratione temporibus voluptas voluptate!</p>\n' +
+//       '          <p class="text-block__paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A beatae dicta, eaque earum libero magnam omnis quae quisquam quo voluptas.</p>\n' +
+//       '          <p class="text-block__paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci cupiditate doloremque facere fuga labore repudiandae.</p>'
 // });
 
 
@@ -480,14 +481,14 @@ class WorkListPopup extends Widget {
   }
 }
 
-// let test = new WorkListPopup(0.2, 'theme_emerald');
-// test.open({
+// let headSlider = new WorkListPopup(0.2, 'theme_emerald');
+// headSlider.open({
 //   page: 1,
 //   work_arr: [
 //     {
 //       img_name: 'maket-1.png',
-//       work_name: 'test work',
-//       work_desc: 'test desc',
+//       work_name: 'headSlider work',
+//       work_desc: 'headSlider desc',
 //       work_id: 1
 //     }
 //   ]
@@ -727,8 +728,8 @@ class ProjectPopup extends Widget{
   }
 }
 
-// let test = new ProjectPopup(0.2, 'theme_emerald');
-// test.open({
+// let headSlider = new ProjectPopup(0.2, 'theme_emerald');
+// headSlider.open({
 //   project_name: 'PROJECT',
 //   about_text: '<p class="_text-block__paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ab\n' +
 //       '            culpa debitis dolores enim eveniet expedita ipsa, ipsum, itaque laborum laudantium minima\n' +

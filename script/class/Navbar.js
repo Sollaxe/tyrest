@@ -63,6 +63,7 @@ class Navbar {
       let currElem = document.createElement('a');
       currElem.className = 'anchor btn btn_type_flex navbar__item';
       currElem.innerHTML = item.inner_text;
+      currElem.href = item.href;
 
       if (item.type === 'active') {
         currElem.classList.add('navbar__item_active');
@@ -98,22 +99,24 @@ class Navbar {
  * @function NavItem - Функция-конструктор для создания объектов-элементов навигации
  *
  * @param inner_text - Текст элемента навигации
+ * @param href - якорь на элемент
  * @param type - тип элемента навигации
  */
-function NavItem(inner_text, type = 'inactive') {
+function NavItem(inner_text, href, type = 'inactive') {
   this.inner_text = inner_text;
+  this.href = href;
   this.type = type;
 }
 
 
 let navbar = new Navbar('.header__top', 'navbar_theme_emerald', [
-  new NavItem('HOME', 'active'),
-  new NavItem('ABOUT'),
-  new NavItem('EXPERTISE'),
-  new NavItem('TEAMS'),
-  new NavItem('WORKS'),
-  new NavItem('PEOPLE SAY'),
-  new NavItem('CONTACT'),
+  new NavItem('HOME','#home', 'active'),
+  new NavItem('ABOUT','#about'),
+  new NavItem('EXPERTISE','#expertise'),
+  new NavItem('TEAM','#team'),
+  new NavItem('WORKS','#works'),
+  new NavItem('PEOPLE SAY','#worker-rev'),
+  new NavItem('CONTACT','#contact'),
 ]);
 
 navbar.launch();
