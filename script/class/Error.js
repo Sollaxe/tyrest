@@ -20,3 +20,11 @@ class HeadSliderError extends Error {
     this.name = 'HeadSliderError';
   }
 }
+
+
+class RequesterError  extends Error {
+  constructor(message) {
+    super(message);
+    this.name = 'RequesterError';
+  }
+}

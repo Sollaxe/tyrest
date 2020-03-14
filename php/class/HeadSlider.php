@@ -16,11 +16,12 @@
         }
 
         public function create() {
-            if ($this->executeQuery('SELECT title, text FROM head_slider')) {
-                $this->stmt->bind_result($title, $text);
+            if ($this->executeQuery('SELECT id, title, text FROM head_slider')) {
+                $this->stmt->bind_result($id,$title, $text);
 
                 while ($this->stmt->fetch()) {
                     $this->dataArray[] = [
+                        'id' => $id,
                         'title' => $title,
                         'text' => $text,
                     ];
@@ -32,7 +33,7 @@
             $i = 0;
 
             foreach ($this->dataArray as $item) {
-                echo "<p data-num=\"$i\" class=\"head-slider__title-block\">$item[title]</p>";
+                echo "<p data-id='$item[id]' data-num=\"$i\" class=\"head-slider__title-block\">$item[title]</p>";
 
                 $i++;
             }
@@ -42,7 +43,7 @@
             $i = 0;
 
             foreach ($this->dataArray as $item) {
-                echo "<p data-num=\"$i\" class=\"head-slider__text\">$item[text]</p>";
+                echo "<p data-id='$item[id]' data-num=\"$i\" class=\"head-slider__text\">$item[text]</p>";
 
                 $i++;
             }

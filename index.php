@@ -54,7 +54,6 @@
     $headSlider->create();
 ?>
 <!--TODO: Сверстать окно ошибок для пользователя     -->
-<!--TODO: Повесить на генерируемые элементы обработчики-->
 <header class="header body__section theme_emerald">
     <div class="header__wrap page-wrapper">
         <div class="header__top">
@@ -177,6 +176,7 @@
     let teamSection = new TeamSection('team');
 </script>
 
+<!--TODO: Пофиксить баг, при котором, после двух всплытий окна с проектом оно больше не работает-->
 <section id="works" class="works theme_white body__section">
     <div class="page-wrapper works__wrap-top">
         <div class="section-title section-title_type_classic theme_dark">
