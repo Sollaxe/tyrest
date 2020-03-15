@@ -223,7 +223,7 @@ class NotePopup extends Widget {
 
         this._title = document.createElement('h3');
         this._title.className = 'note-popup__title';
-        this._title.innerHTML = data.note_title;
+        this._title.innerHTML = data.title;
         titleContainer.append(this._title);
         break;
       case 'big':
@@ -232,7 +232,7 @@ class NotePopup extends Widget {
 
         this._title = document.createElement('span');
         this._title.className = 'note-popup__title-block-text';
-        this._title.innerHTML = data.note_title;
+        this._title.innerHTML = data.title;
         titleBlock.append(this._title);
 
         titleContainer.append(titleBlock);
@@ -243,7 +243,7 @@ class NotePopup extends Widget {
 
     this._text = document.createElement('div');
     this._text.className = 'text-block size_m title-align_center theme_emerald note-popup__text';
-    this._text.innerHTML = data.note_text;
+    this._text.innerHTML = data.text;
 
     this.obj.append(this._text);
 

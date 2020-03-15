@@ -21,7 +21,7 @@ class HeadSliderError extends Error {
   }
 }
 
-
+//TODO: Расширить класс
 class RequesterError  extends Error {
   constructor(message) {
     super(message);

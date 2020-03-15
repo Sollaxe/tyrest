@@ -28,8 +28,10 @@
     <link rel="stylesheet" href="/style/builds/index.build/tablet.css"
           media="only screen and (min-width: 451px) and (max-width: 900px)">
     <link rel="stylesheet" href="/style/builds/index.build/mobile.css" media="only screen and (max-width: 450px)">
+
     <script src="/script/main.js" type="text/javascript"></script>
     <script src="/script/class/Error.js" type="text/javascript"></script>
+    <script src="script/class/Requester.js"></script>
 </head>
 <body class="body">
 <script src="/script/class/ScrollComputer.js" type="text/javascript"></script>
