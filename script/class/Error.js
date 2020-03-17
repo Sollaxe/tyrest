@@ -23,8 +23,30 @@ class HeadSliderError extends Error {
 
 //TODO: Расширить класс
 class RequesterError  extends Error {
-  constructor(message) {
+  _typeList = new Set(['ParamError']);
+
+  constructor(message, type) {
     super(message);
     this.name = 'RequesterError';
+
+    if (!this._typeList.has(type)) {
+      throw new SyntaxError('invalid type for RequesterError');
+    }
+
+    this.type = type;
+  }
+}
+
+class RequestError extends Error {
+  constructor(message) {
+    super(message);
+    this.name = 'RequestError';
+  }
+}
+
+class ServerError extends Error {
+  constructor(message) {
+    super(message);
+    this.name = 'ServerError';
   }
 }

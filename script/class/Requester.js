@@ -29,38 +29,54 @@ class Requester {
    * @return {Promise<void>}
    */
   async sendRequest(path, data) {
-    if (this._serverResponse === null) {
-      this._currURL = new URL(path, this.domain);
-
-      switch (this._fetchParams.method) {
-        case 'POST':
-          let params = this._fetchParams;
-          params.body = JSON.stringify(data);
-          this._serverResponse = await fetch(this._currURL, params);
-          break;
-        case 'GET':
-          let dataStr = '';
-          for (let key in data) {
-            dataStr += `${key}=${data[key]}&`;
-          }
-
-          this._serverResponse = await fetch(`${this._currURL}?${dataStr}`);
-          break;
-      }
-    } else {
-      throw new RequesterError();
+    if (!path || !data) {
+      throw new RequesterError('', 'ParamError');
     }
+
+    let serverResponse;
+    let currURL = new URL(path, this.domain);
+
+    switch (this._fetchParams.method) {
+      case 'POST':
+        let params = this._fetchParams;
+        params.body = JSON.stringify(data);
+        serverResponse = await fetch(currURL, params);
+        break;
+      case 'GET':
+        let dataStr = '';
+        for (let key in data) {
+          dataStr += `${key}=${data[key]}&`;
+        }
+        serverResponse = await fetch(`${currURL}?${dataStr}`);
+        break;
+    }
+
+    return serverResponse;
   }
 
-  async getResult() {
-    let result = await this._serverResponse.json();
+  async getResult(response) {
+    let result = await response.json();
+    console.log(result);
+
     if (result.status === 'request_error') {
-      throw new RequesterError('Ошибка запроса');
+      throw new ServerError('Ошибка принятия запроса');
     }
 
-    this._serverResponse = null;
-    this._currURL = null;
+    return result.data;
+  }
 
-    return result;
+  async getData(path, data) {
+    try {
+      let currResponse = await this.sendRequest(path, data);
+      console.dir(currResponse);
+      return await this.getResult(currResponse);
+    } catch (e) {
+      if (e.name === 'RequesterError' && e.type === 'ParamError') {
+        return new RequestError('Request is not valid, check data for your request');
+
+      }
+      console.dir(e);
+      throw e;
+    }
   }
 }

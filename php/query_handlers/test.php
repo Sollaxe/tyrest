@@ -1,32 +1,41 @@
 <?php
 
     $root = realpath($_SERVER["DOCUMENT_ROOT"]);
+
     require "$root/php/m_connection.php";
+    require "$root/php/class/QueryHandler.php";
 
+    $data = [
+        'id' => $_GET['id'],
+    ];
 
-    $id = $_GET['id'];
+    $test = new QueryHandler($mysqli, $data);
 
-    $test_stmt = $mysqli->stmt_init();
+    $query = function() use ($test) {
+        return $test->stmt->prepare("SELECT title, text FROM head_slider WHERE id = ?");
+    };
 
-    $query = $test_stmt->prepare("SELECT title, text FROM head_slider WHERE id = ?");
+    $bind_param = function () use ($test) {
+        return $test->stmt->bind_param('i', $test->requestData['id']);
+    };
 
-    if ($query) {
-        $test_stmt->bind_param('i', $id);
+    $prepare_response = function() use ($test) {
+        $test->stmt->bind_result($title, $text);
 
-        $exe = $test_stmt->execute();
+        $test->stmt->fetch();
 
-        if ($exe) {
-            $test_stmt->bind_result($title, $text);
-
-            $test_stmt->fetch();
-
-            $result = [
-                'title' => $title,
-                'text' => $text,
-            ];
-
-            $jsonResult = json_encode($result);
-
-            echo $jsonResult;
+        //TODO: Переделать проверку наличия результата (в данный момент проверка очень сомнительная)
+        if (!$title and !$text) {
+            $test->drop_the_code('request_error');
         }
-    }
+
+        $result = [
+            'title' => $title,
+            'text' => $text,
+        ];
+
+        $test->response['data'] = $result;
+    };
+
+    $test->valid_exe($query, $bind_param, $prepare_response);
+    $test->send_response();

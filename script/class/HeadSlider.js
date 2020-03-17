@@ -62,15 +62,20 @@ class HeadSlider {
   }
 
   async btnHandler() {
-
     let itemId = +this.obj.dataset.currId;
-    let dataNote = null;
+    let dataNote;
 
     try {
-      dataNote = await this.getNoteData(itemId);
+      dataNote = await this._noteRequester.getData('test.php', {
+        id: itemId,
+      });
     } catch (e) {
-      alert(e.message); //TODO: Сделать в этом месте вызов окна пользовательской ошибки
-      return;
+      if (e.name === 'RequestError') {
+        alert(e.message);
+        return;
+      } else {
+        throw e;
+      }
     }
 
     if (this._notePopup === undefined) {
@@ -78,18 +83,6 @@ class HeadSlider {
     }
 
     this._notePopup.open(dataNote);
-  }
-
-  /**
-   *
-   * @param id
-   * @return obj
-   */
-  async getNoteData(id) {
-    await this._noteRequester.sendRequest('test.php', {
-      id: id,
-    });
-    return await this._noteRequester.getResult();
   }
 
   slideOn(num) {

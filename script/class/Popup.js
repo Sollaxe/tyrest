@@ -253,8 +253,8 @@ class NotePopup extends Widget {
   changeContent(data) {
     super.changeContent(data);
 
-    this._title.innerHTML = data.note_title;
-    this._text.innerHTML = data.note_text;
+    this._title.innerHTML = data.title;
+    this._text.innerHTML = data.text;
   }
 }
 
