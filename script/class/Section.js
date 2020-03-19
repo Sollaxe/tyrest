@@ -94,8 +94,6 @@ class TeamSection extends Section {
 
   async itemHandler(event) {
     let personId = event.currentTarget.dataset.workerId;
-
-    console.log(event.currentTarget.dataset);
     let personData;
 
     try {
@@ -125,6 +123,8 @@ class WorkSection extends Section {
   _worksPopup;
   _items;
 
+  _requester = new Requester('GET');
+
   constructor(cssClassName) {
     super(cssClassName);
     this._items = this.obj.querySelectorAll(`.${this._cssClass}__item`);
@@ -137,21 +137,19 @@ class WorkSection extends Section {
     }
   }
 
-  btnHandler() {
+  async btnHandler() {
     if (this._worksPopup === undefined) {
-      this._worksPopup = new WorkListPopup(0.2, 'theme_emerald');
+      this.createWorksPopup(1);
+    } else {
+      this._worksPopup.open({});
     }
+  }
+
+  async createWorksPopup(selectedPageNum) {
+    this._worksPopup = new WorkListPopup(0.2, 'theme_emerald', 6);
 
     this._worksPopup.open({
-      page: 1,
-      work_arr: [
-        {
-          img_name: 'maket-1.png',
-          work_name: 'headSlider work',
-          work_desc: 'headSlider desc',
-          work_id: 1
-        }
-      ]
+      selected_page: selectedPageNum
     });
   }
 

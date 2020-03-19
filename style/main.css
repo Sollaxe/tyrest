@@ -22,4 +22,11 @@ h6 {
 html {
   scroll-behavior: smooth;
 }
+.m_unselect {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
 /*# sourceMappingURL=main.css.map */

@@ -7,7 +7,7 @@ class WorksNav {
 
   _itemArr = []; // Массив с элементами навигации
   _activeItem; // Активный элемент навигации
-  _activeItemIndex; //
+  _activeItemIndex; // Индекс активного элемента навигации
   _arrowPrev; // Стрелка "назад"
   _arrowNext; // Стрелка "вперёд"
 
@@ -28,14 +28,15 @@ class WorksNav {
   _lastItemIndex;
   _firstItemIndex; //Индекс первого видимого элемента (с его вычислением всё гораздо проще);
 
-  constructor(numPage, itemAnimDuration) {
+  constructor(numPage, itemAnimDuration, toggleCallback) {
     this.numPage = numPage;
     this._itemAnimDuration = itemAnimDuration;
+    this._toggleItemsCallback = toggleCallback;
   }
 
   createNavItem(num) {
     let item = document.createElement('div');
-    item.className = 'works-popup__nav-item';
+    item.className = 'works-popup__nav-item m_unselect';
     item.innerText = num;
     item.dataset.num = num;
     item.style.transform = 'scale(0)';
@@ -53,7 +54,7 @@ class WorksNav {
     {
       this._arrowPrev = document.createElement('div');
       this._arrowPrev.className = 'works-popup__nav-arrow icon';
-      this._arrowPrev.style.backgroundImage = 'url(\'/style/style-image/icon/theme_dark-arrow-left-icon.png\')';
+      this._arrowPrev.style.backgroundImage = 'url(\'/style/style-image/icon/dark-arrow-left-icon.png\')';
       this._arrowPrev.addEventListener('click', this.bindSlideBack);
       this.nav.append(this._arrowPrev);
 
@@ -77,7 +78,7 @@ class WorksNav {
 
       this._arrowNext = document.createElement('div');
       this._arrowNext.className = 'works-popup__nav-arrow icon';
-      this._arrowNext.style.backgroundImage = 'url(\'/style/style-image/icon/theme_dark-arrow-right-icon.png\')';
+      this._arrowNext.style.backgroundImage = 'url(\'/style/style-image/icon/dark-arrow-right-icon.png\')';
       this._arrowNext.addEventListener('click', this.bindSlideForward);
       this.nav.append(this._arrowNext);
     }
@@ -88,16 +89,40 @@ class WorksNav {
 
   activateItem(index) {
     if (this._activeItem !== undefined) {
-
       this._activeItem.classList.remove('active');
     }
+
     this._activeItemIndex = index;
 
     this._activeItem = this._itemArr[index];
     this._activeItem.classList.add('active');
+  }
 
+  launch(index) {
+    let self = this;
+    this.activateItem(index);
     this.computeGeometry();
     this.drawItem();
+
+    this._itemArr.forEach(function (item) {
+      item.addEventListener('click', self.navItemHandler.bind(self));
+    });
+  }
+
+  async navItemHandler(event) {
+    let currElem = event.currentTarget;
+    if (currElem !== self._activeItem) {
+      let currPage = +currElem.dataset.num;
+
+      try {
+        this._toggleItemsCallback(currPage);
+      } catch (e) {
+        alert(e.message);
+        throw e;
+      }
+
+      this.activateItem(currPage - 1);
+    }
   }
 
   //Вычисление геометрии карусели
@@ -138,12 +163,12 @@ class WorksNav {
     this._numMaxVisibleItem = (this._carouselWidth + this._itemGap) / this._itemSpaceReq;
     this._numVisibleItem = this.numPage < this._numMaxVisibleItem ? this.numPage : this._numMaxVisibleItem;
 
-    this._lastItemIndex = (this._activeItemIndex + this._numVisibleItem) - 1; //Приблизительное вычисление индекса последнего видимого элемента
-
     //Индекс первого видимого элемента,
     //Так как он может быть не в начале окна карусели, а, например в середине, то мы пытаемся на него перейти
     //функция перехода к элементу возвратит уже индекс того элемента, который по факту находится в начале
     this._firstItemIndex = this.slideOnItem(this._activeItemIndex);
+
+    this._lastItemIndex = (this._firstItemIndex + this._numVisibleItem) - 1; //вычисление индекса последнего видимого элемента
   }
 
   //Перейти на один элемент вперёд
@@ -213,14 +238,6 @@ class WorksNav {
       let currItem = this._itemArr[i];
       if (currItem !== undefined) {
         currItem.style.transform = 'scale(1)';
-      } else { // Если отрисовка началась не сначала, а, например, с середины, то этот блок кода отрисует предыдущие элементы
-        let numPrevItems = (this._numVisibleItem + 1) - this._firstItemIndex;
-        for (let j = 1; j <= numPrevItems; j++) {
-          let currItem = this._itemArr[this._firstItemIndex - j];
-          currItem.style.transform = 'scale(1)';
-        }
-        this._lastItemIndex -= numPrevItems; //Корректировка значения индекса последнего элемента
-        break;
       }
     }
   }

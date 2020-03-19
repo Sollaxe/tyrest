@@ -171,6 +171,7 @@ class Widget extends Popup {
   open(data) {
     let self = this;
 
+    //TODO: Переписать под async/await
     let bindShow = this.show.bind(this);
     new Promise(function (resolve, reject) {
       if (data === undefined || data === null) {
@@ -355,16 +356,54 @@ class WorkListPopup extends Widget {
   _workListObj;
   _navObj;
 
-  constructor(animDuration, theme) {
+  _numPage;
+  _worksOnPage;
+  _currWorkList = [];
+
+  _requester = new Requester('GET');
+
+  constructor(animDuration, theme, numWorksOnPage) {
     super(animDuration, theme);
-    this._navObj = new WorksNav(20, 0.15);
+    this._worksOnPage = numWorksOnPage;
+  }
+
+
+  async uploadNumPage() {
+    let numWorks;
+
+    try {
+      let numWorksObj = await this._requester.getData('getNumWorks.php',{});
+      numWorks = numWorksObj.num_works;
+    } catch (e) {
+      if (e.name === 'RequestError') {
+        alert(e.message);
+        return;
+      } else {
+        throw e;
+      }
+    }
+
+    this._numPage = Math.ceil(numWorks / this._worksOnPage);
+  }
+
+  async uploadWorksData(page, numWorksOnPage) {
+    try {
+      let result = await this._requester.getData('getWorkList.php',{
+        page: page,
+        worksOnPage: this._worksOnPage
+      });
+
+      return result;
+    } catch (e) {
+      throw e;
+    }
   }
 
   // data = {
   //   img_name,
-  //   work_name,
-  //   work_desc,
-  //   work_id
+  //   name,
+  //   desc,
+  //   id
   // }
   createWorkItem(data) {
     let item = document.createElement('div');
@@ -381,12 +420,12 @@ class WorkListPopup extends Widget {
       {
         let name = document.createElement('div');
         name.className = 'work-tile__name';
-        name.innerText = data.work_name;
+        name.innerText = data.title;
         content.append(name);
 
         let desc = document.createElement('p');
         desc.className = 'work-tile__desc';
-        desc.innerText = data.work_desc;
+        desc.innerText = data.desc;
         content.append(desc);
 
         let linkBlock = document.createElement('div');
@@ -395,7 +434,7 @@ class WorkListPopup extends Widget {
         {
           let anchor = document.createElement('a');
           anchor.className = `anchor anchor_type_arrow ${this._styleTheme} size_l`;
-          anchor.dataset.workId = data.work_id;
+          anchor.dataset.workId = data.id;
           linkBlock.append(anchor);
           {
             let anchorText = document.createElement('span');
@@ -416,11 +455,27 @@ class WorkListPopup extends Widget {
 
   // data = {
   //   page = int;
-  //   work_arr = [array];
   // }
 
-  create(data) {
+  async create(data) {
     super.create(data);
+
+    await this.uploadNumPage();
+
+    let workList;
+    try {
+      workList = await this.uploadWorksData(data.selected_page - 1, this._worksOnPage);
+    } catch (e) {
+      if (e.name === 'ReguestError') {
+        alert(e.message);
+        return;
+      } else {
+        throw e;
+      }
+    }
+
+    this._navObj = new WorksNav(this._numPage, 0.15, this.navCallback.bind(this));
+
     let self = this;
 
     this.obj.classList.add('works-popup');
@@ -440,9 +495,10 @@ class WorkListPopup extends Widget {
       this._workListObj.className = 'works-popup__works-list';
       this.obj.append(this._workListObj);
       {
-        data.work_arr.forEach(function (item, index) {
+        workList.forEach(function (item, index) {
           let currItem = self.createWorkItem(item);
           self._workListObj.append(currItem);
+          self._currWorkList.push(currItem);
         });
       }
 
@@ -452,32 +508,61 @@ class WorkListPopup extends Widget {
         this.obj.append(worksBottom);
         {
           worksBottom.append(this._navObj.createNav());
-          this._navObj.activateItem(data.page - 1);
+          this._navObj.launch(data.selected_page - 1);
         }
       }
     }
 
   }
 
-  // data = {
-  //   page = int;
-  //   work_arr = [array];
-  // }
-  changeContent(data) {
-    super.changeContent(data);
-    let self = this;
-
-    let workListChildren = this._workListObj.children;
-    for (let i = 0; i < workListChildren.length; i++) {
-      workListChildren[i].remove();
-    }
-
-    data.work_arr.forEach(function (item, index) {
-      let currItem = self.createWorkItem(item);
-      self._workListObj.append(currItem);
+  async removeWorksItem() {
+    this._currWorkList.forEach(function (item) {
+      item.remove();
     });
 
-    this._navObj.activateItem(data.page - 1);
+    this._currWorkList;
+  }
+
+  async reuploadWorks(page) {
+    let self = this;
+    let workList;
+
+    try {
+      workList = await this.uploadWorksData(page - 1, this._worksOnPage);
+    } catch (e) {
+      if (e.name === 'ReguestError') {
+        alert(e.message);
+        return;
+      } else {
+        throw e;
+      }
+    }
+
+    this.appendWorksItem(workList);
+  }
+
+  async navCallback(page) {
+    this.commitContainerHeight();
+
+    await this.removeWorksItem();
+    await this.reuploadWorks(page);
+
+    this._workListObj.style.height = '';
+  }
+
+  appendWorksItem(workList) {
+    let self = this;
+
+    workList.forEach(function (item, index) {
+      let currItem = self.createWorkItem(item);
+      self._workListObj.append(currItem);
+      self._currWorkList.push(currItem);
+    });
+  }
+
+  commitContainerHeight() {
+    let currHeight = this._workListObj.clientHeight;
+    this._workListObj.style.height = `${currHeight}px`;
   }
 }
 
