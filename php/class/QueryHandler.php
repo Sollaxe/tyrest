@@ -51,13 +51,21 @@
          * @param callable $bind_param
          * @param callable $prepare_response
          */
+
+        //TODO: Переписать текст ошибок, он должен быть более информативным
         public function valid_exe(callable $query, callable $bind_param, callable $prepare_response) {
             try {
                 if ($query($query)) {
                     $bind_param($bind_param);
 
                     if ($this->stmt->execute()) {
-                        $prepare_response($prepare_response);
+                        $this->stmt->store_result();
+
+                        if ($this->stmt->num_rows !== 0) {
+                            $prepare_response($prepare_response);
+                        } else {
+                            throw new Error('not found');
+                        }
                     } else {
                         throw new Error('1111');
                     }
@@ -70,8 +78,7 @@
         }
 
         public function send_response() {
-            $this->mysqli->close();
-            $this->stmt->close();
+            $this->closeConnection();
 
             $this->response['status'] = 'successful';
 
@@ -83,10 +90,15 @@
          * @param $status
          */
         public function drop_the_code($status) {
-            $this->mysqli->close();
-            $this->stmt->close();
+            $this->closeConnection();
 
             $this->response['status'] = $status;
             exit(json_encode($this->response));
+        }
+
+        protected function closeConnection() {
+            $this->stmt->free_result();
+            $this->mysqli->close();
+            $this->stmt->close();
         }
     }

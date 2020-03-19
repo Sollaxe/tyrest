@@ -1129,6 +1129,7 @@
   font-size: 1.375em;
 }
 .note-popup__title-block {
+  padding: 0 15px;
   height: 36px;
   min-width: 90px;
   border-radius: 18px;
@@ -1172,6 +1173,9 @@
 .text-block.theme_emerald .text-block__title-text {
   border-color: #00c5c2;
 }
+.text-block__title.theme_white .text-block__title-text {
+  border-color: #00c5c2;
+}
 .text-block.size_m {
   grid-gap: 20px;
 }
@@ -1189,6 +1193,9 @@
 .text-block.title-align_left .text-block__title {
   display: flex;
   justify-content: left;
+}
+.text-block.font-p_roboto-thin .text-block__paragraph {
+  font-family: 'Roboto_Thin', sans-serif;
 }
 .person-popup {
   width: 620px;

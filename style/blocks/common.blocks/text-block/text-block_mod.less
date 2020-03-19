@@ -4,6 +4,12 @@
   }
 }
 
+.text-block__title.theme_white {
+  .text-block__title-text {
+    border-color: @emerald;
+  }
+}
+
 .text-block.size_m {
   grid-gap: 20px;
 
@@ -27,5 +33,11 @@
   .text-block__title {
     display: flex;
     justify-content: left;
+  }
+}
+
+.text-block.font-p_roboto-thin {
+  .text-block__paragraph {
+    .text_font_roboto-thin();
   }
 }

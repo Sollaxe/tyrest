@@ -43,7 +43,9 @@
             $i = 0;
 
             foreach ($this->dataArray as $item) {
-                echo "<p data-id='$item[id]' data-num=\"$i\" class=\"head-slider__text\">$item[text]</p>";
+                echo "<div data-id='$item[id]' data-num=\"$i\" class=\"head-slider__text text-block theme_white font-p_roboto-thin\">
+                            $item[text]
+                      </div>";
 
                 $i++;
             }

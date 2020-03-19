@@ -21,7 +21,7 @@
          * @param string $imgName
          */
         private function createWorkerItem($id, $name, $post, $imgName) {
-            echo "<div data-wroker-id=\"$id\" class=\"worker-tile theme_white team__list-item\">
+            echo "<div data-worker-id=\"$id\" class=\"worker-tile theme_white team__list-item\">
                       <div class=\"worker-tile__image\" style=\"background-image: url('/style/upd-image/workers/$imgName')\"></div>
                       <div class=\"worker-tile__info-block\">
                           <div class=\"worker-tile__name\">$name</div>

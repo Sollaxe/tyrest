@@ -66,7 +66,7 @@ class HeadSlider {
     let dataNote;
 
     try {
-      dataNote = await this._noteRequester.getData('test.php', {
+      dataNote = await this._noteRequester.getData('getNoteHeadSlider.php', {
         id: itemId,
       });
     } catch (e) {

@@ -3,8 +3,6 @@ class Requester {
   domain = new URL('http://tyrest/php/query_handlers/');
   methodWhiteList = new Set();
 
-  _serverResponse;
-  _currURL;
   _fetchParams = {};
 
   constructor(requestMethod) {
@@ -18,8 +16,6 @@ class Requester {
     }
 
     this._fetchParams.referrerPolicy = 'origin-when-cross-origin';
-    this._serverResponse = null;
-    this._currURL = null;
   }
 
   /**
@@ -51,6 +47,11 @@ class Requester {
         break;
     }
 
+    //TODO: Написать более гибкую обработку ответных заголовков
+    if (!serverResponse.ok) {
+      throw new ServerError(`Ошибка принятия запроса: ${serverResponse.status}`);
+    }
+
     return serverResponse;
   }
 
@@ -73,9 +74,8 @@ class Requester {
     } catch (e) {
       if (e.name === 'RequesterError' && e.type === 'ParamError') {
         return new RequestError('Request is not valid, check data for your request');
-
       }
-      console.dir(e);
+
       throw e;
     }
   }

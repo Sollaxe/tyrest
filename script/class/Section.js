@@ -20,27 +20,34 @@ class AboutSection extends Section {
   _btnMore;
   _notePopup;
 
+  _noteRequester = new Requester('GET');
+
   constructor(cssClassName) {
     super(cssClassName);
     this._btnMore = this.obj.querySelector(`.${this._cssClass}__btn-more`);
-    this._notePopup = new NotePopup(0.2, 'theme_emerald', 'big');
 
     this._btnMore.addEventListener('click', this.btnHandler.bind(this));
   }
 
-  btnHandler() {
-    if (this._notePopup === undefined) {
-      this._notePopup = new NotePopup(0.2, 'theme_emerald', 'small');
+  async btnHandler() {
+    let dataNote;
+
+    try {
+      dataNote = await this._noteRequester.getData('getNoteAbout.php',{});
+    } catch (e) {
+      if (e.name === 'RequestError') {
+        alert(e.message);
+        return;
+      } else {
+        throw e;
+      }
     }
 
-    this._notePopup.open({
-      note_title: 'TITLE',
-      note_text:'<div class="text-block__title"><span class="text-block__title-text">OUR STORY</span></div>\n' +
-          '<p class="text-block__paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis distinctio esse iste laborum non odio quasi reiciendis? Assumenda autem cumque excepturi, iure odit sunt ut? A doloribus ex necessitatibus <ullam class=""></ullam></p>\n' +
-          '<div class="text-block__title"><span class="text-block__title-text">OUR STORY</span></div>\n' +
-          '<p class="text-block__paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium adipisci aliquam aspernatur atque beatae consequatur delectus error, exercitationem hic ipsa laudantium maxime modi pariatur quos ratione reiciendis repellat sint soluta!</p>\n' +
-          '<p class="text-block__paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias debitis esse id inventore iure mollitia optio, quam qui quia, tenetur velit vitae voluptatibus? Ab corporis dolor est, nam natus ut.</p>'
-    });
+    if (this._notePopup === undefined) {
+      this._notePopup = new NotePopup(0.2, 'theme_emerald', 'big');
+    }
+
+    this._notePopup.open(dataNote);
   }
 }
 
@@ -49,6 +56,8 @@ class TeamSection extends Section {
   _personPopup;
   _notePopup;
   _items;
+
+  _requester = new Requester('GET');
 
   constructor(cssClassName) {
     super(cssClassName);
@@ -62,34 +71,51 @@ class TeamSection extends Section {
     }
   }
 
-  btnHandler() {
-    if (this._notePopup === undefined) {
-      this._notePopup = new NotePopup(0.2, 'theme_emerald', 'small');
+  async btnHandler() {
+    let dataNote;
+
+    try {
+      dataNote = await this._requester.getData('getNoteHiring.php',{});
+    } catch (e) {
+      if (e.name === 'RequestError') {
+        alert(e.message);
+        return;
+      } else {
+        throw e;
+      }
     }
 
-    this._notePopup.open({
-      note_title: 'HIRING',
-      note_text:'<div class="text-block__title"><span class="text-block__title-text">OUR STORY</span></div>\n' +
-          '<p class="text-block__paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis distinctio esse iste laborum non odio quasi reiciendis? Assumenda autem cumque excepturi, iure odit sunt ut? A doloribus ex necessitatibus <ullam class=""></ullam></p>\n' +
-          '<div class="text-block__title"><span class="text-block__title-text">OUR STORY</span></div>\n' +
-          '<p class="text-block__paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium adipisci aliquam aspernatur atque beatae consequatur delectus error, exercitationem hic ipsa laudantium maxime modi pariatur quos ratione reiciendis repellat sint soluta!</p>\n' +
-          '<p class="text-block__paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias debitis esse id inventore iure mollitia optio, quam qui quia, tenetur velit vitae voluptatibus? Ab corporis dolor est, nam natus ut.</p>'
-    });
+    if (this._notePopup === undefined) {
+      this._notePopup = new NotePopup(0.2, 'theme_emerald', 'big');
+    }
+
+    this._notePopup.open(dataNote);
   }
 
-  itemHandler() {
+  async itemHandler(event) {
+    let personId = event.currentTarget.dataset.workerId;
+
+    console.log(event.currentTarget.dataset);
+    let personData;
+
+    try {
+      personData = await this._requester.getData('getPersonInfo.php',{
+        id: personId
+      });
+    } catch (e) {
+      if (e.name === 'RequestError') {
+        alert(e.message);
+        return;
+      } else {
+        throw e;
+      }
+    }
+
     if (this._personPopup === undefined) {
       this._personPopup = new PersonPopup(0.2, 'theme_emerald');
     }
 
-    this._personPopup.open({
-      img_name: 'adam_ajax.png',
-      worker_name: 'Adam Ajax',
-      worker_post: 'Ceo & Managment',
-      worker_about: '<p class="text-block__paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto culpa dolore ex facere incidunt iusto nam odit quasi quos ut. Distinctio enim et nostrum nulla quos ratione temporibus voluptas voluptate!</p>\n' +
-          '          <p class="text-block__paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A beatae dicta, eaque earum libero magnam omnis quae quisquam quo voluptas.</p>\n' +
-          '          <p class="text-block__paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci cupiditate doloremque facere fuga labore repudiandae.</p>'
-    });
+    this._personPopup.open(personData);
   }
 }
 

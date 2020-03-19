@@ -264,6 +264,7 @@
   padding: 20px 20px 35px;
   grid-gap: 20px;
   grid-template-areas: "head head" "img text";
+  grid-template-columns: 200px 1fr;
 }
 .person-popup__img-block {
   grid-area: img;

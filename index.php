@@ -106,7 +106,7 @@
             <div class="section-title section-title_type_classic theme_dark about__section-title">
                 <h2 class="section-title__name about__section-name">OUR STORY</h2>
             </div>
-            <div class="about__text">
+            <div class="about__text text-block size_m">
                 <?php
                     $about = new About($mysqli);
                     $about->createText();

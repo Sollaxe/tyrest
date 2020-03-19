@@ -282,9 +282,9 @@ class PersonPopup extends Widget {
 
   /*data {
     img_name,
-    worker_name
-    worker_post
-    worker_about
+    name,
+    post,
+    about
   }*/
   create(data) {
     super.create(data);
@@ -297,12 +297,12 @@ class PersonPopup extends Widget {
 
     this.name = document.createElement('div');
     this.name.className = 'person-popup__name';
-    this.name.innerText = data.worker_name;
+    this.name.innerText = data.name;
     nameBlock.append(this.name);
 
     this.post = document.createElement('div');
     this.post.className = 'person-popup__post';
-    this.post.innerText = data.worker_post;
+    this.post.innerText = data.post;
     nameBlock.append(this.post);
 
     this.obj.append(nameBlock);
@@ -323,7 +323,7 @@ class PersonPopup extends Widget {
 
     this.textBlock = document.createElement('div');
     this.textBlock.className = 'person-popup__text-block text-block size_m';
-    this.textBlock.innerHTML = data.worker_about;
+    this.textBlock.innerHTML = data.about;
 
     this.obj.append(this.textBlock);
 
@@ -333,19 +333,19 @@ class PersonPopup extends Widget {
   changeContent(data) {
     super.changeContent(data);
 
-    this.name.innerText = data.worker_name;
-    this.post.innerText = data.worker_post;
+    this.name.innerText = data.name;
+    this.post.innerText = data.post;
     this.img.src = `/style/upd-image/workers/${data.img_name}`;
-    this.textBlock.innerHTML = data.worker_about;
+    this.textBlock.innerHTML = data.about;
   }
 }
 
 // let person = new PersonPopup(0.2, 'theme_emerald');
 // person.open({
 //   img_name: 'adam_ajax.png',
-//   worker_name: 'Adam Ajax',
-//   worker_post: 'Ceo & Managment',
-//   worker_about: '<p class="text-block__paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto culpa dolore ex facere incidunt iusto nam odit quasi quos ut. Distinctio enim et nostrum nulla quos ratione temporibus voluptas voluptate!</p>\n' +
+//   name: 'Adam Ajax',
+//   post: 'Ceo & Managment',
+//   about: '<p class="text-block__paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto culpa dolore ex facere incidunt iusto nam odit quasi quos ut. Distinctio enim et nostrum nulla quos ratione temporibus voluptas voluptate!</p>\n' +
 //       '          <p class="text-block__paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A beatae dicta, eaque earum libero magnam omnis quae quisquam quo voluptas.</p>\n' +
 //       '          <p class="text-block__paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci cupiditate doloremque facere fuga labore repudiandae.</p>'
 // });
