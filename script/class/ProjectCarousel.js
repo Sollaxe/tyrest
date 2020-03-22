@@ -102,14 +102,14 @@ class ProjectCarousel {
     }
   }
 
-  createItem(data) {
+  createItem(img_name) {
     let imgContainer = document.createElement('div');
     imgContainer.className = 'project-carousel__item';
     {
       let img = document.createElement('img');
       img.className = 'project-carousel__item-img';
-      img.src = `/style/upd-image/works/${data.img_name}`;
-      img.alt = data.img_name;
+      img.src = `/style/upd-image/works/${img_name}`;
+      img.alt = img_name;
       imgContainer.append(img);
     }
 
@@ -205,7 +205,7 @@ class ProjectCarousel {
 
     for (let i = 0; i < this._currNumSlide; i++) {
       let item = this.createNavItem(i);
-      this._navItemArray = item;
+      this._navItemArray[i] = item;
       this.nav.append(item);
     }
 

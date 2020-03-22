@@ -119,10 +119,10 @@ class TeamSection extends Section {
 
 class WorkSection extends Section {
   _btnMore;
-  _projectPopup;
   _worksPopup;
   _items;
 
+  projectPopup = new ProjectPopup(0.2, 'theme_emerald');
   _requester = new Requester('GET');
 
   constructor(cssClassName) {
@@ -146,70 +146,30 @@ class WorkSection extends Section {
   }
 
   async createWorksPopup(selectedPageNum) {
-    this._worksPopup = new WorkListPopup(0.2, 'theme_emerald', 6);
+    this._worksPopup = new WorkListPopup(0.2, 'theme_emerald', 6, this.projectPopup);
 
     this._worksPopup.open({
       selected_page: selectedPageNum
     });
   }
 
-  itemHandler() {
-    if (this._projectPopup === undefined) {
-      this._projectPopup = new ProjectPopup(0.2, 'theme_emerald');
+  async itemHandler(event) {
+    let workId = +event.currentTarget.dataset.workId;
+    let projectData;
+
+    try {
+      projectData = await this._requester.getData('getProject.php',{
+        id: workId
+      });
+    } catch (e) {
+      if (e.name === 'RequestError') {
+        alert(e.message);
+        return;
+      } else {
+        throw e;
+      }
     }
 
-    this._projectPopup.open({
-      project_name: 'PROJECT',
-      about_text: '<p class="text-block__paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ab\n' +
-          '            culpa debitis dolores enim eveniet expedita ipsa, ipsum, itaque laborum laudantium minima\n' +
-          '            nostrum numquam odit perferendis praesentium quae qui ratione veritatis vero! A dolores eos\n' +
-          '            illum iusto laborum tenetur? Nihil?</p>\n' +
-          '        <p class="text-block__paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ab\n' +
-          '            culpa debitis dolores enim eveniet expedita ipsa, ipsum, itaque laborum laudantium minima\n' +
-          '            nostrum numquam odit perferendis praesentium quae qui ratione veritatis vero! A dolores eos\n' +
-          '            illum iusto laborum tenetur? Nihil?</p>\n' +
-          '        <p class="text-block__paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ab\n' +
-          '            culpa debitis dolores enim eveniet expedita ipsa, ipsum, itaque laborum laudantium minima\n' +
-          '            nostrum numquam odit perferendis praesentium quae qui ratione veritatis vero! A dolores eos\n' +
-          '            illum iusto laborum tenetur? Nihil?</p>',
-      work_link: '#',
-      carousel_item: [
-        {
-          img_name: 'maket-1.png'
-        },
-        {
-          img_name: 'maket-2.png'
-        },
-        {
-          img_name: 'maket-1.png'
-        }
-      ],
-      worker_items: [
-        {
-          id: 1,
-          img_name: 'adam_ajax.png',
-          name: 'Adam Ajax',
-          post: 'Adam Ajax'
-        },
-        {
-          id: 1,
-          img_name: 'adam_ajax.png',
-          name: 'Adam Ajax',
-          post: 'Adam Ajax'
-        },
-        {
-          id: 1,
-          img_name: 'adam_ajax.png',
-          name: 'Adam Ajax',
-          post: 'Adam Ajax'
-        }
-      ],
-      share_items: [
-        {
-          icon_name: 'facebook-icon.png',
-          soc_name: 'facebook'
-        }
-      ]
-    });
+    this.projectPopup.open(projectData);
   }
 }

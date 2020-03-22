@@ -259,18 +259,6 @@ class NotePopup extends Widget {
   }
 }
 
-  // let note = new NotePopup(0.2, 'theme_emerald', 'big');
-  // note.open({
-  //   note_title: 'TITLE',
-  //   note_text:'<div class="_text-block__title"><span class="_text-block__title-_text">OUR STORY</span></div>\n' +
-  //       '<p class="_text-block__paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis distinctio esse iste laborum non odio quasi reiciendis? Assumenda autem cumque excepturi, iure odit sunt ut? A doloribus ex necessitatibus <ullam class=""></ullam></p>\n' +
-  //       '<div class="_text-block__title"><span class="_text-block__title-_text">OUR STORY</span></div>\n' +
-  //       '<p class="_text-block__paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium adipisci aliquam aspernatur atque beatae consequatur delectus error, exercitationem hic ipsa laudantium maxime modi pariatur quos ratione reiciendis repellat sint soluta!</p>\n' +
-  //       '<p class="_text-block__paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias debitis esse id inventore iure mollitia optio, quam qui quia, tenetur velit vitae voluptatibus? Ab corporis dolor est, nam natus ut.</p>'
-  // });
-
-
-
 class PersonPopup extends Widget {
   name;
   post;
@@ -341,16 +329,6 @@ class PersonPopup extends Widget {
   }
 }
 
-// let person = new PersonPopup(0.2, 'theme_emerald');
-// person.open({
-//   img_name: 'adam_ajax.png',
-//   name: 'Adam Ajax',
-//   post: 'Ceo & Managment',
-//   about: '<p class="text-block__paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto culpa dolore ex facere incidunt iusto nam odit quasi quos ut. Distinctio enim et nostrum nulla quos ratione temporibus voluptas voluptate!</p>\n' +
-//       '          <p class="text-block__paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A beatae dicta, eaque earum libero magnam omnis quae quisquam quo voluptas.</p>\n' +
-//       '          <p class="text-block__paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci cupiditate doloremque facere fuga labore repudiandae.</p>'
-// });
-
 
 class WorkListPopup extends Widget {
   _workListObj;
@@ -361,10 +339,13 @@ class WorkListPopup extends Widget {
   _currWorkList = [];
 
   _requester = new Requester('GET');
+  _projectPopup;
 
-  constructor(animDuration, theme, numWorksOnPage) {
+  constructor(animDuration, theme, numWorksOnPage, projectPopup) {
     super(animDuration, theme);
     this._worksOnPage = numWorksOnPage;
+
+    this._projectPopup = projectPopup;
   }
 
 
@@ -406,6 +387,8 @@ class WorkListPopup extends Widget {
   //   id
   // }
   createWorkItem(data) {
+    let self = this;
+
     let item = document.createElement('div');
     item.className = `work-tile ${this._styleTheme}`;
     {
@@ -435,6 +418,7 @@ class WorkListPopup extends Widget {
           let anchor = document.createElement('a');
           anchor.className = `anchor anchor_type_arrow ${this._styleTheme} size_l`;
           anchor.dataset.workId = data.id;
+          anchor.addEventListener('click', self.worksItemHandler.bind(self));
           linkBlock.append(anchor);
           {
             let anchorText = document.createElement('span');
@@ -456,7 +440,6 @@ class WorkListPopup extends Widget {
   // data = {
   //   page = int;
   // }
-
   async create(data) {
     super.create(data);
 
@@ -495,11 +478,7 @@ class WorkListPopup extends Widget {
       this._workListObj.className = 'works-popup__works-list';
       this.obj.append(this._workListObj);
       {
-        workList.forEach(function (item, index) {
-          let currItem = self.createWorkItem(item);
-          self._workListObj.append(currItem);
-          self._currWorkList.push(currItem);
-        });
+        this.appendWorksItem(workList);
       }
 
       if (this._navObj !== undefined) {
@@ -560,24 +539,32 @@ class WorkListPopup extends Widget {
     });
   }
 
+  async worksItemHandler(event) {
+    let workId = +event.currentTarget.dataset.workId;
+    let projectData;
+
+    try {
+      projectData = await this._requester.getData('getProject.php',{
+        id: workId
+      });
+    } catch (e) {
+      if (e.name === 'RequestError') {
+        alert(e.message);
+        return;
+      } else {
+        throw e;
+      }
+    }
+
+    this._projectPopup.open(projectData);
+  }
+
   commitContainerHeight() {
     let currHeight = this._workListObj.clientHeight;
     this._workListObj.style.height = `${currHeight}px`;
   }
 }
 
-// let headSlider = new WorkListPopup(0.2, 'theme_emerald');
-// headSlider.open({
-//   page: 1,
-//   work_arr: [
-//     {
-//       img_name: 'maket-1.png',
-//       work_name: 'headSlider work',
-//       work_desc: 'headSlider desc',
-//       work_id: 1
-//     }
-//   ]
-// });
 
 class ProjectPopup extends Widget{
   _carousel;
@@ -687,12 +674,12 @@ class ProjectPopup extends Widget{
 
           this._projectName = document.createElement('span');
           this._projectName.className = 'project-popup__name';
-          this._projectName.innerText = data.project_name;
+          this._projectName.innerText = data.title;
           nameBlock.append(this._projectName);
         }
       }
 
-      this._carousel.create(data.carousel_item, this.obj);
+      this._carousel.create(data.img_arr, this.obj);
 
       let about = document.createElement('div');
       about.className = 'project-popup__about';
@@ -706,7 +693,7 @@ class ProjectPopup extends Widget{
 
           this._aboutText = document.createElement('div');
           this._aboutText.className = `text-block size_m title-align_left ${this._styleTheme} project-popup__text`;
-          this._aboutText.innerHTML = data.about_text;
+          this._aboutText.innerHTML = data.desc;
           textSection.append(this._aboutText);
 
           this._projectLink = document.createElement('a');
@@ -741,7 +728,7 @@ class ProjectPopup extends Widget{
             this._workerList.className = 'project-popup__worker-list';
             workerSection.append(this._workerList);
             {
-              data.worker_items.forEach(function (item, index) {
+              data.workers.forEach(function (item, index) {
                 let worker = self.createWorker(item)
                 self.workerArray[index] = worker;
                 self._workerList.append(worker);
@@ -767,20 +754,22 @@ class ProjectPopup extends Widget{
   }
 
   // data = {
-  //   project_name: 'str',
-  //   about_text: 'str',
+  //   title: 'str',
+  //   desc: 'str',
   //   work_link: 'str',
-  //   carousel_item: [
-  //     {
-  //       img_name: 'str'
-  //     }
-  //   ],
-  //   worker_items: [
+  //   img_arr: ['str'],
+  //   workers: [
   //     {
   //       id: int,
   //       img_name: 'str',
   //       name: 'str',
   //       post: 'str'
+  //     }
+  //   ],
+  //   share_items: [
+  //     {
+  //       icon_name: 'str',
+  //       soc_name: 'str'
   //     }
   //   ]
   // }
@@ -788,10 +777,10 @@ class ProjectPopup extends Widget{
     super.changeContent(data);
     let self = this;
 
-    this._carousel.changeContent(data.carousel_item);
+    this._carousel.changeContent(data.img_arr);
 
-    this._projectName.innerText = data.project_name;
-    this._aboutText.innerHTML = data.about_text;
+    this._projectName.innerText = data.title;
+    this._aboutText.innerHTML = data.desc;
     this._projectLink.href = data.work_link;
 
     for (let item of this.workerArray) {
@@ -800,7 +789,7 @@ class ProjectPopup extends Widget{
 
     this.workerArray = [];
 
-    data.worker_items.forEach(function (item, index) {
+    data.workers.forEach(function (item, index) {
       let worker = self.createWorker(item)
       self.workerArray[index] = worker;
       self._workerList.append(worker);
@@ -812,58 +801,3 @@ class ProjectPopup extends Widget{
     this._carousel.deactivate();
   }
 }
-
-// let headSlider = new ProjectPopup(0.2, 'theme_emerald');
-// headSlider.open({
-//   project_name: 'PROJECT',
-//   about_text: '<p class="_text-block__paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ab\n' +
-//       '            culpa debitis dolores enim eveniet expedita ipsa, ipsum, itaque laborum laudantium minima\n' +
-//       '            nostrum numquam odit perferendis praesentium quae qui ratione veritatis vero! A dolores eos\n' +
-//       '            illum iusto laborum tenetur? Nihil?</p>\n' +
-//       '        <p class="_text-block__paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ab\n' +
-//       '            culpa debitis dolores enim eveniet expedita ipsa, ipsum, itaque laborum laudantium minima\n' +
-//       '            nostrum numquam odit perferendis praesentium quae qui ratione veritatis vero! A dolores eos\n' +
-//       '            illum iusto laborum tenetur? Nihil?</p>\n' +
-//       '        <p class="_text-block__paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ab\n' +
-//       '            culpa debitis dolores enim eveniet expedita ipsa, ipsum, itaque laborum laudantium minima\n' +
-//       '            nostrum numquam odit perferendis praesentium quae qui ratione veritatis vero! A dolores eos\n' +
-//       '            illum iusto laborum tenetur? Nihil?</p>',
-//   work_link: '#',
-//   carousel_item: [
-//     {
-//       img_name: 'maket-1.png'
-//     },
-//     {
-//       img_name: 'maket-2.png'
-//     },
-//     {
-//       img_name: 'maket-1.png'
-//     }
-//   ],
-//   worker_items: [
-//     {
-//       id: 1,
-//       img_name: 'adam_ajax.png',
-//       name: 'Adam Ajax',
-//       post: 'Adam Ajax'
-//     },
-//     {
-//       id: 1,
-//       img_name: 'adam_ajax.png',
-//       name: 'Adam Ajax',
-//       post: 'Adam Ajax'
-//     },
-//     {
-//       id: 1,
-//       img_name: 'adam_ajax.png',
-//       name: 'Adam Ajax',
-//       post: 'Adam Ajax'
-//     }
-//   ],
-//   share_items: [
-//     {
-//       icon_name: 'facebook-icon.png',
-//       soc_name: 'facebook'
-//     }
-//   ]
-// });
