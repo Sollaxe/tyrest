@@ -3,6 +3,8 @@
 class Popup {
   _animDuration;
   _styleTheme;
+  _zIndex;
+  _exitActivateScroll;
 
   container;
   obj;
@@ -32,7 +34,9 @@ class Popup {
   }
 
   handlerTimeoutHide() {
-    document.body.style.overflowY = 'auto';
+    if (this._exitActivateScroll) {
+      document.body.style.overflowY = 'auto';
+    }
     this.container.style.display = 'none';
   }
 
@@ -40,18 +44,22 @@ class Popup {
     this.container.classList.remove('popup_show');
     this.container.classList.add('popup_hide');
 
-    //TODO: Переписать под event type animationend
-    let bindHandler = this.handlerTimeoutHide.bind(this);
-    setTimeout(bindHandler, this._animDuration * 1000);
+    setTimeout(this.handlerTimeoutHide.bind(this), this._animDuration * 1000);
   }
 
-  open() {
+  open(zIndex = 100, exitActivateScroll = true) {
     if (this.container !== undefined) {
       this.show();
     } else {
       this.create();
       this.show();
     }
+
+    this._exitActivateScroll = exitActivateScroll;
+    this._zIndex = zIndex;
+    this.container.style.zIndex = this._zIndex;
+
+    console.log(this);
   }
 
   exit() {
@@ -168,7 +176,7 @@ class Widget extends Popup {
   changeContent(data) {
   }
 
-  open(data) {
+  open(data, zIndex = 200, exitActivateScroll = true) {
     let self = this;
 
     //TODO: Переписать под async/await
@@ -189,6 +197,10 @@ class Widget extends Popup {
         bindShow,
         error => console.log(error)
     );
+
+    this._exitActivateScroll = exitActivateScroll;
+    this._zIndex = zIndex;
+    this.container.style.zIndex = this._zIndex;
   }
 }
 
@@ -556,7 +568,7 @@ class WorkListPopup extends Widget {
       }
     }
 
-    this._projectPopup.open(projectData);
+    this._projectPopup.open(projectData, this._zIndex + 1, false);
   }
 
   commitContainerHeight() {

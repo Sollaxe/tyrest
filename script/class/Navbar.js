@@ -82,9 +82,10 @@ class Navbar {
     this.parent.append(this.menuBut);
 
     let navMenu = new NavMenu(0.2, 'theme_emerald', 0.13, this._navElemObj);
-    let handlerMenuOpen =  navMenu.open.bind(navMenu);
 
-    this.menuBut.addEventListener('click', handlerMenuOpen);
+    this.menuBut.addEventListener('click', function () {
+      navMenu.open();
+    });
   }
 
   launch() {

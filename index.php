@@ -237,9 +237,8 @@
 <script src="/script/class/InfinityCarousel.js" type="text/javascript"></script>
 <script src="/script/class/QuoteSlider.js" type="text/javascript"></script>
 <script type="text/javascript">
-    let test1 = new QuoteSlider('.quote-slider', 'quote-slider', 2);
-    test1.launch();
-    console.dir(test1);
+    let quoteSlider = new QuoteSlider('.quote-slider', 'quote-slider', 2);
+    quoteSlider.launch();
 </script>
 
 
