@@ -128,7 +128,6 @@ class NavMenu extends Popup {
     let self = this;
     let i = 0;
 
-    //TODO: Переписать под event type animationend
     setTimeout(function () {
       self._navElemDomObjs[i].classList.add('nav-menu__item_show');
       let intervalID = setInterval(function () {

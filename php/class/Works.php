@@ -19,7 +19,6 @@
          * @param string $imgName
          */
 
-        //TODO: Написать защиту от вставки несуществующего файла
         private function createWorkItem($id, $imgName) {
             echo "<div data-work-id=\"$id\" class=\"works__item\" style=\"background-image: url('/style/upd-image/works/$imgName')\"></div>";
         }

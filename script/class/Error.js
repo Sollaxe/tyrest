@@ -21,7 +21,6 @@ class HeadSliderError extends Error {
   }
 }
 
-//TODO: Расширить класс
 class RequesterError  extends Error {
   _typeList = new Set(['ParamError']);
 

@@ -178,7 +178,6 @@
     let teamSection = new TeamSection('team');
 </script>
 
-<!--TODO: Пофиксить баг, при котором, после двух всплытий окна с проектом оно больше не работает-->
 <section id="works" class="works theme_white body__section">
     <div class="page-wrapper works__wrap-top">
         <div class="section-title section-title_type_classic theme_dark">

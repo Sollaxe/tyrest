@@ -27,7 +27,6 @@
  * @method changeContent - Изменить контент карусели(слайды и навигацию)
  *    @param array dataArray - Новый массив с данными карусели
  *
- * TODO: Пересмотреть функционал данного метода и переделать(при надобности)
  * @method deactivate - Сброс обработчиков с панели навигации карусели
  *
  * @property string _styleTheme - Тема карусели
@@ -57,6 +56,7 @@ class ProjectCarousel {
 
   constructor(theme) {
     this._styleTheme = theme;
+    this._bindItemHandler = this.navItemHandler.bind(this);
   }
 
   setNavHandlers() {
@@ -65,7 +65,6 @@ class ProjectCarousel {
     }
   }
 
-  //TODO: Попробовать вынести объявление этой функции в конструтор и сразу её там привязать к контексту (дабы не плодить методы)
   navItemHandler(event) {
     let item = event.currentTarget;
     let id = +item.dataset.num;
